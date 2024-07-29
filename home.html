@@ -87,15 +87,19 @@
                 if (userInput === "1789") {
                     alert("Verified!");
                     alert("Account owner: Chinna");
-                    alert("Amount taken: 20,000 rs");
+                    alert("Amount taken: 20,000 ₹");
                     alert("Taken amount on: 22 July 2024");
-                    alert("Interest per month: 600 rs");
+                    alert("Interest per month: 600 ₹");
                     if (confirm("Do you like to visit interest till today?")) {
                         alert("Your interest till today: ₹" + storedAmount);
                     } else {
                         alert("Thank you!");
                     }
-                } else {
+                } if (userInput === "1389") {
+                    alert("Verified!");
+                    window.location.href = "vip12.html";
+                } 
+                else {
                     alert("Incorrect password...!");
                 }
             }
