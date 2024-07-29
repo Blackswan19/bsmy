@@ -37,7 +37,7 @@
                 text-align: center;
                 font-size: 16px;
                 position: relative;
-                bottom: -5em;
+                bottom: -3.5em;
             }
         }
     </style>
@@ -55,7 +55,7 @@
                 alert("Interest will depend on the money taken.\n");
             });
         </script>
-        <a href="#" onclick="checkPassword()">My account</a>
+        <a href="#" onclick="checkPassword()">My account</a><br>
         <script>
             // Get the current amount from localStorage
             let storedAmount = localStorage.getItem('amount');
@@ -103,6 +103,13 @@
                     alert("Incorrect password...!");
                 }
             }
+        </script>
+        <a href="#bonuss" id="vip">Take Vip</a><br>
+        <script>
+            document.getElementById("vip").addEventListener("click", function(event){
+                event.preventDefault();
+                alert("Take control of your loan payments with our VIP program for just $1.67!\n\n With VIP, you can choose how and when to pay your interest. Prefer monthly, bi-monthly, quarterly, or yearly payments? The choice is yours. Adjust your interest rate based on your credit score and market conditions. Pay off your interest early with no penalties to save money. Get custom alerts and reminders, plus priority support from our financial advisors.\n\nSign up is easy and only costs $1.67. Customize your payment plan to fit your needs and start enjoying the freedom and flexibility of VIP today!");
+            });
         </script>
     </div>
     <div class="social">
