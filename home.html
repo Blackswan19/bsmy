@@ -52,7 +52,7 @@
         <script>
             document.getElementById("referral").addEventListener("click", function(event){
                 event.preventDefault();
-                alert("Interest will depend on the money taken.");
+                alert("Interest will depend on the money taken.\n");
             });
         </script>
         <a href="#" onclick="checkPassword()">My account</a>
@@ -63,7 +63,7 @@
 
             // Initialize if no previous value is found
             if (storedAmount === null) {
-                storedAmount = 20; // Start from 20
+                storedAmount = 80; // Start from 20
             } else {
                 storedAmount = parseFloat(storedAmount);
             }
@@ -76,7 +76,7 @@
             // Check if a day has passed
             let today = new Date().toDateString();
             if (storedDate !== today) {
-                storedAmount += 10;
+                storedAmount += 20;
                 localStorage.setItem('amount', storedAmount);
                 localStorage.setItem('date', today);
             }
