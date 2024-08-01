@@ -74,31 +74,34 @@
         </script>
         <a href="#" onclick="checkPassword()">My account</a><br>
         <script>
-            // Get the current amount from localStorage
-            let storedAmount = localStorage.getItem('amount');
-            let storedDate = localStorage.getItem('date');
+       localStorage.removeItem('amount');
+localStorage.removeItem('date');
 
-            // Initialize if no previous value is found
-            if (storedAmount === null) {
-                storedAmount = 180; // Start from 20
-            } else {
-                storedAmount = parseFloat(storedAmount);
-            }
+// Get the current amount from localStorage
+let storedAmount = localStorage.getItem('amount');
+let storedDate = localStorage.getItem('date');
 
-            if (storedDate === null) {
-                storedDate = new Date().toDateString();
-                localStorage.setItem('date', storedDate);
-            }
+// Initialize if no previous value is found
+if (storedAmount === null) {
+    storedAmount = 200; // Start from 200
+    localStorage.setItem('amount', storedAmount); // Set the initial amount in localStorage
+} else {
+    storedAmount = parseFloat(storedAmount);
+}
 
-            // Check if a day has passed
-            let today = new Date().toDateString();
-            if (storedDate !== today) {
-                storedAmount += 20;
-                localStorage.setItem('amount', storedAmount);
-                localStorage.setItem('date', today);
-            }
+if (storedDate === null) {
+    storedDate = new Date().toDateString();
+    localStorage.setItem('date', storedDate); // Set the initial date in localStorage
+}
 
-            // Display the amount
+// Check if a day has passed
+let today = new Date().toDateString();
+if (storedDate !== today) {
+    storedAmount += 20;
+    localStorage.setItem('amount', storedAmount);
+    localStorage.setItem('date', today);
+}
+
             function checkPassword() {
                 var userInput = prompt("Enter last 4 digits of your phone number");
                 if (userInput === "1789") {
