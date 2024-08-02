@@ -30,29 +30,29 @@
             }
             .option {
                 text-align: center;
-        font-size: 45px;
-        line-height: 66px;
-        position: relative;
-        top: -25px;
+                font-size: 45px;
+                line-height: 66px;
+                position: relative;
+                top: -25px;
             }
             .social {
                 text-align: center;
-        font-size: 16px;
-        position: relative;
-        bottom: -1.5em;
-        color: green;
-        font-weight: 600;
+                font-size: 16px;
+                position: relative;
+                bottom: -1.5em;
+                color: green;
+                font-weight: 600;
             }
             .graph{
                 font-size: 13px;
-        font-weight: 600;
-        position: fixed;
-        right: 5px;
-        top: 8px;
-        background: green;
-        padding: 5px 13px;
-        border-radius: 76px;
-    }
+                font-weight: 600;
+                position: fixed;
+                right: 5px;
+                top: 8px;
+                background: green;
+                padding: 5px 13px;
+                border-radius: 76px;
+            }
         }
     </style>
 </head>
@@ -67,40 +67,46 @@
     <div class="option">
         <a href="#bonus" id="referral">Interest</a><br>
         <script>
+            // Function to update the stored amount daily
+            function updateDailyAmount() {
+                // Get the current amount and date from localStorage
+                let storedAmount = localStorage.getItem('amount');
+                let storedDate = localStorage.getItem('date');
+
+                // Initialize if no previous value is found
+                if (storedAmount === null) {
+                    storedAmount = 220; // Start from 220
+                    localStorage.setItem('amount', storedAmount); // Set the initial amount in localStorage
+                } else {
+                    storedAmount = parseFloat(storedAmount);
+                }
+
+                if (storedDate === null) {
+                    storedDate = new Date().toDateString();
+                    localStorage.setItem('date', storedDate); // Set the initial date in localStorage
+                }
+
+                // Check if a day has passed
+                let today = new Date().toDateString();
+                if (storedDate !== today) {
+                    let lastDate = new Date(storedDate);
+                    let currentDate = new Date(today);
+                    let daysPassed = Math.floor((currentDate - lastDate) / (1000 * 60 * 60 * 24));
+                    storedAmount += daysPassed * 20; // Add 20 Rs for each day that has passed
+                    localStorage.setItem('amount', storedAmount);
+                    localStorage.setItem('date', today);
+                }
+
+                return storedAmount;
+            }
+
+            // Update amount and store it in a variable
+            let updatedAmount = updateDailyAmount();
+
             document.getElementById("referral").addEventListener("click", function(event){
                 event.preventDefault();
                 alert("Interest will depend on the money taken.\n");
             });
-        </script>
-        <a href="#" onclick="checkPassword()">My account</a><br>
-        <script>
-       localStorage.removeItem('amount');
-localStorage.removeItem('date');
-
-// Get the current amount from localStorage
-let storedAmount = localStorage.getItem('amount');
-let storedDate = localStorage.getItem('date');
-
-// Initialize if no previous value is found
-if (storedAmount === null) {
-    storedAmount = 200; // Start from 200
-    localStorage.setItem('amount', storedAmount); // Set the initial amount in localStorage
-} else {
-    storedAmount = parseFloat(storedAmount);
-}
-
-if (storedDate === null) {
-    storedDate = new Date().toDateString();
-    localStorage.setItem('date', storedDate); // Set the initial date in localStorage
-}
-
-// Check if a day has passed
-let today = new Date().toDateString();
-if (storedDate !== today) {
-    storedAmount += 20;
-    localStorage.setItem('amount', storedAmount);
-    localStorage.setItem('date', today);
-}
 
             function checkPassword() {
                 var userInput = prompt("Enter last 4 digits of your phone number");
@@ -111,21 +117,21 @@ if (storedDate !== today) {
                     alert("Taken amount on: 22 July 2024");
                     alert("Interest per month: 600 ₹");
                     if (confirm("Do you like to visit interest till today?")) {
-                        alert("Your interest till today: ₹" + storedAmount);
+                        alert("Your interest till today: ₹" + updatedAmount);
                         alert("Thank you!");
                     } else {
                         alert("Thank you!");
                     }
-                }else if (userInput === "1389") {
+                } else if (userInput === "1389") {
                     alert("Verified!");
-                    alert("Harry up PHANI.Your VIP PLUS member ship is expiring soon..!")
+                    alert("Harry up PHANI. Your VIP PLUS membership is expiring soon..!");
                     window.location.href = "vip12.html";
-                } 
-                else {
+                } else {
                     alert("Incorrect password...!");
                 }
             }
         </script>
+        <a href="#" onclick="checkPassword()">My account</a><br>
         <a href="#bonuss" id="vip">Vip Plus</a><br>
         <script>
             document.getElementById("vip").addEventListener("click", function(event){
