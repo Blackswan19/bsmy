@@ -65,50 +65,9 @@
     </div>
     <img src="https://i.ibb.co/D15BFpv/logo.png" alt="">
     <div class="option">
-        <a href="#bonus" id="referral">Interest</a><br>
+        <a href="finance.html" >Finance</a><br>
         <script>
-            // Function to update the stored amount daily
-            function updateDailyAmount() {
-                // Get the current amount and date from localStorage
-                let storedAmount = localStorage.getItem('amount');
-                let storedDate = localStorage.getItem('date');
-
-                // Initialize if no previous value is found
-                if (storedAmount === null) {
-                    storedAmount = 220; // Start from 220
-                    localStorage.setItem('amount', storedAmount); // Set the initial amount in localStorage
-                } else {
-                    storedAmount = parseFloat(storedAmount);
-                }
-
-                if (storedDate === null) {
-                    storedDate = new Date().toDateString();
-                    localStorage.setItem('date', storedDate); // Set the initial date in localStorage
-                }
-
-                // Check if a day has passed
-                let today = new Date().toDateString();
-                if (storedDate !== today) {
-                    let lastDate = new Date(storedDate);
-                    let currentDate = new Date(today);
-                    let daysPassed = Math.floor((currentDate - lastDate) / (1000 * 60 * 60 * 24));
-                    storedAmount += daysPassed * 20; // Add 20 Rs for each day that has passed
-                    localStorage.setItem('amount', storedAmount);
-                    localStorage.setItem('date', today);
-                }
-
-                return storedAmount;
-            }
-
-            // Update amount and store it in a variable
-            let updatedAmount = updateDailyAmount();
-
-            document.getElementById("referral").addEventListener("click", function(event){
-                event.preventDefault();
-                alert("Interest will depend on the money taken.\n");
-            });
-
-            function checkPassword() {
+                    function checkPassword() {
                 var userInput = prompt("Enter last 4 digits of your phone number");
                 if (userInput === "1789") {
                     alert("Verified!");
