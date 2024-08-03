@@ -10,11 +10,13 @@
         *{
             font-family: "Red Hat Display", sans-serif;
             color: black;
+            
         }
         a{
             text-decoration: none;
         }
         body{
+            
             display: none;
         }
         @media screen and (max-width: 480px) {
@@ -65,7 +67,14 @@
     </div>
     <img src="https://i.ibb.co/D15BFpv/logo.png" alt="">
     <div class="option">
-        <a href="finance.html" >Finance</a><br>
+        <a id="finance" href="finance.html" >Finance</a><br>
+            <script>
+            document.getElementById("finance").addEventListener("click", function(event){
+                event.preventDefault();
+                alert("---------------------\nWelcome to Finance!\n\nUs me when you can't handel your finance..!");
+                window.location.href = "finance.html";
+            });
+        </script>
         <script>
                     function checkPassword() {
                 var userInput = prompt("Enter last 4 digits of your phone number");
