@@ -155,7 +155,18 @@
         <li>For an amount between ₹8000 and ₹9000, the interest rate will be between ₹35 and ₹50 per 1.5 day.</li>
     </ul>
     <div class="account">
-        <a href=""><button>Account</button></a>
+        <a href="" onclick="checkPassword()"><button>My Account</button></a>
+
+        <script>
+            function checkPassword() {
+                var userInput = prompt("Enter last 4 digits of your phone number");
+                if (userInput === "") {
+                    alert("Enter the password");
+                } else {
+                    alert("Incorrect password...!");
+                }
+            }
+        </script>
     </div>
 </body>
 </html>
