@@ -10,13 +10,11 @@
         *{
             font-family: "Red Hat Display", sans-serif;
             color: black;
-            
         }
         a{
             text-decoration: none;
         }
         body{
-            
             display: none;
         }
         @media screen and (max-width: 480px) {
@@ -66,40 +64,53 @@
         <a href="rules.html">Rules</a>
     </div>
     <img src="https://i.ibb.co/D15BFpv/logo.png" alt="">
+
     <div class="option">
-        <a id="finance" href="finance.html" >Finance</a><br>
-            <script>
+        <a id="finance" href="finance.html">Finance</a><br>
+        <script>
             document.getElementById("finance").addEventListener("click", function(event){
                 event.preventDefault();
-                alert("---------------------\nWelcome to Finance!\n\nUs me when you can't handel your finance..!");
+                alert("---------------------\nWelcome to Finance!\n\nUse me when you can't handle your finance..!");
                 window.location.href = "finance.html";
             });
         </script>
+
+        <a href="#" onclick="checkPassword()">My account</a><br>
         <script>
-                    function checkPassword() {
-                var userInput = prompt("Enter last 4 digits of your phone number");
+            function checkPassword() {
+                var userInput = prompt("\nEnter the password");
                 if (userInput === "1789") {
-                    alert("Verified!");
-                    alert("Account owner: Chinna");
-                    alert("Amount taken: 20,000 ₹");
-                    alert("Taken amount on: 22 July 2024");
-                    alert("Interest per month: 600 ₹");
-                    if (confirm("Do you like to visit interest till today?")) {
-                        alert("Your interest till today: ₹" + updatedAmount);
-                        alert("Thank you!");
+                    alert("\nAccount Verified!");
+                    alert("\nAccount owner: Chinna");
+                    alert("\nAmount taken: 20,000 ₹");
+                    alert("\nTaken amount on: 22 July 2024");
+
+                    var baseInterest = 260;
+                    var startDate = new Date('2024-08-02'); // Start adding daily interest from today
+                    var currentDate = new Date();
+                    var timeDifference = currentDate - startDate;
+                    var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+                    var dailyInterest = 20;
+                    var totalDailyInterest = dailyInterest * daysDifference;
+                    var totalInterest = baseInterest + totalDailyInterest;
+                    
+                    alert("\nInterest per month: 600 ₹");
+                    if (confirm("\nVisit interest till today?")) {
+                        alert("\nYour interest till today: ₹" + totalInterest);
+                        alert("\nThank you!");
                     } else {
-                        alert("Thank you!");
+                        alert("\nThank you!");
                     }
                 } else if (userInput === "1389") {
-                    alert("Verified!");
-                    alert("Harry up PHANI. Your VIP PLUS membership is expiring soon..!");
+                    alert("\nAccount Verified!");
+                    alert("\nHurry up PHANI. Your VIP PLUS membership is expiring soon..!");
                     window.location.href = "vip12.html";
                 } else {
-                    alert("Incorrect password...!");
+                    alert("\nIncorrect password...!");
                 }
             }
         </script>
-        <a href="#" onclick="checkPassword()">My account</a><br>
+
         <a href="#bonuss" id="vip">Vip Plus</a><br>
         <script>
             document.getElementById("vip").addEventListener("click", function(event){
