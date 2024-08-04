@@ -82,8 +82,8 @@
                 if (userInput === "1789") {
                     alert("\nAccount Verified!");
                     alert("\nAccount owner: Chinna");
-                    alert("\nAmount taken: 20,000 ₹");
-                    alert("\nTaken amount on: 22 July 2024");
+                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
+
 
                     var baseInterest = 260;
                     var startDate = new Date('2024-08-02'); // Start adding daily interest from today
@@ -93,8 +93,6 @@
                     var dailyInterest = 20;
                     var totalDailyInterest = dailyInterest * daysDifference;
                     var totalInterest = baseInterest + totalDailyInterest;
-                    
-                    alert("\nInterest per month: 600 ₹");
                     if (confirm("\nVisit interest till today?")) {
                         alert("\nYour interest till today: ₹" + totalInterest);
                         alert("\nThank you!");
