@@ -70,6 +70,14 @@
                 font-size: 12px;
                 padding: 8px 12px;
             }
+            p{
+                font-size: 14px;
+                position: fixed;
+                bottom: 3;
+                width: 76%;
+                text-align: center;
+                left: 13%;
+            }
         }
     </style>
 </head>
@@ -78,17 +86,15 @@
 
     <div class="option">
         <a href="#" onclick="checkPassword()"><i class="fa-solid fa-money-bill-trend-up"></i></a>
-        <a href="#bonuss" id="vip"><i class="fa-solid fa-scale-unbalanced"></i></a>
     </div>
 
     <div class="social">
-        <a href="home.html">MFI</a>
-    </div>
-
-    <div class="graph">
+        <a href="home.html">MFI</a><br><br>
         <a href="finance.html">Finance</a>
+    </div><hr>
+    <div class="matter">
+        <p>With Pardha, you can manage your interest payments easily. By paying a small amount monthly, you build up a fund that you can later use to reduce your interest. When it's time to pay interest, you can use the money you've saved with Pardha to lower the amount you owe, helping you pay off your interest faster and with less stress.</p>
     </div>
-
     <script>
         function checkPassword() {
             var userInput = prompt("Enter the password");
@@ -98,11 +104,6 @@
                 alert("Incorrect password...!");
             }
         }
-
-        document.getElementById("vip").addEventListener("click", function(event) {
-            event.preventDefault();
-            alert("With Pardha, you can manage your interest payments easily. By paying a small amount monthly, you build up a fund that you can later use to reduce your interest. When it's time to pay interest, you can use the money you've saved with Pardha to lower the amount you owe, helping you pay off your interest faster and with less stress.");
-        });
     </script>
 </body>
 </html>
