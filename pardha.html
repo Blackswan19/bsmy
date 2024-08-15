@@ -1,11 +1,108 @@
-<style>
-    body{
-        background-color: black;
-    }
-</style>
-<p style="color: white;color: white;
-font-size: 107px;
-text-align: center;
-bottom: 8em;
-position: absolute;
-width: 101%;">Coming Soon</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFI</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/D15BFpv/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        
+        body {
+            font-family: "Red Hat Display", sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .option a {
+            display: inline-block;
+            background-color: #03dac6;
+            color: #121212;
+            padding: 10px 20px;
+            border-radius: 50%;
+            font-size: 24px;
+            margin: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .option a:hover {
+            background-color: #018786;
+        }
+
+        .social {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .graph {
+            font-size: 14px;
+            background-color: #000000;
+            color: #121212;
+            padding: 10px 15px;
+            border-radius: 30px;
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .option a {
+                font-size: 18px;
+                padding: 8px 15px;
+            }
+
+            .graph {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="pardha.png" alt="">
+
+    <div class="option">
+        <a href="#" onclick="checkPassword()"><i class="fa-solid fa-money-bill-trend-up"></i></a>
+        <a href="#bonuss" id="vip"><i class="fa-solid fa-scale-unbalanced"></i></a>
+    </div>
+
+    <div class="social">
+        <a href="home.html">MFI</a>
+    </div>
+
+    <div class="graph">
+        <a href="finance.html">Finance</a>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var userInput = prompt("Enter the password");
+            if (userInput === "") {
+                alert("Enter something....!");
+            } else {
+                alert("Incorrect password...!");
+            }
+        }
+
+        document.getElementById("vip").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("With Pardha, you can manage your interest payments easily. By paying a small amount monthly, you build up a fund that you can later use to reduce your interest. When it's time to pay interest, you can use the money you've saved with Pardha to lower the amount you owe, helping you pay off your interest faster and with less stress.");
+        });
+    </script>
+</body>
+</html>
