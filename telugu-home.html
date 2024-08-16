@@ -27,7 +27,7 @@ a{
 }
 .options{
     background-color: #ffffff47;
-    padding: 26px 43px 13px;
+    padding: 26px 43px 0px;
     color: black;
     width: 46%;
     font-size: 34px;
@@ -46,7 +46,8 @@ button{
     padding: 18px;
     border-radius: 9px;
     position: relative;
-    left: -18%;
+    left: -19%;
+    top: -16px;
 }
 .matter{
     position: relative;
@@ -60,10 +61,21 @@ button{
             MFI
         </div>
         <div class="options">
-            <a href="">నా ఖాతా</a><br>
-            <a href="">ఫైనాన్స్</a><br><br>
+            <a href="#" onclick="checkPassword()">నా ఖాతా</a><br><br>
+        <script>
+            function checkPassword() {
+                var userInput = prompt("\nపాస్వర్డ్‌ను నమోదు చేయండి");
+                if (userInput === "") {
+                    alert("పాస్వర్డ్ను నమోదు చేయండి...!");
+                } else {
+                    alert("\nతప్పు పాస్వర్డ్...!");
+                }
+            }
+
+        </script>
+            <!-- <a href="">ఫైనాన్స్</a><br><br> -->
             <button>
-                నేను డబ్బు తీసుకుంటాను
+                <a href="https://forms.gle/27SQC2uyMv8QWiLv9">నేను డబ్బు తీసుకుంటాను</a>
             </button>
         </div>
         <div class="matter">
