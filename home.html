@@ -12,125 +12,186 @@
     body {
         font-family: "Noto Sans", sans-serif;
         background-color: #1f1f1f;
-        display: none;
+        display: block;
     }
-    a{
+    a {
         text-decoration: none;
         color: white;
     }
-    @media (max-width: 480px){
-        body{
-        background-color: #1f1f1f;
-        display: block;
-    }
+    @media (max-width: 480px) {
         img {
             position: fixed;
-        left: 0%;
-        top: 0%;
-        width: 69%;
-        background: #261916;
-        padding: 51px 60px;
+            left: 0%;
+            top: 0%;
+            width: 69%;
+            background: #261916;
+            padding: 51px 60px;
+        }
+        .input {
+            outline: none;
+            top: 7.5em;
+            width: 64%;
+            position: fixed;
+            padding: 18px 25px;
+            background: #303030;
+            border: solid 1px #303030;
+            border-radius: 78px;
+            color: white;
+            font-size: 22px;
+            left: 10%;
+            text-align: center;
+        }
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.849);
+        }
+        .option {
+            position: absolute;
+            right: 8px;
+        }
+        .option .fa-solid, .fas {
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+            position: relative;
+            padding: 12px 12px;
+            background: #303030;
+            border-radius: 100px;
+            font-size: 18px;
+        }
+        .matter p .fa-solid, .fas {
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+            position: relative;
+            padding: 12px 12px;
+            background: #303030;
+            border-radius: 100px;
+            font-size: 18px;
+        }
+        p {
+            position: fixed;
+            z-index: 1;
+            color: white;
+            top: 41em;
+            font-size: 13px;
+            background: #303030;
+            padding: 8px 13px;
+            text-align: center;
+            width: 85%;
+            border-radius: 49px;
+            left: 4%;
+        }
+        .mfilogo {
+            position: absolute;
+            left: 6px;
+            color: white;
+            z-index: 2;
+            top: 1%;
+            font-size: 16px;
+            background: #303030;
+            padding: 10px 20px;
+            border-radius: 43px;
+        }
+        .options {
+            position: relative;
+            display: grid;
+            text-align: center;
+            top: -1em;
+        }
+        .options a {
+            background-color: #303030;
+            padding: 15px;
+            top: 16em;
+            width: 92%;
+            position: relative;
+            font-size: 20px;
+        }
+        .grant {
+            position: fixed;
+            text-align: center;
+            width: 97%;
+            bottom: 0em;
+            background: #303135;
+            padding: 21px 11px;
+            left: 0;
+        }
+        .grant a {
+            color: skyblue;
+            padding: 28px;
+        }
     }
-    .input {
-        outline: none;
-        top: 7.5em;
-        width: 64%;
+
+    /* Modal Styles */
+    .modal {
+        display: none;
         position: fixed;
-        padding: 18px 25px;
-        background: #303030;
-        border: solid 1px #303030;
-        border-radius: 78px;
-        color: white;
-        font-size: 22px;
-        left: 10%;
-        text-align: center;
-}
-::placeholder{
-    color: rgba(255, 255, 255, 0.849);
-}
-.option{
-    position: absolute;
-    right: 8px;
-}
-.option .fa-solid, .fas {
-    font-weight: 900;
-    color: white;
-    z-index: 1;
-    position: relative;
-    padding: 12px 12px;
-    background: #303030;
-    border-radius: 100px;
-    font-size: 18px;
-}
-.matter p .fa-solid, .fas {
-    font-weight: 900;
-    color: white;
-    z-index: 1;
-    position: relative;
-    padding: 12px 12px;
-    background: #303030;
-    border-radius: 100px;
-    font-size: 18px;
-}
-p{
-    position: fixed;
         z-index: 1;
-        color: white;
-        top: 41em;
-        font-size: 13px;
-        background: #303030;
-        padding: 8px 13px;
-        text-align: center;
-        width: 85%;
-        border-radius: 49px;
-        left: 4%;
-}
-.mfilogo{
-    position: absolute;
-        left: 6px;
-        color: white;
-        z-index: 2;
-        top: 1%;
-        font-size: 16px;
-        background: #303030;
-        padding: 10px 20px;
-        border-radius: 43px;
-}
-.options{
-    position: relative;
-        display: grid;
-        text-align: center;
-        top: -1em;
-}
-.options a{
-    background-color: #303030;
-        padding: 15px;
-        top: 16em;
-        width: 92%;
-        position: relative;
-        font-size: 20px;
-}
-.grant{
-    position: fixed;
-        text-align: center;
-        width: 97%;
-        bottom: 0em;
-        background: #303135;
-        padding: 21px 11px;
         left: 0;
-}
-.grant a{
-    color: skyblue;
-    padding: 28px;
-}
-}
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+        background-color: #333;
+        margin: 64% auto;
+        padding: 30px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    ::placeholder{
+        color: #000000;
+    }
+    .modal-content input {
+        width: 93%;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        color: #000000;
+    }
+    .modal-content button {
+        background: #282828;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .modal-content button:hover {
+        background: #000000;
+    }
 </style>
 <body>
     <div class="option">
         <a href="telugu-home.html"><i class="fa-solid fa-language"></i></a>
     </div>
     <div class="mfilogo">
-      <a href="rules.html">MFI <i class="fa-solid fa-hand-holding-dollar"></i></a>
+        <a href="rules.html">MFI <i class="fa-solid fa-hand-holding-dollar"></i></a>
     </div>
     <div class="logoimg">
         <img src="https://i.ibb.co/dj4tZM8/logo.png" alt="">
@@ -142,45 +203,76 @@ p{
         <p><i class="fa-solid fa-comments-dollar"></i>Take money from us for low interest</p>
     </div>
     <div class="options">
-        <a href="#" onclick="checkPassword()">My Account</a>
-        <script>
-            function checkPassword() {
-                var userInput = prompt("\nEnter the password");
-                if (userInput === "1789") {
-                    alert("\nAccount Verified!");
-                    alert("\nAccount owner: Chinna");
-                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
-
-
-                    var baseInterest = 260;
-                    var startDate = new Date('2024-08-02'); // Start adding daily interest from today
-                    var currentDate = new Date();
-                    var timeDifference = currentDate - startDate;
-                    var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
-                    var dailyInterest = 20;
-                    var totalDailyInterest = dailyInterest * daysDifference;
-                    var totalInterest = baseInterest + totalDailyInterest;
-                    if (confirm("\nVisit interest till today?")) {
-                        alert("\nYour interest till today: ₹" + totalInterest);
-                        alert("\nThank you!");
-                    } else {
-                        alert("\nThank you!");
-                    }
-                } else if (userInput === "1389") {
-                    alert("\nAccount Verified!");
-                    alert("\nHurry up PHANI. Your VIP PLUS membership is expiring soon..!");
-                    window.location.href = "vip12.html";
-                } else {
-                    alert("\nIncorrect password...!");
-                }
-            }
-        </script>
-<a href="pardha.html">Pardha For Future</a>
+        <a href="#" id="accountLink">My Account</a>
+        <a href="pardha.html">Pardha For Future</a>
         <a href="finance.html" id="vip">Finance</a>
     </div>
     <div class="grant">
         <a href="https://forms.gle/27SQC2uyMv8QWiLv9">Take money</a>
         <a href="https://forms.gle/8kpQQdhg7moroWBe6">Return money</a>
     </div>
+
+    <!-- The Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p style="color: #000000;">Enter the password</p>
+            <input type="password" id="userPassword" placeholder="Enter the password">
+            <button id="submitPassword">Submit</button>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("passwordModal");
+        var btn = document.getElementById("accountLink");
+        var span = document.getElementsByClassName("close")[0];
+        var submitBtn = document.getElementById("submitPassword");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        submitBtn.onclick = function() {
+            var userInput = document.getElementById("userPassword").value;
+            var errorMessage = document.getElementById('error-message');
+
+            if (userInput === "1789") {
+                errorMessage.textContent = "Account Verified! Account owner: Chinna";
+                setTimeout(function() {
+                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
+                    var baseInterest = 260;
+                    var startDate = new Date('2024-08-02');
+                    var currentDate = new Date();
+                    var timeDifference = currentDate - startDate;
+                    var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+                    var dailyInterest = 20;
+                    var totalDailyInterest = dailyInterest * daysDifference;
+                    var totalInterest = baseInterest + totalDailyInterest;
+                    if (confirm("Visit interest till today?")) {
+                        alert("Your interest till today: ₹" + totalInterest);
+                    }
+                    modal.style.display = "none";
+                }, 1000);
+            } else if (userInput === "1389") {
+                errorMessage.textContent = "Account Verified! Hurry up PHANI. Your VIP PLUS membership is expiring soon..!";
+                setTimeout(function() {
+                    window.location.href = "vip12.html";
+                }, 1000);
+            } else {
+                errorMessage.textContent = "Incorrect password!";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
