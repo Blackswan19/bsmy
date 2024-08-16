@@ -29,17 +29,17 @@
         }
         .input {
             outline: none;
-            top: 11.5em;
-            width: 64%;
-            position: fixed;
-            padding: 18px 25px;
-            background: #000000;
-            border: none;
-            border-radius: 78px;
-            color: white;
-            font-size: 15px;
-            left: 10%;
-            text-align: center;
+        top: 11.5em;
+        width: 64%;
+        position: fixed;
+        padding: 18px 25px;
+        background: #000000;
+        border: none;
+        border-radius: 78px;
+        color: white;
+        font-size: 15px;
+        left: 10%;
+        text-align: center;
         }
         ::placeholder {
             color: rgba(255, 255, 255, 0.849);
@@ -134,18 +134,18 @@
     }
     .modal-content {
         background-color: #333;
-        margin: 50% auto;
-        padding: 30px;
-        border: 1px solid #888;
-        width: 62%;
-        max-width: 400px;
-        color: white;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        z-index: 100000;
-        position: fixed;
-        left: 11%;
+    margin: 50% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 62%;
+    max-width: 400px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100000;
+    position: fixed;
+    left: 11%;
     }
     .close {
         color: #aaa;
@@ -160,7 +160,7 @@
         color: #fff;
         text-decoration: none;
     }
-    ::placeholder {
+    ::placeholder{
         color: #000000;
     }
     .modal-content input {
@@ -186,14 +186,6 @@
     }
     .modal-content button:hover {
         background: #000000;
-    }
-
-    .message {
-        font-size: 14px;
-        color: yellow;
-        margin-top: 10px;
-        text-align: center;
-        font-weight: bold;
     }
 </style>
 <body>
@@ -228,9 +220,11 @@
             <span class="close">&times;</span>
             <input type="password" id="userPassword" placeholder="Enter the password">
             <button id="submitPassword">Submit</button>
-            <p id="statusMessage" class="message"></p>
+            <h6 style="color: skyblue;">Don't enter any wrong password</h6>
+            <p id="error-message" class="error-message"></p>
         </div>
     </div>
+
     <script>
         var modal = document.getElementById("passwordModal");
         var btn = document.getElementById("accountLink");
