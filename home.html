@@ -54,7 +54,7 @@
             z-index: 1;
             position: relative;
             padding: 12px 12px;
-            background: #303030;
+            background: #000000;
             border-radius: 100px;
             font-size: 18px;
         }
@@ -74,7 +74,7 @@
             color: white;
             top: 41em;
             font-size: 13px;
-            background: #303030;
+            background: #000000;
             padding: 8px 13px;
             text-align: center;
             width: 85%;
@@ -131,19 +131,22 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgb(0, 0, 0);
     }
     .modal-content {
         background-color: #333;
-        margin: 64% auto;
+        margin: 70% auto;
         padding: 30px;
         border: 1px solid #888;
-        width: 80%;
+        width: 62%;
         max-width: 400px;
         color: white;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        position: fixed;
+        left: 12%;
     }
     .close {
         color: #aaa;
@@ -200,7 +203,7 @@
         利息のためのお金
     </div>
     <div class="matter">
-        <p><i class="fa-solid fa-comments-dollar"></i>Take money from us for low interest</p>
+        <p><i class="fa-solid fa-comments-dollar"></i> Take money from us for low interest</p>
     </div>
     <div class="options">
         <a href="#" id="accountLink">My Account</a>
@@ -216,7 +219,6 @@
     <div id="passwordModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p style="color: #000000;">Enter the password</p>
             <input type="password" id="userPassword" placeholder="Enter the password">
             <button id="submitPassword">Submit</button>
             <p id="error-message" class="error-message"></p>
@@ -228,19 +230,19 @@
         var btn = document.getElementById("accountLink");
         var span = document.getElementsByClassName("close")[0];
         var submitBtn = document.getElementById("submitPassword");
-
+    
         btn.onclick = function() {
             modal.style.display = "block";
         }
-
+    
         span.onclick = function() {
             modal.style.display = "none";
         }
-
+    
         submitBtn.onclick = function() {
             var userInput = document.getElementById("userPassword").value;
             var errorMessage = document.getElementById('error-message');
-
+    
             if (userInput === "1789") {
                 errorMessage.textContent = "Account Verified! Account owner: Chinna";
                 setTimeout(function() {
@@ -257,22 +259,33 @@
                         alert("Your interest till today: ₹" + totalInterest);
                     }
                     modal.style.display = "none";
+                    errorMessage.textContent = ""; // Clear the message after closing modal
                 }, 1000);
             } else if (userInput === "1389") {
                 errorMessage.textContent = "Account Verified! Hurry up PHANI. Your VIP PLUS membership is expiring soon..!";
                 setTimeout(function() {
                     window.location.href = "vip12.html";
+                    errorMessage.textContent = ""; // Clear the message after redirection
                 }, 1000);
             } else {
                 errorMessage.textContent = "Incorrect password!";
+                setTimeout(function() {
+                    errorMessage.textContent = ""; // Clear the error message after 1 second
+                }, 1000);
             }
+    
+            // Clear the input field after submission
+            document.getElementById("userPassword").value = "";
         }
-
+    
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                document.getElementById('error-message').textContent = ""; // Clear message when modal is closed
             }
         }
     </script>
+    
+    
 </body>
 </html>
