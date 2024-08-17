@@ -6,24 +6,23 @@
     <title>MFI</title>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/D15BFpv/logo.png">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        *{
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        * {
             font-family: "Red Hat Display", sans-serif;
-            color: black;
+            color: #f0f0f0;
         }
 
         body {
-            color: #333;
-            background: linear-gradient(to bottom right, #ffffff, #05710d);
+            color: #e0e0e0;
+            background: linear-gradient(to bottom right, #000000, #004080);
             padding: 20px;
             line-height: 1.6;
             display: none;
         }
 
         h1 {
-           
             font-weight: 700;
-            color: #004d00;
+            color: #57e0ff;
             text-align: center;
             margin: 20px 0;
             font-size: 2rem;
@@ -36,11 +35,11 @@
         }
 
         li {
-            background: #fff;
+            background: #1a1a1a;
             border-radius: 12px;
             margin: 10px 0;
             padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             font-size: 1rem;
         }
 
@@ -55,24 +54,24 @@
             position: fixed;
             right: 20px;
             top: 20px;
-            background: #004d00;
-            color: #fff;
+            background: #004080;
+            color: #f0f0f0;
             padding: 10px 20px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 1rem;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: background 0.3s ease;
         }
 
         .graph a {
-            color: #fff;
+            color: #f0f0f0;
             text-decoration: none;
         }
 
         .graph:hover {
-            background: #003300;
+            background: #00264d;
         }
 
         img {
@@ -81,7 +80,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         @media screen and (max-width: 480px) {
@@ -104,24 +103,26 @@
             li {
                 font-size: 0.9rem;
                 font-weight: 500;
-
             }
+
             .account {
                 text-align: center;
                 position: relative;
                 top: 0.5em;
             }
+
             p {
                 font-size: 20px;
                 padding: 0 10px;
             }
+
             button {
                 position: relative;
                 padding: 6px 16px;
-                background: white;
+                background: #004080;
                 outline: none;
-                border: white;
-                color: #004d00;
+                border: none;
+                color: #f0f0f0;
                 border-radius: 8px;
             }
         }
@@ -149,10 +150,10 @@
         <li>For an amount between ₹2000 and ₹3000, the interest rate will be between ₹15 and ₹20 per day.</li>
         <li>For an amount between ₹3000 and ₹4000, the interest rate will be between ₹20 and ₹25 per day.</li>
         <li>For an amount between ₹4000 and ₹5000, the interest rate will be between ₹25 and ₹30 per day.</li>
-        <li>For an amount between ₹5000 and ₹6000, the interest rate will be between ₹35 and ₹35 per 1.5 day.</li>
+        <li>For an amount between ₹5000 and ₹6000, the interest rate will be between ₹30 and ₹35 per 1.5 day.</li>
         <li>For an amount between ₹6000 and ₹7000, the interest rate will be between ₹35 and ₹40 per 1.5 day.</li>
-        <li>For an amount between ₹7000 and ₹8000, the interest rate will be between ₹35 and ₹45 per 1.5 day.</li>
-        <li>For an amount between ₹8000 and ₹9000, the interest rate will be between ₹35 and ₹50 per 1.5 day.</li>
+        <li>For an amount between ₹7000 and ₹8000, the interest rate will be between ₹40 and ₹45 per 1.5 day.</li>
+        <li>For an amount between ₹8000 and ₹9000, the interest rate will be between ₹45 and ₹50 per 1.5 day.</li>
     </ul>
     <div class="account">
         <a href="" onclick="checkPassword()"><button>My Account</button></a>
@@ -163,9 +164,8 @@
                 if (userInput === "1789") {
                     alert("\nAccount Owner : Chinna");
                     alert("\nAmount 1050 ₹ return : Successful");
-                    alert("\nThank you for using finace.");
-                    // alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 1000 ₹\n\nTaken amount on : 04-08-2024\n\nAmount return on : 9-08-2024\n\nAmount return after : 5 days\n\nInterest for 5 days : 50₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
-                }else if(userInput === "1389"){
+                    alert("\nThank you for using finance.");
+                } else if (userInput === "1389") {
                     alert("\nAccount Owner : Phani");
                     alert("\nPHANI AMOUNT DETAILS\n\n\nTaken amount : 3000 ₹\n\nTaken amount on : 15-08-2024\n\nAmount return on : 20-08-2024\n\nAmount return after : 5 days\n\nInterest for 5 days : 100₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
                 } else {
