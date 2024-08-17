@@ -84,7 +84,17 @@
         <h2>We hope<br> we helped<br> you.</h2>
         <p>Take money from us for lower interest. With more specific offers that are made for you. Use us at the right time to maintain your financial issues.</p>
         <a href="https://forms.gle/8QX1oGMAvTWUJ4rp7" class="button">Get started</a>
-        <p>Verify my account? <a href="" class="link">Enter now.</a></p>
+        <p>Verify my account? <a href="" onclick="checkPassword()">Enter now.</a></p>
+        <script>
+            function checkPassword() {
+                var userInput = prompt("\nEnter your code");
+                if (userInput === "") {
+                    alert("\nEnter something.");
+                } else {
+                    alert("\nIncorrect code.");
+                }
+            }
+        </script>
     </div>
 </body>
 </html>
