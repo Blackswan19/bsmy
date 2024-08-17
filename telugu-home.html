@@ -16,25 +16,24 @@
         box-sizing: border-box;
     }
     body {
-        background-image: url("https://i.ibb.co/hFt31sB/bg.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
+        background-color: #282828;
         background-position: center;
     }
     .logo {
         font-size: 22px;
         font-weight: 900;
-        color: white;
+        color: #9f876d;
         text-align: center;
         margin-top: 20px;
     }
     a {
         text-decoration: none;
-        color: inherit;
     }
     .options {
-        background-color: rgba(255, 255, 255, 0.25);
+        background-color: rgb(60 60 60);
         padding: 20px;
         color: black;
         width: 70%;
@@ -50,10 +49,11 @@
         color: white;
     }
     button {
-        background: black;
-        color: white;
+        background: #9f876d;
+        color: rgb(0, 0, 0);
         width: 100%;
         outline: none;
+        font-weight: 600;
         border: none;
         padding: 14px;
         margin-top: 20px;
@@ -66,6 +66,7 @@
         margin-top: 240px;
     font-size: 14px;
     font-weight: 500;
+    color: #9f876d;
     }
     .logoimg img {
         width: 70%;
@@ -122,8 +123,8 @@
         
     }
     .modal-content button {
-        background: #000000;
-        color: white;
+        background: #9f876d;
+        color: rgb(0, 0, 0);
         padding: 10px;
         width: 100%;
         border: none;
@@ -132,11 +133,13 @@
         cursor: pointer;
     }
     .modal-content button:hover {
-        background: #0056b3;
+        background: black;
+        color: beige;
     }
     .error-message {
-        color: red;
-        margin-top: 10px;
+        color: rgb(0 255 234);
+    font-weight: 400;
+    margin-top: 10px;
     }
 </style>
 <body>
@@ -160,8 +163,8 @@
             <span class="close">&times;</span>
             <p>పాస్వర్డ్‌ను నమోదు చేయండి</p>
             <input type="password" id="userPassword" placeholder="పాస్వర్డ్">
-            <button id="submitPassword">Submit</button>
             <p id="error-message" class="error-message"></p>
+            <button id="submitPassword">Submit</button>
         </div>
     </div>
 
