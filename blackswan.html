@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/GP8TJvP/logo.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-    * {
-        font-family: "Red Hat Display", sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+
+        * {
+            font-family: "Red Hat Display", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -24,35 +27,42 @@
             align-items: flex-start;
             min-height: 100vh;
         }
+        a{
+            text-decoration: underline;
+            color: #007bff;
+        }
         .container {
             position: fixed;
             padding: 35px;
-            top: 12%;
+            top: 10%;
         }
+
         h1 {
             font-size: 22px;
-    font-weight: 500;
-    position: fixed;
-    left: 0;
-    background: #6e6e6e4a;
-    width: 100%;
-    padding: 9px 35px;
-    color: black;
+            font-weight: 500;
+            position: fixed;
+            left: 0;
+            background: #6e6e6e4a;
+            width: 100%;
+            padding: 9px 35px;
+            color: black;
         }
+
         h2 {
             font-size: 3em;
-    margin: -27px 0 52px 0;
-    line-height: 1.1em;
-    font-weight: normal;
-    font-weight: 400;
+            margin: -27px 0 32px 0;
+            line-height: 1.1em;
+            font-weight: 400;
         }
+
         p {
-    font-size: 1em;
-    line-height: 1.6em;
-    margin: 15px 0;
-    color: #333;
-    font-weight: 600;
+            font-size: 1em;
+            line-height: 1.6em;
+            margin: 13px 0;
+            color: #333;
+            font-weight: 600;
         }
+
         .button {
             display: inline-block;
             padding: 10px 15px;
@@ -64,44 +74,124 @@
             margin-top: 10px;
             letter-spacing: 1.5px;
         }
+
         .link {
             font-size: 0.9em;
             color: #007BFF;
             position: fixed;
-    left: 52%;
+            left: 52%;
             text-decoration: none;
         }
+
         .link:hover {
             text-decoration: underline;
         }
-        .container img{
+
+        .container img {
             width: 80%;
             position: relative;
-            bottom: -8px;
-            right: -98px;
+    bottom: 57px;
+    right: -79px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background-color: #007BFF;
+            color: #ffffff;
+            font-size: 1em;
+            border-radius: 5px;
         }
     </style>
 </head>
+
 <body>
     <div class="logo">
         <h1>Black swan</h1>
     </div>
     <div class="container">
         <h2>We hope<br> we helped<br> you.</h2>
-        <p>Take interest free amount from us. With only 134 ₹/month get 1000 rs and with 288rs/month get 2000rs specific offers that are made for you. Use these offers at the right time to maintain your financial issues.</p>
+        <p>Take interest free amount from us. With just ₹134/month, get ₹1,000 and For ₹288/month, get ₹2,000 enjoy our interest free amount. Use these offers at the right time to maintain your financial issues.</p>
         <a href="https://forms.gle/8QX1oGMAvTWUJ4rp7" class="button">Get started</a>
-        <p>Verify my account? <a href="" onclick="checkPassword()">Enter now.</a></p>
-        <script>
-            function checkPassword() {
-                var userInput = prompt("\nEnter your code");
-                if (userInput === "") {
-                    alert("\nEnter something.");
-                } else {
-                    alert("\nIncorrect code.");
-                }
-            }
-        </script>
+        <p>Verify my account? <a href="javascript:void(0)" onclick="openModal()">Enter now</a>.</p><br><br>
         <img src="https://lh3.googleusercontent.com/pV6CLDCWX-d2tTzyejuGnJV7l8_bMr0C--KS3b2uh_KrkB7BAbz3w5GZUPspU6TxGQJ4K0rvjecEyIRSrAcoqA-SfK6hEwN4T9BtWw=w1260-h1162-p-nu-pa" alt="">
     </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Please enter your code:</p>
+            <input type="password" id="userInput" placeholder="Enter your code" style="width: 100%; padding: 10px; margin-top: 10px;outline: none;">
+            <p id="modal-message" style="color: red; margin-top: 10px;"></p>
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Function to check the password
+        function checkPassword() {
+            var userInput = document.getElementById("userInput").value;
+            var message = document.getElementById("modal-message");
+
+            if (userInput === "") {
+                message.textContent = "Enter something.";
+            } else {
+                message.textContent = "Wrong code / Account not exists";
+            }
+        }
+    </script>
 </body>
+
 </html>
