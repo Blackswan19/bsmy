@@ -119,19 +119,42 @@
 
             button {
                 position: relative;
-                padding: 6px 16px;
+                padding: 11px 20px;
                 background: #004080;
                 outline: none;
                 border: none;
                 color: #f0f0f0;
                 border-radius: 8px;
+                top: 5em;
+            }
+            .container{
+                position: relative;
+                top: 5em;
             }
         }
     </style>
 </head>
 <body>
     <img src="flogo.png" alt="Logo">
-    <h1>Interest Rates for Different Amounts</h1>
+    <div class="account">
+        <a href="" onclick="checkPassword()"><button>My Account</button></a>
+
+        <script>
+            function checkPassword() {
+                var userInput = prompt("\nEnter your code");
+                if (userInput === "1789") {
+                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 2000 ₹\n\nTaken amount on : 18-08-2024\n\nAmount return on : 19-08-2024\n\nAmount return after : 1 day\n\nInterest for 1 day : 15₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
+                } else if (userInput === "1389") {
+                    alert("\nAccount Owner : Phani");
+                    alert("\nPHANI AMOUNT DETAILS\n\n\nTaken amount : 3000 ₹\n\nTaken amount on : 15-08-2024\n\nAmount return on : 20-08-2024\n\nAmount return after : 5 days\n\nInterest for 5 days : 100₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
+                } else {
+                    alert("\nIncorrect code.");
+                }
+            }
+        </script>
+    </div>
+    <div class="container">
+        <h1>Interest Rates for Different Amounts</h1>
     <ul>
         <li>For ₹1000: Interest is ₹10 per 1 day</li>
         <li>For ₹2000: Interest is ₹15 per 1 day</li>
@@ -156,22 +179,6 @@
         <li>For an amount between ₹7000 and ₹8000, the interest rate will be between ₹40 and ₹45.</li>
         <li>For an amount between ₹8000 and ₹9000, the interest rate will be between ₹45 and ₹50.</li>
     </ul>
-    <div class="account">
-        <a href="" onclick="checkPassword()"><button>My Account</button></a>
-
-        <script>
-            function checkPassword() {
-                var userInput = prompt("\nEnter your code");
-                if (userInput === "1789") {
-                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 2000 ₹\n\nTaken amount on : 18-08-2024\n\nAmount return on : 19-08-2024\n\nAmount return after : 1 day\n\nInterest for 1 day : 15₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
-                } else if (userInput === "1389") {
-                    alert("\nAccount Owner : Phani");
-                    alert("\nPHANI AMOUNT DETAILS\n\n\nTaken amount : 3000 ₹\n\nTaken amount on : 15-08-2024\n\nAmount return on : 20-08-2024\n\nAmount return after : 5 days\n\nInterest for 5 days : 100₹\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.");
-                } else {
-                    alert("\nIncorrect code.");
-                }
-            }
-        </script>
     </div>
 </body>
 </html>
