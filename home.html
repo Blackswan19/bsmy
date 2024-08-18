@@ -118,7 +118,7 @@
             left: 0;
         }
         .grant a {
-            color: rgb(0, 229, 255);;
+            color: rgb(0, 229, 255);
             padding: 28px;
         }
     }
@@ -247,25 +247,27 @@
             var errorMessage = document.getElementById('error-message');
     
             if (userInput === "1789") {
-                errorMessage.textContent = "Account Verified! Account owner: Chinna";
                 setTimeout(function() {
-                    alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
-                    var baseInterest = 260;
-                    var startDate = new Date('2024-08-02');
-                    var currentDate = new Date();
-                    var timeDifference = currentDate - startDate;
-                    var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
-                    var dailyInterest = 20;
-                    var totalDailyInterest = dailyInterest * daysDifference;
-                    var totalInterest = baseInterest + totalDailyInterest;
-                    if (confirm("Visit interest till today?")) {
-                        alert("Your interest till today: ₹" + totalInterest);
-                    }
-                    modal.style.display = "none";
-                    errorMessage.textContent = ""; // Clear the message after closing modal
+                    window.location.href = "vip13.html";
+                    errorMessage.textContent = ""; // Clear the message after redirection
                 }, 1000);
+                // setTimeout(function() {
+                //     alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
+                //     var baseInterest = 260;
+                //     var startDate = new Date('2024-08-02');
+                //     var currentDate = new Date();
+                //     var timeDifference = currentDate - startDate;
+                //     var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+                //     var dailyInterest = 20;
+                //     var totalDailyInterest = dailyInterest * daysDifference;
+                //     var totalInterest = baseInterest + totalDailyInterest;
+                //     if (confirm("Visit interest till today?")) {
+                //         alert("Your interest till today: ₹" + totalInterest);
+                //     }
+                //     modal.style.display = "none";
+                //     errorMessage.textContent = ""; // Clear the message after closing modal
+                // }, 1000);
             } else if (userInput === "1389") {
-                errorMessage.textContent = "Account Verified! Hurry up PHANI. Your VIP PLUS membership is expiring soon..!";
                 setTimeout(function() {
                     window.location.href = "vip12.html";
                     errorMessage.textContent = ""; // Clear the message after redirection
