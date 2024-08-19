@@ -185,9 +185,7 @@
         submitBtn.onclick = function() {
             var userInput = document.getElementById("userPassword").value;
             var errorMessage = document.getElementById('error-message');
-            if (userInput === "1789") {
-                alert("స్వాగతం చిన్నా.")
-                alert("చిన్న డబ్బు వివరాలు\n\n\n10,000 డబ్బు తీసుకున్నారు.\n\nతీసుకున్న తేదీ: 22 \n\nరోజుకు వడ్డీ: 10 రూ\n\nనెలకు వడ్డీ: 300 రూ\n\n________________________\nగమనిక: ప్రతి నెలా వడ్డీ చెల్లించడం మర్చిపోవద్దు. ఆలస్యం జరిగినందున మీ వడ్డీకి అదనపు ఛార్జీలు జోడించబడతాయి.")
+            if (userInput === "") {
                 errorMessage.textContent = "పాస్వర్డ్ను నమోదు చేయండి...!";
             } else {
                 errorMessage.textContent = "తప్పు పాస్వర్డ్...!";
