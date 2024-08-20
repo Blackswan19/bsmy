@@ -1,43 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Swan</title>
-    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/GP8TJvP/logo.png">
+    <title>Account Details</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
 
-        * {
-            font-family: "Red Hat Display", sans-serif;
+* {
+    font-family: "Red Hat Display", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #000000; /* Consistent font weight */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #000000;
+        .header {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-        a{
-            text-decoration: underline;
-            color: #007bff;
-        }
-        .container {
-            position: fixed;
-            padding: 35px;
-            top: 10%;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        h1 {
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .close-btn {
+            background-color: #dddddd;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            position: relative;
+            right: -6em;
+        }
+
+        .close-btn:hover {
+            background-color: #bbbbbb;
+        }
+
+        .card {
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 15px;
+            line-height: 40px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 5px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 20px; /* Consistent gap between items */
+        }
+
+        .note {
+            margin-top: 20px; /* Consistent gap for note section */
+        }
+
+        .note-content {
+            margin-top: 10px;
+            line-height: 20px;
+            color: #1900ffc9;
+        }
+        .logo h1{
             font-size: 22px;
             font-weight: 500;
             position: fixed;
@@ -46,157 +105,36 @@
             width: 100%;
             padding: 9px 35px;
             color: black;
-        }
-
-        h2 {
-            font-size: 3em;
-            margin: -27px 0 32px 0;
-            line-height: 1.1em;
-            font-weight: 400;
-        }
-
-        p {
-            font-size: 1em;
-            line-height: 1.6em;
-            margin: 13px 0;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: #007BFF;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            letter-spacing: 1.5px;
-        }
-
-        .link {
-            font-size: 0.9em;
-            color: #007BFF;
-            position: fixed;
-            left: 52%;
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
-        .container img {
-            width: 80%;
-            position: relative;
-    bottom: 57px;
-    right: -79px;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal button {
-            margin-top: 15px;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            background-color: #007BFF;
-            color: #ffffff;
-            font-size: 1em;
-            border-radius: 5px;
         }
     </style>
 </head>
-
 <body>
-    <div class="logo">
-        <h1>Black swan<spans style="color: #0c008b;position: fixed;
-            left: 153px;
-            font-weight: 400;">Interest helper</spans></h1>
-    </div>
     <div class="container">
-        <h2>We hope<br> we helped<br> you.</h2>
-        <p>Get a low-interest loan from us to manage your finances easily. Whether you need money for unexpected expenses or future plans, we’re here to help with flexible options. Let us support you in taking control of your financial situation.</p>
-        <a href="https://forms.gle/CWAxLH3JGYjyZ9Yu8" class="button">Get started</a>
-        <p>Verify my account? <a href="javascript:void(0)" onclick="openModal()">Enter now</a>.</p><br><br>
-        <img src="https://lh3.googleusercontent.com/pV6CLDCWX-d2tTzyejuGnJV7l8_bMr0C--KS3b2uh_KrkB7BAbz3w5GZUPspU6TxGQJ4K0rvjecEyIRSrAcoqA-SfK6hEwN4T9BtWw=w1260-h1162-p-nu-pa" alt="">
-    </div>
-
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Enter your unique code:</p>
-            <input type="password" id="userInput" placeholder="Enter your code" style="width: 100%; padding: 10px; margin-top: 10px;outline: none;">
-            <p id="modal-message" style="color: red; margin-top: 10px;"></p>
-            <button onclick="checkPassword()">Submit</button>
+        <div class="logo">
+            <h1>Black swan<spans style="color: #0c008b;position: fixed;
+                left: 153px;
+                font-weight: 400;">Interest helper</spans></h1>
+        </div>
+        <div class="header">
+            <a href="blackswan.html"><button class="close-btn">&times;</button></a>
+        </div>
+        <div class="card">
+            <h2>Account details</h2>
+            <ul>
+                <li><strong>Name : Phani</strong></li>
+                <li><strong>Password : 1789</strong></li>
+                <li><strong>Amount taken on : 18 august 2024</strong></li>
+                <li><strong>Amount return on : 18 september 2024</strong></li>
+                <li><strong>Interest per month : 250</strong></li>
+            </ul>
+            <div class="note">
+                <h2></h2>
+                <strong>Note :</strong>
+                <div class="note-content">Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.</div>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Function to open the modal
-        function openModal() {
-            document.getElementById("myModal").style.display = "flex";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        // Function to check the password
-        function checkPassword() {
-            var userInput = document.getElementById("userInput").value;
-            var message = document.getElementById("modal-message");
-
-            if (userInput === "") {
-                message.textContent = "Enter something.";
-            } else if(userInput ="1789"){
-                window.location.href = "acc1.html";
-            }
-            else {
-                message.textContent = "Wrong code / Account not exists";
-            }
-        }
-    </script>
 </body>
-
 </html>
