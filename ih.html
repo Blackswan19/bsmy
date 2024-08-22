@@ -61,7 +61,7 @@
             <p>For 5 months</p>
         </div>
         <hr>
-        <h2>MFI - Borrow</h2>
+        <h2>MFI - Wallet</h2>
         <form id="passwordForm" onsubmit="return validatePasswords()">
             <input type="password" id="password" name="password" placeholder="Enter the pin" required><br><br>
             <script>
@@ -70,7 +70,7 @@
                     if (password === "") {
                         alert("You didn't entered any pin.");
                     } else {
-                        alert("User not exists in Borrow.");
+                        alert("User not exists in Wallet.");
                         return false;  // Prevent form submission
                     }
                 }
