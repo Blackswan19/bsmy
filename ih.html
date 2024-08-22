@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Helper</title>
+    <!-- Importing Libre Bodoni from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Libre Bodoni', serif;
+            background-color: #f8f0e3; /* Beige background for a classic look */
+            color: #2c2c2c; /* Dark gray text */
+            margin: 0;
+            padding: 20px;
+        }
+        .logo {
+        position: fixed;
+        top: 6px;
+        font-size: 30px;
+    }
+    input {
+        padding: 7px 14px;
+    }
+        .content {
+            max-width: 800px;
+            margin: 16em auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        Interest Helper
+    </div>
+    <div class="content">
+        <h2>MFI - Borrow</h2>
+        <form id="passwordForm" onsubmit="return validatePasswords()">
+            <input type="password" id="password" name="password" placeholder="Enter the pin" required><br><br>
+            <script>
+                function validatePasswords() {
+                    var password = document.getElementById("password").value;
+                    if (password === "1789") {
+                        alert("\nAmount 7000 rs\n\nreturn 2 day\n\ninterest 80 rs ");
+                        return true;  // Allow form submission
+                    } else {
+                        alert("User not exists in Borrow.");
+                        return false;  // Prevent form submission
+                    }
+                }
+            </script>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
