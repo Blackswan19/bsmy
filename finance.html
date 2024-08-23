@@ -222,8 +222,10 @@
             const returnDate = addDaysToDate(takenDate, account.daysToAdd); // Calculate return date
             const interest = account.amount + (daysSinceTaken * account.additionalInterest);
             
-            alert(`\n\nAMOUNT DETAILS\n\nAccount Holder: ${account.name}\n\n\nTaken amount: ₹${account.amount}\n\nTaken amount on: ${formatDate(takenDate)}\n\nAmount return on: ${returnDate}\n\nAmout with interest: ₹${interest}\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.`);
-
+            
+            
+            alert(`\n\nAccount Owner: ${account.name}`);
+            alert(`\n\n${account.name} amount details \n\n\nTaken amount: ₹${account.amount}\n\nTaken amount on: ${formatDate(takenDate)}\n\nAmount return on: ${returnDate}\n\nAmout with interest: ₹${interest}\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.`);
             // Update the days count in the HTML
             document.getElementById('days-count').innerText = `Days since amount was taken: ${daysSinceTaken}`;
         }
