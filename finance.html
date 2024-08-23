@@ -220,15 +220,17 @@
             const takenDate = new Date(account.takenDate.split('-').reverse().join('-'));
             const daysSinceTaken = calculateDaysBetweenDates(takenDate, today);
             const returnDate = addDaysToDate(takenDate, account.daysToAdd); // Calculate return date
-            const interest = account.amount + (daysSinceTaken * account.additionalInterest);
-            
-            
-            
+            const interestPerDay = account.additionalInterest;
+            const totalInterest = daysSinceTaken * interestPerDay;
+            const totalAmount = account.amount + totalInterest;
+
             alert(`\n\nAccount Owner: ${account.name}`);
-            alert(`\n\n${account.name} amount details \n\n\nTaken amount: ₹${account.amount}\n\nTaken amount on: ${formatDate(takenDate)}\n\nAmount return on: ${returnDate}\n\nAmout with interest: ₹${interest}\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.`);
+            alert(`\n\n${account.name.toUpperCase()} AMOUNT DETAILS \n\n\nTaken amount : ₹${account.amount}\n\nTaken amount on : ${formatDate(takenDate)}\n\nAmount return on : ${returnDate}\n\nInterest per day : ₹${interestPerDay}\n\nTotal amount with interest : ₹${totalAmount}\n\n________________________\nNOTE: Don't forget to pay on the return date. If any delay's inform us before the date. If delay has taken place extra charges will be added to your interest.`);
             // Update the days count in the HTML
             document.getElementById('days-count').innerText = `Days since amount was taken: ${daysSinceTaken}`;
         }
+
+
 
 
         function checkPassword() {
