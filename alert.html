@@ -16,40 +16,71 @@
 
         .container {
             width: 70%;
-    margin: 237px auto;
-    padding: 55px;
-    border: 3px solid #2e2e2e;
-    background: #2e2e2e;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    position: fixed;
+            margin: 237px auto;
+            padding: 55px;
+            border: 3px solid #2e2e2e;
+            background: #2e2e2e;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
         }
 
-        h2,h6 {
+        h2, h6 {
             color: #cccccc; /* Light gray text for headings */
             margin-bottom: 20px;
             font-size: 29px;
         }
-
-        
     </style>
 </head>
 <body>
     <script>
+        function addDaysToDate(date, days) {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return formatDate(result); // Format date in desired format
+        }
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JS
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`; // Format date as dd/mm/yyyy
+        }
+
+        function calculateDaysBetweenDates(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const differenceInTime = end - start;
+            return Math.floor(differenceInTime / (1000 * 3600 * 24)); // Convert milliseconds to days
+        }
+
+        function showAlert(account) {
+            const today = new Date();
+            const takenDate = new Date(account.takenDate.split('-').reverse().join('-'));
+            const daysSinceTaken = calculateDaysBetweenDates(takenDate, today);
+            const returnDate = addDaysToDate(today, account.daysToAdd);
+            const interest = account.amount + (daysSinceTaken * account.additionalInterest);
+            
+            alert("\nWelcome to EFI alert");
+            alert(`\nTaken amount = ${account.amount}\n\nTaken on - ${formatDate(takenDate)}\n-------------------\nReturning on - ${returnDate}\n\nWith interest = ${interest}`);
+            alert("\nThank you");
+        }
+
+        const accounts = {
+            "1789": { amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
+            "1389": { amount: 9000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 50 },
+            // Add more accounts as needed
+        };
+
         var userInput = prompt("\nEnter your alert pin");
-                if (userInput === "1789") {
-                    alert("\nWelcome to EFI alert");
-                    alert("\nTaken amount = 7000\n\nTaken on - 21-08-2024\n-------------------\nReturning on - 23-08-2024\n\nWith interest = 7080")
-                    alert("\nThank you")
-                }else if(userInput === "1789"){
-                    alert("\nWelcome to EFI alert");
-                    alert("\nTaken amount = 9000\n\nTaken on - 26-08-2024\n-------------------\nReturning on - 23-08-2024\n\nWith interest = 9300")
-                    alert("\nThank you")
-                }else {
-                    alert("\nIncorrect code.");
-                }
+
+        if (accounts[userInput]) {
+            showAlert(accounts[userInput]);
+        } else {
+            alert("\nIncorrect code.");
+        }
     </script>
     <div class="container">
-        Welcome to<h2>MFI - Alert</h2><hr>
+        Welcome to <h2>MFI - Alert</h2><hr>
         A place where you can find your finance amount returning dates.
     </div>
 </body>
