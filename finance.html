@@ -190,7 +190,7 @@
     
     <script>
         const accounts = {
-        "1789": { name: "Chinna", amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
+        // "1789": { name: "Chinna", amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
         "1389": { name: "Phani", amount: 9000, takenDate: "21-08-2024", daysToAdd: 5, additionalInterest: 50 },
     // Add more accounts with names and details as needed
         };
@@ -231,16 +231,18 @@
         }
 
 
-
-
         function checkPassword() {
             const password = prompt("\nEnter your code");
             const account = accounts[password];
-
             if (account) {
                 showAlert(account);
-            } else {
-                alert("Invalid code.");
+            } else if(password === "1789"){
+                alert("\nAccount Owner: Chinna")
+                alert("\n7080 had returned successfully.")
+                alert("\nThank you for using finance")
+            }
+            else {
+                alert("\nInvalid code.");
             }
         }
     </script>
