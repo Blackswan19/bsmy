@@ -76,7 +76,7 @@
         }
 
         const accounts = {
-            "1789": { amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
+            // "1789": { amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
             "1389": { amount: 9000, takenDate: "21-08-2024", daysToAdd: 5, additionalInterest: 50 },
             // Add more accounts as needed
         };
@@ -85,7 +85,10 @@
 
         if (accounts[userInput]) {
             showAlert(accounts[userInput]);
-        } else {
+        }else if (userInput === "1789"){
+            alert("Wallet is empty.");
+        }
+         else {
             alert("\nIncorrect code.");
         }
     </script>
