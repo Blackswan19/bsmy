@@ -29,6 +29,12 @@
             margin-bottom: 20px;
             font-size: 29px;
         }
+
+        .days-count {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -57,17 +63,20 @@
             const today = new Date();
             const takenDate = new Date(account.takenDate.split('-').reverse().join('-'));
             const daysSinceTaken = calculateDaysBetweenDates(takenDate, today);
-            const returnDate = addDaysToDate(today, account.daysToAdd);
+            const returnDate = addDaysToDate(takenDate, account.daysToAdd); // Update this line to use takenDate
             const interest = account.amount + (daysSinceTaken * account.additionalInterest);
             
             alert("\nWelcome to EFI alert");
             alert(`\nTaken amount = ${account.amount}\n\nTaken on - ${formatDate(takenDate)}\n-------------------\nReturning on - ${returnDate}\n\nWith interest = ${interest}`);
             alert("\nThank you");
+
+            // Update the days count in the HTML
+            document.getElementById('days-count').innerText = `Days since amount was taken: ${daysSinceTaken}`;
         }
 
         const accounts = {
             "1789": { amount: 7000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 40 },
-            "1389": { amount: 9000, takenDate: "21-08-2024", daysToAdd: 2, additionalInterest: 50 },
+            "1389": { amount: 9000, takenDate: "21-08-2024", daysToAdd: 5, additionalInterest: 50 },
             // Add more accounts as needed
         };
 
@@ -82,6 +91,7 @@
     <div class="container">
         Welcome to <h2>MFI - Alert</h2><hr>
         A place where you can find your finance amount returning dates.
+        <div class="days-count" id="days-count"></div> <!-- Added div for displaying days count -->
     </div>
 </body>
 </html>
