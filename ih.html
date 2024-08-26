@@ -7,40 +7,53 @@
     <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/b1/22/aa/b122aa7930d0e08092f394b44fd3f4c3.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        * {
+            font-family: "Red Hat Display", sans-serif;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
         body {
             font-family: 'Libre Bodoni', serif;
-            background-color: #f8f0e3; /* Beige background for a classic look */
-            color: #2c2c2c; /* Dark gray text */
+            background-color: #121212; /* Dark background */
+            color: #f8f0e3; /* Beige text for contrast */
             margin: 0;
             padding: 20px;
         }
         .logo {
-        position: fixed;
-        top: 6px;
-        font-size: 30px;
-    }
-    input {
-        padding: 7px 14px;
-    }
-    a{
-        text-decoration: none;
-    }
-    p{
-        font-weight: 800;
-    }
+            position: fixed;
+            top: 6px;
+            font-size: 30px;
+            color: #f8f0e3; /* Beige color for text */
+        }
+        input {
+            padding: 7px 14px;
+            background-color: #2c2c2c; /* Dark gray background for input */
+            color: #f8f0e3; /* Beige text color */
+            border: none;
+            border-radius: 4px;
+        }
+        input::placeholder {
+            color: #a9a9a9; /* Light gray placeholder color */
+        }
+        a {
+            text-decoration: none;
+            color: #1e90ff; /* Light blue link color */
+        }
         .content {
             max-width: 800px;
             margin: 12em auto;
-            background-color: #fff;
+            background-color: #1c1c1c; /* Darker gray for content background */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
             text-align: center;
         }
-        .extra{
+        .extra {
             position: relative;
-    text-align: center;
-    bottom: 45px;
+            text-align: center;
+            bottom: 45px;
+            color: #a9a9a9; /* Light gray text color */
         }
     </style>
 </head>
@@ -48,24 +61,20 @@
     <div class="logo">
         Interest Helper
     </div>
-    <a style="    color: black;
-    position: fixed;
-    top: 89px;
-    right: 27px;
-" href="https://forms.gle/Mp8itfWTVKmhvvbp9">Apply</a>
+    <a style="position: fixed; top: 89px; right: 27px;" href="https://forms.gle/Mp8itfWTVKmhvvbp9">Apply</a>
     <div class="content">
         <div class="offers">
-            <p>We hope our wallet service help you at right time. .</p>
+            <p>With only 42 rs get our wallet service helps you at the right time.</p>
         </div>
         <hr>
-        <h2>EFI Wallet</h2>
+        <h2 style="color: #f8f0e3;">EFI Wallet</h2>
         <form id="passwordForm" onsubmit="return validatePasswords()">
             <input type="password" id="password" name="password" placeholder="Enter the wallet pin" required><br><br>
             <script>
                 function validatePasswords() {
                     var password = document.getElementById("password").value;
                     if (password === "") {
-                        alert("You didn't entered any pin.");
+                        alert("You didn't enter any pin.");
                     } else {
                         alert("User not exists in Wallet.");
                         return false;  // Prevent form submission
