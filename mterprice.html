@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mterprice</title>
+    <link rel="icon" type="image/x-icon" href="https://s3.amazonaws.com/static.graphemica.com/glyphs/i500s/000/010/218/original/004D-500x500.png?1275328225">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+
+        * {
+            font-family: "Red Hat Display", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #000000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #838081;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        a{
+            text-decoration: underline;
+        }
+        .container {
+            padding: 59px;
+    top: 47%;
+    left: -1em;
+    position: fixed;
+
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 500;
+            position: fixed;
+            left: 0;
+            background: #005d1c;
+            width: 100%;
+            padding: 9px 35px;
+        }
+
+        h2 {
+            font-size: 3em;
+            margin: -27px 0 32px 0;
+            line-height: 1.1em;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6em;
+            margin: 13px 0;
+            font-weight: 500;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #005d1c;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .link {
+            font-size: 0.9em;
+            color: #007BFF;
+            position: fixed;
+            left: 52%;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .container img {
+            width: 109%;
+    position: fixed;
+    top: 48px;
+    left: -32px;
+
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #838081;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background-color: #005d1c;
+            color: #ffffff;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <h1>M<spans style="color: #ffffff;position: fixed;
+            left: 55px;
+            font-weight: 400;"> terprice</spans></h1>
+    </div>
+    <div class="container">
+        <img src="https://d7hftxdivxxvm.cloudfront.net/?height=1170&quality=85&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FfrURmxJsZppYK1aqfTo1zw%2Fmain.jpg&width=1600" alt="">
+        <h2>Buy it<br>to make it<br> permanent.</h2>
+        <a href="https://forms.gle/CWAxLH3JGYjyZ9Yu8" class="button">Get started</a>
+        <p>Verify my account?<a href="javascript:void(0)" onclick="openModal()" style="color: white;text-decoration: none;"> Enter now</a>.</p><br><br>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Enter your pin:</p>
+            <input type="password" id="userInput" placeholder="Enter pin" style="width: 100%; padding: 10px; margin-top: 10px;outline: none;">
+            <p id="modal-message" style="color: red; margin-top: 10px;"></p>
+            <button onclick="checkPassword()">Open wallet</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Function to check the password
+        function checkPassword() {
+            var userInput = document.getElementById("userInput").value;
+            var message = document.getElementById("modal-message");
+
+            if (userInput === "9919") {
+                window.location.href = "acc1.html";
+            } else if(userInput =""){
+                message.textContent = "Enter something.";
+            }
+            else {
+                message.textContent = "Wrong code / Account not exists";
+            }
+        }
+    </script>
+</body>
+
+</html>
