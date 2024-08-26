@@ -14,7 +14,16 @@
             padding: 0;
             text-align: center;
         }
+        a{
+            text-decoration: none;
+        }
+        .offer{
+            position: fixed;
+    bottom: 62px;
+    right: 13px;
+    font-size: 21px;
 
+        }
         .container {
             width: 70%;
             margin: 45% auto;
@@ -97,5 +106,26 @@
         A place where you can find your finance amount returning dates.
         <div class="days-count" id="days-count"></div> <!-- Added div for displaying days count -->
     </div>
+    <div class="offer">
+        <a href="javascript:void(0)" onclick="checkPassword()" style="color: white;">Offer</a>
+    </div>
+    <script>
+        function checkPassword() {
+            const password = prompt("\nEnter your code");
+            const account = accounts[password];
+            if (account) {
+                showAlert(account);
+            } else if(password === "1789"){
+                alert("\nAccount Owner: Chinna.")
+                alert("\nWe are applying for the 1000rs offer.\nBy apply for this offer you can return the money after 3 monts.");
+                alert("\n\nTo apply for this you have to pay a 458 rs for this offer.")
+                alert("\nWe hope we helped you.")
+                alert("\nThanks for apply for this offer.")
+            }
+            else {
+                alert("\nInvalid code.");
+            }
+        }
+    </script>
 </body>
 </html>
