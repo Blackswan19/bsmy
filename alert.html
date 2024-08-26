@@ -111,13 +111,13 @@
     </div>
     <script>
         function checkPassword() {
-            const password = prompt("\nEnter your code");
+            const password = prompt("\nEnter the pin of your account to apply for the offer");
             const account = accounts[password];
             if (account) {
                 showAlert(account);
             } else if(password === "1789"){
                 alert("\nAccount Owner: Chinna.")
-                alert("\nWe are applying for the 1000rs offer.\nBy apply for this offer you can return the money after 3 monts.");
+                alert("\nWe are applying for the 1000rs offer.\n\nBy apply for this offer you can return the money after 3 monts.");
                 alert("\n\nTo apply for this you have to pay a 458 rs for this offer.")
                 alert("\nWe hope we helped you.")
                 alert("\nThanks for apply for this offer.")
