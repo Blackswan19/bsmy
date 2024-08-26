@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mterprice</title>
-    <link rel="icon" type="image/x-icon" href="https://s3.amazonaws.com/static.graphemica.com/glyphs/i500s/000/010/218/original/004D-500x500.png?1275328225">
+    <link rel="icon" type="image/x-ico" href="https://s3.amazonaws.com/static.graphemica.com/glyphs/i500s/000/010/218/original/004D-500x500.png?1275328225">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
 
@@ -143,6 +145,13 @@
             font-size: 1em;
             border-radius: 5px;
         }
+        .finance{
+            position: fixed;
+    top: 13px;
+    color: white;
+    right: 22px;
+
+        }
     </style>
 </head>
 
@@ -169,7 +178,9 @@
             <button onclick="checkPassword()">Submit</button>
         </div>
     </div>
-
+    <div class="finance">
+        <a href="finance.html"><i class="fa-solid fa-coins" style="color: white;"></i></a>
+    </div>
     <script>
         // Function to open the modal
         function openModal() {
