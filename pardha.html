@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pardha - For the future </title>
+    <title>Pardha - For the Future</title>
     <link rel="icon" type="image/x-icon" href="pardha.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,10 +21,10 @@
 
         a {
             color: #ffffff;
-    text-decoration: none;
-    background: #65656569;
-    padding: 7px 20px;
-    border-radius: 7px;
+            text-decoration: none;
+            background: #000000;
+            padding: 7px 20px;
+            border-radius: 7px;
         }
 
         img {
@@ -33,7 +33,7 @@
 
         .option a {
             display: inline-block;
-            background-color:  #1e90ff;
+            background-color: #1e90ff;
             color: #121212;
             padding: 10px 20px;
             border-radius: 50%;
@@ -43,7 +43,7 @@
         }
 
         .option a:hover {
-            background-color:  #1e8fff9d;
+            background-color: #1e8fff9d;
         }
 
         .social {
@@ -51,43 +51,44 @@
             font-size: 16px;
             color: #000000;
         }
-        .social a:hover{
+
+        .social a:hover {
             background-color: #1e90ff;
         }
-        
 
         @media screen and (max-width: 480px) {
             .option a {
                 font-size: 18px;
-        padding: 11px 15px;
+                padding: 11px 15px;
             }
 
             .graph {
                 font-size: 12px;
                 padding: 8px 12px;
             }
-            p{
+
+            p {
                 font-size: 14px;
-        position: fixed;
-        bottom: 50px;
-        width: 85%;
-        text-align: center;
-        left: 8%;
-
+                position: fixed;
+                bottom: 50px;
+                width: 85%;
+                text-align: center;
+                left: 8%;
             }
-            .offer{
-            position: fixed;
-            bottom: 310px;
-        right: 13px;
-        font-size: 13px;
 
-        }
+            .offer {
+                position: fixed;
+                bottom: 315px;
+                right: 13px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- <img src="pardha.png" alt=""> -->
     <script>
-        alert("\n\nAdvance Happy Birthday Deputy Chief Minister Garu. \n\nOffer:\nAn new offer has been lunched hope it may helpes you.")
+        alert("\n\nAdvance Happy Birthday Deputy Chief Minister Garu. \n\nOffer:\nA new offer has been launched. Hope it helps you.")
     </script>
     <img src="https://i.ibb.co/hs3W74w/pspkpardha.png" alt="">
     <div class="option">
@@ -98,44 +99,38 @@
         <a href="https://forms.gle/aYxf3wpv2WkyU3RCA">Apply For Pardha</a>
     </div>
     <div class="matter">
-        <p>With Pardha you can manage your interest payments easily. With only small charges use pardha, When it's time to pay your interest or the amount, We help you pay off your interest faster and with less stress.</p>
+        <p>With Pardha, you can manage your interest payments easily. With only small charges, use Pardha. When it's time to pay your interest or the amount, we help you pay off your interest faster and with less stress.</p>
+    </div>
+    <div class="offer">
+        <a href="javascript:void(0)" onclick="applyOffer()" style="color: white;">CM Sir Offer</a>
     </div>
     <script>
         function checkPassword() {
             var userInput = prompt("Enter the password");
             if (userInput === "1789") {
-                alert("\n Welcome +91******1789.")
-                alert("\n Your EFI amount cleared by pardha: 4000 rs");
-                alert("\n Your amount due : 16000 rs");
-                alert("\n Your payment for pardha: 0 rs.");
-                alert("\n Remaining months to cleaar you amount: 4 months");
-                alert("\n Thank you for trusting us.");
+                alert("\nWelcome +91******1789.");
+                alert("\nYour EFI amount cleared by Pardha: 4000 rs");
+                alert("\nYour amount due: 16000 rs");
+                alert("\nYour payment for Pardha: 0 rs.");
+                alert("\nRemaining months to clear your amount: 4 months");
+                alert("\nThank you for trusting us.");
             } else {
                 alert("Incorrect password...!");
             }
         }
-    </script>
-    <div class="offer">
-        <a href="javascript:void(0)" onclick="checkPasswords()" style="color: white;">CM Sir Offer</a>
-    </div>
-    <script>
-        function checkPasswords() {
-            const password = prompt("\nTo apply for the offer enter the pin of your account.");
-            const account = accounts[password];
-            if (account) {
-                showAlert(account);
-            } else if(password === "1789"){
-                alert("\nAccount Owner: Chinna.")
-                alert("\nWe are applying for the 8000rs offer.\n\nBy apply for this offer you can return the money after 3 monts.");
-                alert("\n\nTo apply for this you have to pay a 2158 rs for this offer.")
-                alert("\nWe hope we helped you.")
-                alert("\nThanks for apply for this offer.")
-            }
-            else if(password === "1389"){
-                alert("\nAccount Owner: Phani.")
-                alert("\nThanks for apply for this offer.")
-            }
-            else {
+
+        function applyOffer() {
+            const password = prompt("\nTo apply for the offer, enter the pin of your account.");
+            if (password === "1789") {
+                alert("\nAccount Owner: Chinna.");
+                alert("\nWe are applying for the 5000 rs offer.\n\nBy applying for this offer, you can return the money after 3 months.");
+                alert("\nTo apply for this, you have to pay 2158 rs.");
+                alert("\nWe hope we helped you.");
+                alert("\nThanks for applying for this offer.");
+            } else if (password === "1389") {
+                alert("\nAccount Owner: Phani.");
+                alert("\nThanks for applying for this offer.");
+            } else {
                 alert("\nInvalid code.");
             }
         }
