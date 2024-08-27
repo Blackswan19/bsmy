@@ -101,7 +101,9 @@
     <div class="matter">
         <p>With Pardha, you can manage your interest payments easily. With only small charges, use Pardha. When it's time to pay your interest or the amount, we help you pay off your interest faster and with less stress.</p>
     </div>
-
+    <div class="offer">
+        <a href="javascript:void(0)" onclick="applyOffer()" style="color: white;">CM Sir Offer</a>
+    </div>
     <script>
         function checkPassword() {
             var userInput = prompt("Enter the password");
@@ -116,9 +118,7 @@
                 alert("Incorrect password...!");
             }
         }
-        <div class="offer">
-        <a href="javascript:void(0)" onclick="applyOffer()" style="color: white;">CM Sir Offer</a>
-    </div>
+        
         function applyOffer() {
             const password = prompt("\nTo apply for the offer, enter the pin of your account.");
             if (password === "1789") {
