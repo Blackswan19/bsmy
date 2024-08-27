@@ -75,6 +75,13 @@
         left: 8%;
 
             }
+            .offer{
+            position: fixed;
+            bottom: 330px;
+        right: 13px;
+        font-size: 13px;
+
+        }
         }
     </style>
 </head>
@@ -105,6 +112,31 @@
                 alert("\n Thank you for trusting us.");
             } else {
                 alert("Incorrect password...!");
+            }
+        }
+    </script>
+    <div class="offer">
+        <a href="javascript:void(0)" onclick="checkPassword()" style="color: white;">Offer</a>
+    </div>
+    <script>
+        function checkPassword() {
+            const password = prompt("\nTo apply for the offer enter the pin of your account.");
+            const account = accounts[password];
+            if (account) {
+                showAlert(account);
+            } else if(password === "1789"){
+                alert("\nAccount Owner: Chinna.")
+                alert("\nWe are applying for the 5000rs offer.\n\nBy apply for this offer you can return the money after 3 monts.");
+                alert("\n\nTo apply for this you have to pay a 1858 rs for this offer.")
+                alert("\nWe hope we helped you.")
+                alert("\nThanks for apply for this offer.")
+            }
+            else if(password === "1389"){
+                alert("\nAccount Owner: Phani.")
+                alert("\nThanks for apply for this offer.")
+            }
+            else {
+                alert("\nInvalid code.");
             }
         }
     </script>
