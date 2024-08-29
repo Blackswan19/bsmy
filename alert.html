@@ -93,10 +93,14 @@
         if (accounts[userInput]) {
             showAlert(accounts[userInput]);
         }else if (userInput === "1789"){
-            alert("\n\nSpecial offer has taken.\n\nReturing date was 26-10-24.\nInterest paid was 96.");
+            alert("\nAccount Owner: Chinna.")
+            alert("\nYou have taken 2 offers.");
+                alert("\nOFFER 1 DETAILS \n\nOffer valid for : 2 months\n\nTaken amount on : 26-08-2024\n\n\n\nReturning amount on : 26-10-2024");
+                alert("\nOFFER 2 DETAILS \n\nOffer valid for : 1 months\n\nTaken amount on : 29-08-2024\n\n\n\nReturning amount on : 29-09-2024");
+                alert("\nThanks for apply for these offer.")
         }
          else {
-            alert("\nIncorrect code.");
+            alert("\nInvalid code..!You can't view another account details.");
         }
     </script>
     <div class="container">
@@ -107,9 +111,8 @@
     <div class="offer">
         <a href="javascript:void(0)" onclick="checkPassword()" style="color: white;">Offer</a>
     </div>
-    <script>
+    <!-- <script>
         function checkPassword() {
-            const password = prompt("\nFirstly a Happy Krishnastami for all.\n\n\nTo apply for the offer enter the pin of your account.");
             const account = accounts[password];
             if (account) {
                 showAlert(account);
@@ -124,6 +127,6 @@
                 alert("\nInvalid code..!You can't view another account details.");
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
