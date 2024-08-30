@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Plan/Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f1f6;
+            color: #007bff;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="date"], button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+            color: black;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .radios {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .radios label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .delete-btn {
+            color: #dc3545;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+       
+        /* Dark Theme Styles */
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        form.dark-mode {
+            background: #2c2c2c;
+        }
+
+        input[type="text"], input[type="date"], button {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #555;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        
+
+        table.dark-mode {
+            background-color: #2c2c2c;
+        }
+
+        th, td {
+            border: 1px solid #555;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        .radios label {
+            color: black;
+        }
+
+        .delete-btn {
+            color: #ff6f6f;
+            font-size: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            label, input, button {
+                font-size: 14px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .radios label {
+                font-size: 12px;
+            }
+
+            .delete-btn {
+                font-size: 16px;
+            }
+        }
+
+        /* Theme Toggle Switch */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+       
+
+        .theme-toggle span {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fa-regular fa-sun"></i>
+        <span>Light Mode</span>
+    </div>
+
+    <div class="container">
+        <h2>Work Plan/Tasks</h2>
+        
+        <!-- Form to add new tasks -->
+        <form id="taskForm">
+            <label for="task">Task: </label>
+            <input type="text" id="task" name="task" required>
+            <label for="endDate">End Date: </label>
+            <input type="date" id="endDate" name="endDate" required>
+            <button type="button" onclick="addTask()">Add Task</button>
+        </form>
+
+        <!-- Table for work plan/tasks -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Your Task<br></th>
+                    <th>End Date<br></th>
+                    <th>Progress</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="taskTableBody">
+                <!-- The initial rows will be dynamically populated from localStorage -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to add a new task row to the table and store it in localStorage
+        function addTask() {
+            const task = document.getElementById('task').value;
+            const endDate = document.getElementById('endDate').value;
+
+            addRowToTable(task, endDate, "", "");
+
+            saveDataToLocalStorage();
+            document.getElementById('taskForm').reset();
+        }
+
+        // Function to add a row to the table
+        function addRowToTable(task, endDate, progress, notes, completionTime = null) {
+            const tableBody = document.getElementById('taskTableBody');
+            const rowCount = tableBody.rows.length + 1;
+            const newRow = tableBody.insertRow();
+
+            const taskCell = newRow.insertCell(0);
+            const endDateCell = newRow.insertCell(1);
+            const progressCell = newRow.insertCell(2);
+            const actionCell = newRow.insertCell(3);
+
+            taskCell.textContent = task;
+            endDateCell.textContent = endDate;
+
+            progressCell.classList.add('radios');
+            progressCell.innerHTML = `
+                <label><input type="radio" name="progress${rowCount}" ${progress === 'No' ? 'checked' : ''} onclick="updateProgress(this, ${rowCount})"> No</label>
+                <label><input type="radio" name="progress${rowCount}" ${progress === 'Yes' ? 'checked' : ''} onclick="updateProgress(this, ${rowCount})"> Yes</label>
+            `;
+
+            actionCell.innerHTML = `<button class="delete-btn" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>`;
+
+            // Store completion time if provided
+            if (completionTime) {
+                newRow.setAttribute('data-completion-time', completionTime);
+            }
+        }
+
+        // Function to update progress and handle completed tasks
+        function updateProgress(radioButton, rowIndex) {
+            const progress = radioButton.parentElement.textContent.trim();
+            if (progress === "Completed") {
+                alert("This task will be automatically deleted after 24 hours.");
+                const row = radioButton.closest('tr');
+                const completionTime = new Date().getTime();
+                row.setAttribute('data-completion-time', completionTime);
+            } else {
+                const row = radioButton.closest('tr');
+                row.removeAttribute('data-completion-time');
+            }
+            saveDataToLocalStorage();
+        }
+
+        // Function to delete a row from the table
+        function deleteRow(button) {
+            button.closest('tr').remove();
+            saveDataToLocalStorage();
+        }
+
+        // Function to save table data to localStorage
+        function saveDataToLocalStorage() {
+            const tableData = [];
+            const rows = document.querySelectorAll('#taskTableBody tr');
+            rows.forEach((row) => {
+                const cells = row.querySelectorAll('td');
+                const completionTime = row.getAttribute('data-completion-time') || null;
+                const taskData = {
+                    task: cells[0].textContent,
+                    endDate: cells[1].textContent,
+                    progress: Array.from(cells[2].querySelectorAll('input[type="radio"]')).find(radio => radio.checked)?.parentElement.textContent.trim() || '',
+                    completionTime: completionTime
+                };
+                tableData.push(taskData);
+            });
+            localStorage.setItem('workPlanData', JSON.stringify(tableData));
+        }
+
+        // Function to load table data from localStorage
+        function loadDataFromLocalStorage() {
+            const storedData = localStorage.getItem('workPlanData');
+            if (storedData) {
+                const tableData = JSON.parse(storedData);
+                const currentTime = new Date().getTime();
+                tableData.forEach(data => {
+                    if (data.progress === "Completed" && data.completionTime) {
+                        const timeElapsed = currentTime - data.completionTime;
+                        if (timeElapsed < 24 * 60 * 60 * 1000) {
+                            addRowToTable(data.task, data.endDate, data.progress, data.completionTime);
+                        }
+                    } else {
+                        addRowToTable(data.task, data.endDate, data.progress);
+                    }
+                });
+            }
+        }
+
+        // Function to toggle theme between light and dark
+        function toggleTheme() {
+            const body = document.body;
+            const isDarkMode = body.classList.toggle('dark-mode');
+            document.querySelector('.theme-toggle span').textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+
+        // Load data when the page loads
+        window.onload = () => {
+            loadDataFromLocalStorage();
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle span').textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
