@@ -37,16 +37,17 @@
         form {
             margin-bottom: 20px;
             padding: 20px;
-            background: #fff;
+            background: #fafafa00;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 16px;
-            color: #555;
+    margin-bottom: -2px;
+    font-size: 16px;
+    color: #007bff;
+    font-weight: 600;
         }
 
         input[type="text"], input[type="date"], button {
@@ -82,8 +83,11 @@
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
-            font-size: 16px;
-            color: black;
+        font-weight: 800;
+        font-size: 15px;
+        border: 1px solid #555;
+    color: #007bff;
+    text-align: center;
         }
 
         th {
@@ -222,9 +226,9 @@
         <!-- Form to add new tasks -->
         <form id="taskForm">
             <label for="task">Task: </label>
-            <input type="text" id="task" name="task" required>
+            <input type="text" id="task" name="task" placeholder="enter the task here" required>
             <label for="endDate">End Date: </label>
-            <input type="date" id="endDate" name="endDate" required>
+            <input type="date" id="endDate" name="endDate" placeholder="select the end date here" required>
             <button type="button" onclick="addTask()">Add Task</button>
         </form>
         <div id="currentDate" class="date-display"></div>
