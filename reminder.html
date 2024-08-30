@@ -217,8 +217,6 @@
     </div>
 
     <div class="container">
-        <!-- New div to display the date -->
-        
         <h2>Reminder</h2>
 
         <!-- Form to add new tasks -->
@@ -229,7 +227,7 @@
             <input type="date" id="endDate" name="endDate" required>
             <button type="button" onclick="addTask()">Add Task</button>
         </form>
-        <div id="currentDate" class="date-display"></div> 
+        <div id="currentDate" class="date-display"></div>
 
         <!-- Table for work plan/tasks -->
         <table>
@@ -247,25 +245,33 @@
     </div>
 
     <script>
-        // Function to display the current date
+        // Function to display the current date in DD-MM-YYYY format
         function displayCurrentDate() {
             const currentDateElement = document.getElementById('currentDate');
             const today = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            currentDateElement.textContent = today.toLocaleDateString('en-US', options);
+            const day = today.getDate();
+            const month = today.getMonth() + 1;
+            const year = today.getFullYear();
+            const formattedDate = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
+            currentDateElement.textContent = formattedDate;
         }
 
-        // Function to add a new task row to the table and store it in localStorage
+        // Function to add a task to the table
         function addTask() {
-            const task = document.getElementById('task').value;
-            const endDate = document.getElementById('endDate').value;
+            const taskInput = document.getElementById('task');
+            const endDateInput = document.getElementById('endDate');
 
-            addRowToTable(task, endDate);
-            saveDataToLocalStorage();
-            document.getElementById('taskForm').reset();
+            if (taskInput.value && endDateInput.value) {
+                const task = taskInput.value;
+                const endDate = endDateInput.value;
+                addRowToTable(task, endDate);
+                taskInput.value = '';
+                endDateInput.value = '';
+                saveDataToLocalStorage();
+            }
         }
 
-        // Function to add a row to the table
+        // Function to add a row to the table with the date in DD-MM-YYYY format
         function addRowToTable(task, endDate, completionTime = null) {
             const tableBody = document.getElementById('taskTableBody');
             const newRow = tableBody.insertRow();
@@ -275,23 +281,45 @@
             const actionCell = newRow.insertCell(2);
 
             taskCell.textContent = task;
-            endDateCell.textContent = endDate;
+            endDateCell.textContent = formatDate(endDate);
 
             actionCell.innerHTML = `<button class="delete-btn" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>`;
 
-            // Store completion time if provided
             if (completionTime) {
                 newRow.setAttribute('data-completion-time', completionTime);
             }
         }
 
-        // Function to delete a row from the table
-        function deleteRow(button) {
-            button.closest('tr').remove();
-            saveDataToLocalStorage();
+        // Helper function to format a date string to DD-MM-YYYY
+        function formatDate(dateString) {
+            const dateParts = dateString.split('-');
+            if (dateParts.length === 3) {
+                return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+            }
+            return dateString;
         }
 
-        // Function to save table data to localStorage
+        // Function to load table data from localStorage with formatted dates
+        function loadDataFromLocalStorage() {
+            const storedData = localStorage.getItem('workPlanData');
+            if (storedData) {
+                const tableData = JSON.parse(storedData);
+                const currentTime = new Date().getTime();
+                tableData.forEach(data => {
+                    const formattedEndDate = formatDate(data.endDate);
+                    if (data.completionTime) {
+                        const timeElapsed = currentTime - data.completionTime;
+                        if (timeElapsed < 24 * 60 * 60 * 1000) {
+                            addRowToTable(data.task, formattedEndDate, data.completionTime);
+                        }
+                    } else {
+                        addRowToTable(data.task, formattedEndDate);
+                    }
+                });
+            }
+        }
+
+        // Function to save table data to localStorage with formatted dates
         function saveDataToLocalStorage() {
             const tableData = [];
             const rows = document.querySelectorAll('#taskTableBody tr');
@@ -300,7 +328,7 @@
                 const completionTime = row.getAttribute('data-completion-time') || null;
                 const taskData = {
                     task: cells[0].textContent,
-                    endDate: cells[1].textContent,
+                    endDate: formatDate(cells[1].textContent),
                     completionTime: completionTime
                 };
                 tableData.push(taskData);
@@ -308,15 +336,25 @@
             localStorage.setItem('workPlanData', JSON.stringify(tableData));
         }
 
-        // Function to load table data from localStorage
-        function loadDataFromLocalStorage() {
-            const storedData = localStorage.getItem('workPlanData');
-            if (storedData) {
-                const tableData = JSON.parse(storedData);
-                tableData.forEach(data => {
-                    addRowToTable(data.task, data.endDate, data.completionTime);
-                });
+        // Function to update progress and handle completed tasks
+        function updateProgress(radioButton) {
+            const progress = radioButton.parentElement.textContent.trim();
+            if (progress === "Completed") {
+                alert("This task will be automatically deleted after 24 hours.");
+                const row = radioButton.closest('tr');
+                const completionTime = new Date().getTime();
+                row.setAttribute('data-completion-time', completionTime);
+            } else {
+                const row = radioButton.closest('tr');
+                row.removeAttribute('data-completion-time');
             }
+            saveDataToLocalStorage();
+        }
+
+        // Function to delete a row from the table
+        function deleteRow(button) {
+            button.closest('tr').remove();
+            saveDataToLocalStorage();
         }
 
         // Function to toggle theme between light and dark
@@ -329,8 +367,8 @@
 
         // Load data when the page loads
         window.onload = () => {
-            displayCurrentDate(); // Display the current date
             loadDataFromLocalStorage();
+            displayCurrentDate(); // Display the current date
             const savedTheme = localStorage.getItem('theme') || 'light';
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
