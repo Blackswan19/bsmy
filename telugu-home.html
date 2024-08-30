@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFI - Telugu</title>
+    <title>MFI - Language Selection</title>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/nPT3wz1/mfilogo.png">
 </head>
 <style>
@@ -59,20 +59,19 @@
         margin-top: 20px;
         border-radius: 8px;
         font-size: 14px;
-        
     }
     .matter {
         text-align: center;
         margin-top: 240px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #9f876d;
+        font-size: 14px;
+        font-weight: 500;
+        color: #9f876d;
     }
     .logoimg img {
         width: 69%;
-    margin: 33px auto;
-    display: block;
-    border-radius: 100px;
+        margin: 33px auto;
+        display: block;
+        border-radius: 100px;
     }
     /* Modal Styles */
     .modal {
@@ -88,7 +87,7 @@
     }
     .modal-content {
         background-color: #333;
-        margin: 60% auto;
+        margin: 20% auto;
         padding: 30px;
         border: 1px solid #888;
         width: 80%;
@@ -121,7 +120,6 @@
         font-size: 16px;
         outline: none;
         color: #000000;
-        
     }
     .modal-content button {
         background: #9f876d;
@@ -139,63 +137,126 @@
     }
     .error-message {
         color: rgb(0 255 234);
-    font-weight: 400;
-    margin-top: 10px;
+        font-weight: 400;
+        margin-top: 10px;
     }
 </style>
 <body>
-    <div class="content">
-        <div class="logo">MFI</div>
-        <div class="logoimg">
-            <img src="https://kccuk.org.uk/media/images/hwajodo.2e16d0ba.fill-947x436.jpg" alt="">
+    <!-- Language Selection Modal -->
+    <div id="languageModal" class="modal">
+        <div class="modal-content">
+            <p>Select your language:</p>
+            <button id="englishBtn">English</button>
+            <button id="teluguBtn">Telugu</button>
         </div>
-        <div class="options">
-            <a href="#" id="accountLink">నా ఖాతా</a><br>
-            <button>
-                <a style="color: #000000;" href="https://docs.google.com/forms/d/e/1FAIpQLSefVPLjf_zq0TbJLJasndDZEUGYCun0kYvKg4fqoLvGa8FsTQ/viewform">నేను డబ్బు తీసుకుంటాను</a>
-            </button>
-        </div>
-        <div class="matter">మేము మీకు సహాయం చేశామని ఆశిస్తున్నాము.</div>
     </div>
 
-    <!-- The Modal -->
+    <!-- English Content -->
+    <div id="englishContent" style="display: none;">
+        <div class="content">
+            <div class="logo">MFI</div>
+            <div class="logoimg">
+                <img src="https://kccuk.org.uk/media/images/hwajodo.2e16d0ba.fill-947x436.jpg" alt="">
+            </div>
+            <div class="options">
+                <a href="#" id="accountLink">My Account</a><br>
+                <button>
+                    <a style="color: #000000;" href="https://docs.google.com/forms/d/e/1FAIpQLSefVPLjf_zq0TbJLJasndDZEUGYCun0kYvKg4fqoLvGa8FsTQ/viewform">I want to take money</a>
+                </button>
+            </div>
+            <div class="matter">We hope we have helped you.</div>
+        </div>
+    </div>
+
+    <!-- Telugu Content -->
+    <div id="teluguContent" style="display: none;">
+        <div class="content">
+            <div class="logo">MFI</div>
+            <div class="logoimg">
+                <img src="https://kccuk.org.uk/media/images/hwajodo.2e16d0ba.fill-947x436.jpg" alt="">
+            </div>
+            <div class="options">
+                <a href="#" id="accountLinkTelugu">నా ఖాతా</a><br>
+                <button>
+                    <a style="color: #000000;" href="https://docs.google.com/forms/d/e/1FAIpQLSefVPLjf_zq0TbJLJasndDZEUGYCun0kYvKg4fqoLvGa8FsTQ/viewform">నేను డబ్బు తీసుకుంటాను</a>
+                </button>
+            </div>
+            <div class="matter">మేము మీకు సహాయం చేశామని ఆశిస్తున్నాము.</div>
+        </div>
+    </div>
+
+    <!-- The Password Modal -->
     <div id="passwordModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>పాస్వర్డ్‌ను నమోదు చేయండి</p>
-            <input type="password" id="userPassword" placeholder="పాస్వర్డ్">
+            <p>Enter Password</p>
+            <input type="password" id="userPassword" placeholder="Password">
             <p id="error-message" class="error-message"></p>
             <button id="submitPassword">Submit</button>
         </div>
     </div>
 
     <script>
-        var modal = document.getElementById("passwordModal");
-        var btn = document.getElementById("accountLink");
-        var span = document.getElementsByClassName("close")[0];
-        var submitBtn = document.getElementById("submitPassword");
+        // Language Selection Modal
+        var languageModal = document.getElementById("languageModal");
+        var englishContent = document.getElementById("englishContent");
+        var teluguContent = document.getElementById("teluguContent");
+        var englishBtn = document.getElementById("englishBtn");
+        var teluguBtn = document.getElementById("teluguBtn");
 
-        btn.onclick = function() {
-            modal.style.display = "block";
+        // Show language selection modal on page load
+        window.onload = function() {
+            languageModal.style.display = "block";
+        };
+
+        // Function to show content based on language selection
+        function showContent(language) {
+            languageModal.style.display = "none";
+            if (language === 'english') {
+                englishContent.style.display = "block";
+                teluguContent.style.display = "none";
+            } else if (language === 'telugu') {
+                teluguContent.style.display = "block";
+                englishContent.style.display = "none";
+            }
         }
 
-        span.onclick = function() {
-            modal.style.display = "none";
+        // Event listeners for language selection buttons
+        englishBtn.onclick = function() {
+            showContent('english');
+        };
+
+        teluguBtn.onclick = function() {
+            showContent('telugu');
+        };
+
+        // Password Modal functionality (as before)
+        var passwordModal = document.getElementById("passwordModal");
+        var btnTelugu = document.getElementById("accountLinkTelugu");
+        var closeBtn = document.getElementsByClassName("close")[0];
+        var submitPasswordBtn = document.getElementById("submitPassword");
+
+        btnTelugu.onclick = function() {
+            passwordModal.style.display = "block";
         }
 
-        submitBtn.onclick = function() {
+        closeBtn.onclick = function() {
+            passwordModal.style.display = "none";
+        }
+
+        submitPasswordBtn.onclick = function() {
             var userInput = document.getElementById("userPassword").value;
             var errorMessage = document.getElementById('error-message');
             if (userInput === "") {
-                errorMessage.textContent = "పాస్వర్డ్ను నమోదు చేయండి...!";
+                errorMessage.textContent = "Please enter the password.";
             } else {
-                errorMessage.textContent = "తప్పు పాస్వర్డ్...!";
+                errorMessage.textContent = "Incorrect password!";
             }
         }
 
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == passwordModal) {
+                passwordModal.style.display = "none";
             }
         }
     </script>
