@@ -87,7 +87,7 @@
     }
     .modal-content {
         background-color: #333;
-        margin: 20% auto;
+        margin: 70% auto;
         padding: 30px;
         border: 1px solid #888;
         width: 80%;
@@ -120,6 +120,7 @@
         font-size: 16px;
         outline: none;
         color: #000000;
+        text-align: center;
     }
     .modal-content button {
         background: #9f876d;
@@ -142,8 +143,8 @@
     }
 </style>
 <body>
-    <!-- Language Selection Modal -->
-    <div id="languageModal" class="modal">
+     <!-- Language Selection Modal -->
+     <div id="languageModal" class="modal">
         <div class="modal-content">
             <p>Select your language:</p>
             <button id="englishBtn">English</button>
@@ -159,7 +160,7 @@
                 <img src="https://kccuk.org.uk/media/images/hwajodo.2e16d0ba.fill-947x436.jpg" alt="">
             </div>
             <div class="options">
-                <a href="#" id="accountLink">My Account</a><br>
+                <a href="#" id="accountLinkEnglish">My Account</a><br>
                 <button>
                     <a style="color: #000000;" href="https://docs.google.com/forms/d/e/1FAIpQLSefVPLjf_zq0TbJLJasndDZEUGYCun0kYvKg4fqoLvGa8FsTQ/viewform">I want to take money</a>
                 </button>
@@ -189,7 +190,7 @@
     <div id="passwordModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Enter Password</p>
+            <p id="passwordPrompt">Enter Password</p>
             <input type="password" id="userPassword" placeholder="Password">
             <p id="error-message" class="error-message"></p>
             <button id="submitPassword">Submit</button>
@@ -203,6 +204,7 @@
         var teluguContent = document.getElementById("teluguContent");
         var englishBtn = document.getElementById("englishBtn");
         var teluguBtn = document.getElementById("teluguBtn");
+        var selectedLanguage = 'english'; // Default language
 
         // Show language selection modal on page load
         window.onload = function() {
@@ -211,6 +213,7 @@
 
         // Function to show content based on language selection
         function showContent(language) {
+            selectedLanguage = language;
             languageModal.style.display = "none";
             if (language === 'english') {
                 englishContent.style.display = "block";
@@ -219,6 +222,7 @@
                 teluguContent.style.display = "block";
                 englishContent.style.display = "none";
             }
+            updateModalLanguage(); // Update modal text based on language selection
         }
 
         // Event listeners for language selection buttons
@@ -230,13 +234,29 @@
             showContent('telugu');
         };
 
-        // Password Modal functionality (as before)
+        // Function to update password modal text based on selected language
+        function updateModalLanguage() {
+            var passwordPrompt = document.getElementById("passwordPrompt");
+            var submitPasswordBtn = document.getElementById("submitPassword");
+            
+            if (selectedLanguage === 'english') {
+                passwordPrompt.textContent = "Enter Password";
+                submitPasswordBtn.textContent = "Submit";
+            } else if (selectedLanguage === 'telugu') {
+                passwordPrompt.textContent = "పాస్వర్డ్‌ను నమోదు చేయండి";
+                submitPasswordBtn.textContent = "సబ్మిట్";
+            }
+        }
+
+        // Password Modal functionality
         var passwordModal = document.getElementById("passwordModal");
+        var btnEnglish = document.getElementById("accountLinkEnglish");
         var btnTelugu = document.getElementById("accountLinkTelugu");
         var closeBtn = document.getElementsByClassName("close")[0];
         var submitPasswordBtn = document.getElementById("submitPassword");
 
-        btnTelugu.onclick = function() {
+        // Show password modal for both language content links
+        btnEnglish.onclick = btnTelugu.onclick = function() {
             passwordModal.style.display = "block";
         }
 
@@ -248,9 +268,9 @@
             var userInput = document.getElementById("userPassword").value;
             var errorMessage = document.getElementById('error-message');
             if (userInput === "") {
-                errorMessage.textContent = "Please enter the password.";
+                errorMessage.textContent = selectedLanguage === 'english' ? "Please enter the password." : "పాస్వర్డ్ను నమోదు చేయండి...!";
             } else {
-                errorMessage.textContent = "Incorrect password!";
+                errorMessage.textContent = selectedLanguage === 'english' ? "Incorrect password!" : "తప్పు పాస్వర్డ్...!";
             }
         }
 
