@@ -69,9 +69,28 @@
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
         <li><a href="aleart.html">Aleart</a></li><br><br><br>
-        <a href="https://blackswan19.github.io/bsmy/Bs.html" target="_blank" style="font-size: 11px;
-        text-align: center;
-        background: #313131;border: solid 1px #313131;">open in chrome</a>
+        <a href="https://blackswan19.github.io/bsmy/Bs.html" target="_blank" 
+        style="font-size: 11px; text-align: center; background: #313131; border: solid 1px #313131;"
+        onclick="openInChrome(event)">Open in Chrome</a>
+     
+     <script>
+     function openInChrome(event) {
+         // Prevent the default anchor click behavior
+         event.preventDefault();
+     
+         // Check if the user is using Chrome
+         var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+     
+         if (isChrome) {
+             // If Chrome, open the link
+             window.open(event.currentTarget.href, '_blank');
+         } else {
+             // If not Chrome, alert the user
+             alert('Open this link in Google Chrome for the best experience.');
+         }
+     }
+     </script>
+     
     </ul>
 </body>
 </html>
