@@ -74,26 +74,6 @@
    onclick="alert('Open this link in Google Chrome for the best experience.');">
    Open in Chrome
 </a>
-    
-     
-     <script>
-     function openInChrome(event) {
-         // Prevent the default anchor click behavior
-         event.preventDefault();
-     
-         // Check if the user is using Chrome
-         var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-     
-         if (isChrome) {
-             // If Chrome, open the link
-             window.open(event.currentTarget.href, '_blank');
-         } else {
-             // If not Chrome, alert the user
-             alert('Open this link in Google Chrome for the best experience.');
-         }
-     }
-     </script>
-     
     </ul>
 </body>
 </html>
