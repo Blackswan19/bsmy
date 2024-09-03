@@ -3,111 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pardha - For the Future</title>
-    <link rel="icon" type="image/x-icon" href="pardha.png">
+    <title>Finance</title>
+    <link rel="icon" type="image/x-icon" href="flogo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        
-        body {
+        * {
             font-family: "Red Hat Display", sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            position: fixed;
+            color: #f0f0f0;
         }
 
-        a {
-            color: #ffffff;
+        body {
+            color: #e0e0e0;
+            background: linear-gradient(to bottom right, #000000, #ab0000);
+            padding: 20px;
+            line-height: 1.6;
+            display: none;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #57e0ff;
+            text-align: center;
+            margin: 54px 0px;
+            font-size: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: #1a1a1a;
+            border-radius: 12px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 1rem;
+        }
+
+        p {
+            margin: 20px 0;
+            padding: 0 15px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .graph {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: #004080;
+            color: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        .graph a {
+            color: #f0f0f0;
             text-decoration: none;
-            background: #000000;
-            padding: 7px 20px;
-            border-radius: 7px;
+        }
+
+        .graph:hover {
+            background: #00264d;
         }
 
         img {
-            width: 100%;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
 
-        .option a {
-            display: inline-block;
-            background-color: #1e90ff;
-            color: #121212;
-            padding: 10px 20px;
-            border-radius: 50%;
-            font-size: 24px;
-            margin: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .option a:hover {
-            background-color: #1e8fff9d;
-        }
-
-        .social {
-    font-size: 16px;
-    color: #000000;
-    position: fixed;
-    bottom: 60px;
-    text-align: center;
-    width: 100%;
-        }
-        .social a{
-            background-color: #1e90ff;
-        }
-        .social a:hover {
-            background-color: #005dba;
-        }
-        p{
-            position: fixed;
-        }
         @media screen and (max-width: 480px) {
-            .option a {
-                font-size: 18px;
-                padding: 11px 15px;
+            body {
+                display: block;
+                padding: 15px;
+                height: 40em;
             }
 
             .graph {
-                font-size: 12px;
-                padding: 8px 12px;
+                font-size: 0.9rem;
+                padding: 8px 15px;
+                bottom: -1em;
+                right: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            li {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            .account {
+                position: absolute;
+        bottom: 16em;
+        width: 23%;
+        background: black;
+        padding: 10px 0px;
+        border-radius: 44px;
+        left: 39%;
             }
 
             p {
-                font-size: 14px;
-                position: fixed;
-                bottom: 140px;
-                width: 85%;
-                text-align: center;
-                left: 8%;
+                font-size: 20px;
+                padding: 0 10px;
             }
 
-            .offer {
-                position: fixed;
-                bottom: 315px;
-                right: 13px;
-                font-size: 13px;
+            button {
+                position: relative;
+                padding: 11px 20px;
+                background: #000000;
+                outline: none;
+                border: none;
+                color: #f0f0f0;
+                border-radius: 8px;
+                top: 4em;
             }
+            .container {
+                position: relative;
+                top: 5em;
+            }
+            .note {
+                position: fixed;
+        bottom: 0em;
+        padding: 15px 20px;
+        width: 95%;
+        font-size: 13px;
+        background: black;
+        left: -10px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        background: #000000;
+
+            }
+            video {
+                width: 20%;
+                position: fixed;
+                z-index: 1;
+                border-radius: 16px;
+                bottom: 18px;
+                left: 24px;
+            }
+            .social {
+                font-size: 15px;
+        color: #000000;
+        position: fixed;
+        bottom: 13em;
+        text-align: center;
+        width: 89%;
+        }
         }
     </style>
 </head>
 <body>
-    <img src="pardha.png" alt="">
-    <!-- <script>
-        alert("\n\nAdvance Happy Birthday Deputy Chief Minister Garu. \n\nOffer:\nA new offer has been launched. Hope it helps you.")
-    </script>
-    <img src="https://i.ibb.co/hs3W74w/pspkpardha.png" alt=""> -->
-    <div class="option">
+    <img src="pardha.png" alt="Logo">
+    <div class="account">
         <a href="#" onclick="checkPassword()"><i class="fa-solid fa-list-check"></i></a>
     </div>
-    <div class="matter">
-        <p>With Pardha, you can manage your interest payments easily. With only small charges, use Pardha. When it's time to pay your interest or the amount, we help you pay off your interest faster and with less stress.</p>
+    <div class="social">
+        <a href="https://forms.gle/aYxf3wpv2WkyU3RCA">Apply For Pardha</a>
     </div>
-    <!-- <div class="offer">
-        <a href="javascript:void(0)" onclick="applyOffer()" style="color: white;">CM Sir Offer</a>
-    </div> -->
+    
+    <div class="note">
+        With Pardha, you can manage your interest payments easily. With only small charges, use Pardha. When it's time to pay your interest or the amount, we help you pay off your interest faster and with less stress.
+    </div>
+    
     <script>
         function checkPassword() {
             var userInput = prompt("Enter the password");
@@ -139,8 +216,5 @@
         //     }
         // }
      </script>
-     <div class="social">
-        <a href="https://forms.gle/aYxf3wpv2WkyU3RCA">Apply For Pardha</a>
-    </div>
 </body>
 </html>
