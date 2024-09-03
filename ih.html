@@ -3,109 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interest Hepler</title>
-    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/b1/22/aa/b122aa7930d0e08092f394b44fd3f4c3.jpg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap">
+    <title>Alert</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/9172/9172373.png">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        * {
-            font-family: "Red Hat Display", sans-serif;
-            color: #ffffff;
-            font-weight: 400;
-        }
         body {
-            font-family: 'Libre Bodoni', serif;
-            /* background-color: #121212;  */
-            background-image: url("https://images.unsplash.com/photo-1650434910052-d7e543942644?q=80&w=2201&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-            color: #f8f0e3; /* Beige text for contrast */
-            position: fixed; 
-            background-size: 150%;
-            background-position: 39% -6%;
+            font-family: 'Courier New', Courier, monospace; /* Classic vintage font */
+            background-image: url("https://images.unsplash.com/photo-1637516408720-c7d7fd09a16e?q=80&w=2160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: 113%;
+            color: #f5f5f5; /* Light gray text for contrast */
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
-        .logo {
-            position: fixed;
-            top: 6px;
-            font-size: 25px;
-    color: #f8f0e3;
-    left: 13px;
-    font-weight: 600;
-}
-        input {
-            padding: 12px 19px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    text-align: center;
-    font-weight: 600;
-        }
-        input::placeholder {
-            color: #a9a9a9; /* Light gray placeholder color */
-        }
-        a {
+        a{
             text-decoration: none;
-            color: #1e90ff; /* Light blue link color */
         }
-        .content {
-            margin: 13em auto;
-    background-color: #000000ba;
-    padding: 30px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 40%);
-    text-align: center;
-    width: 75%;
-    position: fixed;
-    left: 18px;
-        }
-        .extra {
+        .offer{
             position: fixed;
-    text-align: center;
-    color: #ffffff;
-    width: 75%;
-    bottom: 45px;
+    right: 13px;
+    font-size: 15px;
+    top: 72%;
+    background: #464646;
+    padding: 10px;
+    border-radius: 11px;
+
         }
-        ::placeholder{
-            color: #000000;
+        .offers{
+            position: fixed;
+    left: 13px;
+    font-size: 16px;
+    top: 72%;
+    background: #464646;
+    padding: 10px;
+    border-radius: 13px;
+
+        }
+        .container {
+            width: 70%;
+    margin: 16% auto;
+    padding: 55px;
+    position: fixed;
+        }
+
+        h2, h6 {
+            color: #cccccc; /* Light gray text for headings */
+            margin-bottom: 20px;
+            font-size: 29px;
+        }
+
+        .days-count {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-top: 20px;
+        }
+        .quote{
+            background: #151515;
+    padding: 21px 0px;
+    bottom: 0px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    position: fixed;
+    font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="logo">
-        Interest Hepler
+    <div class="container">
+        Welcome to<br><br><img src="https://cdn-icons-png.flaticon.com/512/9172/9172373.png" alt="" width="40%"><h2>Alert</h2><hr>
+        A place where you can find your offers amount returning dates.
+        <div class="days-count" id="days-count"></div> <!-- Added div for displaying days count -->
     </div>
-    <a style="top: 76px;
-    right: 18px;
-    color: #ffffff;
-    background: #000000;
-    padding: 8px 16px;
-    border-radius: 50px;
-    position: fixed;" href="https://forms.gle/Mp8itfWTVKmhvvbp9">Apply</a>
-    <div class="content">
-        <div class="offers">
-            <p>With our offers get our wallet service with specific offer like 252,192 and 173 rs per month.</p>
-        <hr>
-        <h2 style="color: #f8f0e3;">IH - Wallet</h2>
-        <form id="passwordForm" onsubmit="return validatePasswords()">
-            <input type="password" id="password" name="password" placeholder="Enter the wallet pin" required><br><br>
-            <script>
-                function validatePasswords() {
-                    var password = document.getElementById("password").value;
-                    if (password === "1789") {
-                        alert("\nAccount Owner: Chinna.")
-                        alert("\nTaken offer : 252.\n\nTaken offer on : 29-09-2024\n\nInterest paid : Sucessful")
-                        alert("\nThank you for using Interest Hepler.")
-                    } else {
-                        alert("User not exists in Wallet.");
-                        return false;  // Prevent form submission
-                    }
-                }
-            </script>
-            <input type="submit" value="Submit">
-        </form>
+
+    <div class="offer">
+        <a href="javascript:void(0)" onclick="checkPassword()" style="color: white;">All Offer</a><br>
     </div>
-    <div class="extra">
-        We hope we helped you
+    <script>
+        function checkPassword() {
+            alert("\nOffers available\n\nNOTE: Offers prices may change some times at the end of every month but these are the fixed prices for offers.")
+                        // alert("\nABOVE 5K OFFERS\n\n\n986 - Get 10,000 @2\mon .\n\n896 - Get 9,000 @2\mon .\n\n780 - Get 8,000 @2\mon .\n\n671 - Get 7,000 @2\mon .\n\n584 - Get 6,000 @2\mon .")
+                        // alert("\nBELOW 5K OFFERS\n\n\n483 - Get 5,000 @2\mon \n\n442 - Get 4,000 @2\mon .\n\n410 - Get 3,000 @2\mon .\n\n389 - Get 2,000 @2\mon .\n\n320 - Get 1,000 @1\mon.")
+                        alert("Currently no offer has not found.")
+        }
+    </script>
+
+    <div class="offers">
+        <a href="javascript:void(0)" onclick="checkPasswords()" style="color: white;">Aleart me</a>
+    </div>
+    <script>
+        function checkPasswords() {
+        var userInput = prompt("\nEnter your alert pin");
+
+        if (accounts[userInput]) {
+            showAlert(accounts[userInput]);
+        }else if (userInput === "1789"){
+            alert("\nAccount Owner: Chinna.")
+            alert("\nYou have 3 active offers.");
+            alert("\nOFFER 1 DETAILS\n\n\nValidity : 2 months\n\nTaken in: Finance\n\nTaken on : 26-08-2024\n\nReturning on : 26-10-2024");
+            alert("\nOFFER 2 DETAILS\n\n\nValidity : 1 months\n\nTaken in: Interest helper\n\nTaken on : 29-08-2024\n\nReturning on : 29-09-2024");
+            alert("\nTaken pardha for 5 months\n\nDon't forgot to pay monthly charge of 4000rs.");
+            alert("\nThanks for using MFI    aleart.")
+        }
+         else {
+            alert("\nIncorrect code.");}}
+        function addDaysToDate(date, days) {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return formatDate(result); // Format date in desired format
+        }
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JS
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`; // Format date as dd/mm/yyyy
+        }
+
+        function calculateDaysBetweenDates(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const differenceInTime = end - start;
+            return Math.floor(differenceInTime / (1000 * 3600 * 24)); // Convert milliseconds to days
+        }
+
+        function showAlert(account) {
+            const today = new Date();
+            const takenDate = new Date(account.takenDate.split('-').reverse().join('-'));
+            const daysSinceTaken = calculateDaysBetweenDates(takenDate, today);
+            const returnDate = addDaysToDate(takenDate, account.daysToAdd); // Update this line to use takenDate
+            const interest = account.amount + (daysSinceTaken * account.additionalInterest);
+            
+            alert("\nWelcome to EFI alert");
+            alert(`\nTaken amount = ${account.amount}\n\nTaken on - ${formatDate(takenDate)}\n--------------------------\nYour returning date was - ${returnDate}\n\nTill today interest = ${interest}`);
+            alert("\nThank you");
+
+            // Update the days count in the HTML
+            document.getElementById('days-count').innerText = `Days since amount was taken: ${daysSinceTaken}`;
+        }
+
+        const accounts = {
+            // "1789": { amount: 7000, takenDate: "26-09-2024", daysToAdd: 2, additionalInterest: 40 },
+            // "1789": { amount: 9000, takenDate: "21-08-2024", daysToAdd: 10, additionalInterest: 50 },
+            // Add more accounts as needed
+        };
+    </script>
+    <div class="quote">
+        Make sure, Don't delay it more
     </div>
 </body>
 </html>
