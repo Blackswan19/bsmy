@@ -240,7 +240,7 @@
             <input type="password" id="userPassword" placeholder="Enter the password">
             <button id="submitPassword">Submit</button>
             <h6 style="color: #1e90ff;font-weight: 400;">Don't enter any wrong password</h6>
-            <p id="error-message" class="error-message"></p>
+            <p id="error-message" class="error-message" style="color: rgb(255, 0, 0);font-weight: 600;letter-spacing: 0.8px;"></p>
         </div>
     </div>
 
@@ -292,7 +292,7 @@
                 errorMessage.textContent = "Incorrect password!";
                 setTimeout(function() {
                     errorMessage.textContent = ""; // Clear the error message after 1 second
-                }, 1000);
+                }, 3000);
             }
     
             // Clear the input field after submission
