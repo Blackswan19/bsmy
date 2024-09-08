@@ -3,90 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Indigo</title>
+    <title>MFI</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/QMjCdHQ/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
-    <style>
-        body {
-            font-family: "Noto Sans", sans-serif;
-            background-color: #ffffff;
-        }
-        .switch button{
-            padding: 11px 30px;
-            background: #3f39e8;
-            outline: none;
-            border: none;
-            border-radius: 9px;
-            font-size: 15px;
-            color: white;
-            font-weight: 500;
-            font-family: "Noto Sans", sans-serif;
-        }
-        .switch{
-            position: fixed;
-            text-align: center;
-            width: 94%;
-            bottom: 150px;
-        }
-        .logo{
-            position: fixed;
-            text-align: center;
-            width: 94%;
-            font-size: 32px;
-            font-weight: 800;
-            color: #3f39e8;
-            top: 25px;
-        }
-        .note{
-            position: fixed;
-    bottom: 9px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    width: 93%;
-        }
-   </style>
 </head>
+<style>
+    body {
+        font-family: "Noto Sans", sans-serif;
+        background-color: #1f1f1f;
+        display: block;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    @media (max-width: 480px) {
+        img {
+            position: fixed;
+            left: 12%;
+        top: 8%;
+        width: 75%;
+        border-radius: 11px;
+        }
+        .logoimg{
+            background: #261916;
+        padding: 71px 60px;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 8%;
+        }
+        .input {
+            outline: none;
+        top: 9em;
+        width: 64%;
+        position: fixed;
+        padding: 18px 25px;
+        background: #261916;
+        border: none;
+        border-radius: 78px;
+        color: #dfccbc;
+        font-size: 19px;
+        left: 10%;
+        text-align: center;
+        }
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.849);
+        }
+        .option {
+            position: absolute;
+            right: 8px;
+        }
+        .option .fa-solid, .fas {
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+            position: relative;
+            padding: 12px 12px;
+            background: #303030;
+            border-radius: 100px;
+            font-size: 18px;
+        }
+        .matter p .fa-solid, .fas {
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+            position: relative;
+            padding: 12px 12px;
+            background: #000000;
+            border-radius: 100px;
+            font-size: 18px;
+        }
+        p {
+            position: fixed;
+            z-index: 1;
+            color: white;
+            bottom: 28.5em;
+            font-size: 13px;
+            background: #000000;
+            padding: 8px 13px;
+            text-align: center;
+            width: 85%;
+            border-radius: 49px;
+            left: 4%;
+            position: absolute;
+        }
+        .mfilogo {
+            position: absolute;
+            left: 6px;
+            color: white;
+            z-index: 2;
+            top: 1%;
+            font-size: 16px;
+            background: #303030;
+            padding: 10px 20px;
+            border-radius: 43px;
+        }
+        .options {
+            position: absolute;
+        display: grid;
+        text-align: center;
+        width: 95%;
+        bottom: 29em;
+
+        }
+        .options a {
+            color: #ffffff;
+        background: #313131;
+        padding: 15px 15px;
+        top: 16em;
+        width: 92%;
+        position: relative;
+        font-size: 20px;
+        font-weight: 400;
+    }
+        .grant {
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            bottom: 0em;
+            background: #303135;
+            padding: 21px 11px;
+            left: 0;
+        }
+        .grant a {
+            color: #1e90ff;
+        padding: 3px 35px;
+        position: relative;
+        bottom: 2px;
+        }
+        
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        z-index: 1000000;
+    }
+    .modal-content {
+        background-color: #333;
+    margin: 50% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 62%;
+    max-width: 400px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100000;
+    position: fixed;
+    left: 11%;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    ::placeholder{
+        color: #000000;
+    }
+    .modal-content input {
+        width: 93%;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        color: #000000;
+        text-align: center;
+    }
+    .modal-content button {
+        background: #1e90ff;
+    color: rgb(0, 0, 0);
+    padding: 11px;
+    width: 52%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+    .modal-content button:hover {
+        background: #1e8fffb3;
+        color: #ffffff;
+    }
+    }
+</style>
 <body>
-    <div class="container">
-        <div class="logo">
-            Indigo
-        </div>
-        <div class="tree">
-            <img src="https://i.pinimg.com/564x/b4/03/ff/b403ff41be9800d1e7241c75137eb81e.jpg" alt="" style="top: 75px;width: 100%;position: fixed;">
-        </div>
-        <div class="note">
-            <p><strong style="color: #3f39e8;font-weight: 800;">NOTE:</strong><br>We are currently experiencing some technical issues and are working to fix them as quickly as we can. We appreciate your patience. Until the problem is resolved, we are limiting transactions to 8,000 per person. Thank you for your understanding.</p>
-        </div>
-        <div class="switch">
-            <button onclick="showAlerts()">Apply</button>
+    <div class="option">
+        <a href="telugu-home.html"><i class="fa-solid fa-language"></i></a>
+    </div>
+    <div class="mfilogo">
+        <a href="rules.html">MFI <i class="fa-solid fa-hand-holding-dollar"></i></a>
+    </div>
+    <div class="logoimg">
+        <img src="https://i.ibb.co/dj4tZM8/logo.png" alt="">
+    </div>
+    <div class="input">
+        利息のためのお金
+    </div>
+    <div class="matter">
+        <p><i class="fa-solid fa-comments-dollar"></i> Take money from us for low interest</p>
+    </div>
+    <div class="options">
+        <a href="#" id="accountLink">My Account</a>
+        <a href="pardha.html">Pardha for the Future</a>
+        <a href="finance.html">Finance</a>
 
-            <script>
-                function delay(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-                    }
+    </div>
+    <div class="grant">
+        <a href="https://forms.gle/27SQC2uyMv8QWiLv9">Take money</a>
+        <a href="https://forms.gle/8kpQQdhg7moroWBe6">Return money</a>
+    </div>
 
-                    async function showAlerts() {
-                        alert('Welcome to Indigo!');
-                        const password = prompt('Please enter your password:');
-                        if (password === '1789') {
-                            alert('Wait for few seconds....! We are verifying your account validity.');
-                            await delay(6000);
-                            alert('Verified account..! Welcome Chinna.');
-                            alert('We are redirecting you to the form.');
-                            window.location.href = 'https://forms.gle/Yp6ttDPUnXapA1KH7';
-                        }else if (password === '1389') {
-                            alert('Wait for few seconds....! We are verifying your account validity.');
-                            await delay(8000);
-                            alert('Verified account..! Welcome Phani.');
-                            alert('We are redirecting you to the form.');
-                            window.location.href = 'https://forms.gle/Yp6ttDPUnXapA1KH7';
-                        } else {
-                            alert('Incorrect password. Please try again.');
-                        }
-                    }
-            </script>
+    <!-- The Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="password" id="userPassword" placeholder="Enter the password">
+            <button id="submitPassword">Submit</button>
+            <h6 style="color: #1e90ff;font-weight: 400;">Don't enter any wrong password</h6>
+            <p id="error-message" class="error-message" style="color: rgb(255, 0, 0);font-weight: 600;letter-spacing: 0.8px;"></p>
         </div>
     </div>
+
+    <script>
+        var modal = document.getElementById("passwordModal");
+        var btn = document.getElementById("accountLink");
+        var span = document.getElementsByClassName("close")[0];
+        var submitBtn = document.getElementById("submitPassword");
+    
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+    
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        submitBtn.onclick = function() {
+            var userInput = document.getElementById("userPassword").value;
+            var errorMessage = document.getElementById('error-message');
+    
+            if (userInput === "1789") {
+                setTimeout(function() {
+                    window.location.href = "vip13.html";
+                    errorMessage.textContent = ""; // Clear the message after redirection
+                }, 1000);
+                // setTimeout(function() {
+                //     alert("\nCHINNA AMOUNT DETAILS\n\n\nTaken amount : 20,000 ₹\n\nTaken amount on : 22 July 2024\n\nInterest per month : 600₹\n\nInterest per days : 20₹\n\n________________________\nNOTE: Don't forget to pay interest every month. For delay has taken place extra charges will be added to your interest.");
+                //     var baseInterest = 260;
+                //     var startDate = new Date('2024-08-02');
+                //     var currentDate = new Date();
+                //     var timeDifference = currentDate - startDate;
+                //     var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+                //     var dailyInterest = 20;
+                //     var totalDailyInterest = dailyInterest * daysDifference;
+                //     var totalInterest = baseInterest + totalDailyInterest;
+                //     if (confirm("Visit interest till today?")) {
+                //         alert("Your interest till today: ₹" + totalInterest);
+                //     }
+                //     modal.style.display = "none";
+                //     errorMessage.textContent = ""; // Clear the message after closing modal
+                // }, 1000);
+            } else if (userInput === "1389") {
+                setTimeout(function() {
+                    window.location.href = "vip12.html";
+                    errorMessage.textContent = ""; // Clear the message after redirection
+                }, 1000);
+            } else {
+                errorMessage.textContent = "Incorrect password!";
+                setTimeout(function() {
+                    errorMessage.textContent = ""; // Clear the error message after 1 second
+                }, 3000);
+            }
+    
+            // Clear the input field after submission
+            document.getElementById("userPassword").value = "";
+        }
+    
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById('error-message').textContent = ""; // Clear message when modal is closed
+            }
+        }
+    </script>
+    
+    
 </body>
 </html>
