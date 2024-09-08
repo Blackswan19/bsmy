@@ -3,75 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFI</title>
+    <title> Indigo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <style>
-        
         body {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-            background-color: #121212; 
-            color: #ffffff; 
             font-family: "Noto Sans", sans-serif;
+            background-color: #ffffff;
+        }
+        .switch button{
+            padding: 11px 30px;
+            background: #3f39e8;
+            outline: none;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            color: white;
+            font-weight: 500;
+            font-family: "Noto Sans", sans-serif;
+        }
+        .switch{
+            position: fixed;
             text-align: center;
+            width: 94%;
+            bottom: 150px;
         }
-        ul {
-            list-style-type: none; 
-            padding: 0; 
-            margin: 0; 
+        .logo{
+            position: fixed;
+            text-align: center;
+            width: 94%;
+            font-size: 32px;
+            font-weight: 800;
+            color: #3f39e8;
+            top: 25px;
         }
-        li {
-            margin: 21px 0px;
-            width: 248px;
+        .note{
+            position: fixed;
+    bottom: 9px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    width: 93%;
         }
-        a {
-            display: block; 
-            text-decoration: none; 
-            font-size: 15px; 
-            padding: 15px 30px; 
-            border-radius: 12px; 
-            color: #ffffff; 
-            background: black;border: solid 1px #1e90ff;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease; 
-        }
-
-        
-        a:hover {
-            background-color: #1e90ff; 
-            color: #ffffff; 
-            transform: scale(1.05); 
-            border-color: #1e90ff; 
-        }
-
-        
-        a:active {
-            background-color: #1e90ff;
-            color: #1f1f1f; 
-            border-color: #1e90ff;
-        }
-
-        
-        @media (max-width: 600px) {
-            a {
-                font-size: 18px; 
-                padding: 12px 24px; 
-            }
-        }
-    </style>
+   </style>
 </head>
 <body>
-    <!-- Unordered list for navigation -->
-    <ul>
-        <p>Our services</p><br><br>
-        <li><a href="home.html">MFI</a></li>
-        <li><a href="mterprice.html">Mterprice</a></li>
-        <li><a href="reminder.html"onclick="alert('Reminder..! Use me to remind all your important deadlines and events!')" >Reminder</a></li><br><br><br>
-       <a href="aleart.html" style="font-size: 11px; text-align: center; background: #313131; border: solid 1px #313131;">Open MFI alert
-</a>
-    </ul>
+    <div class="container">
+        <div class="logo">
+            Indigo
+        </div>
+        <div class="tree">
+            <img src="https://i.pinimg.com/564x/b4/03/ff/b403ff41be9800d1e7241c75137eb81e.jpg" alt="" style="top: 75px;width: 100%;position: fixed;">
+        </div>
+        <div class="note">
+            <p><strong style="color: #3f39e8;font-weight: 800;">NOTE:</strong><br>We are currently experiencing some technical issues and are working to fix them as quickly as we can. We appreciate your patience. Until the problem is resolved, we are limiting transactions to 8,000 per person. Thank you for your understanding.</p>
+        </div>
+        <div class="switch">
+            <button onclick="showAlerts()">Apply</button>
+
+            <script>
+                function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+                    }
+
+                    async function showAlerts() {
+                        alert('Welcome to Indigo!');
+                        const password = prompt('Please enter your password:');
+                        if (password === '1789') {
+                            alert('Wait for few seconds....! We are verifying your account validity.');
+                            await delay(6000);
+                            alert('Verified account..! Welcome Chinna.');
+                            alert('We are redirecting you to the form.');
+                            window.location.href = 'https://forms.gle/Yp6ttDPUnXapA1KH7';
+                        }else if (password === '1389') {
+                            alert('Wait for few seconds....! We are verifying your account validity.');
+                            await delay(8000);
+                            alert('Verified account..! Welcome Phani.');
+                            alert('We are redirecting you to the form.');
+                            window.location.href = 'https://forms.gle/Yp6ttDPUnXapA1KH7';
+                        } else {
+                            alert('Incorrect password. Please try again.');
+                        }
+                    }
+            </script>
+        </div>
+    </div>
 </body>
 </html>
