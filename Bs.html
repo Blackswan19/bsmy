@@ -12,9 +12,9 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            height: 100vh; 
+            height: 120vh; 
             margin: 0; 
-            background-color: #121212; 
+            background-color: #000000; 
             color: #ffffff; 
             font-family: "Noto Sans", sans-serif;
             text-align: center;
@@ -35,23 +35,23 @@
             padding: 15px 30px; 
             border-radius: 12px; 
             color: #ffffff; 
-            background: black;border: solid 1px #1e90ff;
+            background: black;border: solid 1px #004cff;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease; 
         }
 
         
         ul a:hover {
-            background-color: #1e90ff; 
+            background-color: #004cff; 
             color: #ffffff; 
             transform: scale(1.05); 
-            border-color: #1e90ff; 
+            border-color: #004cff; 
         }
 
         
         ul a:active {
-            background-color: #1e90ff;
+            background-color: #004cff;
             color: #1f1f1f; 
-            border-color: #1e90ff;
+            border-color: #004cff;
         }
         .p img{
             width: 12%;
@@ -63,6 +63,13 @@
         }
         
         @media (max-width: 600px) {
+            img{
+                position: fixed;
+        width: 65%;
+        bottom: 66%;
+        z-index: -1;
+
+            }
             a {
                 font-size: 18px; 
                 padding: 12px 24px; 
@@ -71,7 +78,7 @@
     </style>
 </head>
 <body>
-    <!-- Unordered list for navigation -->
+    <img src="intoBS.png" alt="">
     <ul>
         <p>Our services</p><br><br>
         <li><a href="home.html">MFI</a></li>
@@ -81,14 +88,14 @@
 
         <script>
         function selectOption() {
-            const userChoice = prompt("Which one you like to visit:\n\n1.Finance\n2.MFI");
+            const userChoice = prompt("Which one you like to visit:\n\n1. Finance\n2. MFI");
         
             if (userChoice === "1") {
                 window.location.href = "financal.html"; // Replace with the actual Finance page URL
             } else if (userChoice === "2") {
                 window.location.href = "mfical.html"; // Replace with the actual MFI page URL
             } else {
-                alert("Invalid choice. Select either\n\n 1.Finance \n 2.MFI.");
+                alert("Invalid choice. Select either\n\n 1 for Finance \n 2 for MFI.");
             }
         }
         </script>
