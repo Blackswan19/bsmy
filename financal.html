@@ -14,7 +14,7 @@
         body{
             background-color: black;
             position: fixed;
-            top: 28%;
+            top: 35%;
         }
         input{
             padding: 5px;
@@ -23,10 +23,11 @@
             width: 35%;
         }
         button{
-            background: gray;
+            background: #004cff;
             color: white;
             border: none;
             padding: 9px 30px;
+            border-radius: 6px;
         }
     </style>
     <script>
@@ -56,13 +57,13 @@
             } else if (amount === 9000) {
                 dailyInterest = 26;
             } else {
-                alert("Please enter a valid amount (1000 to 9000 in increments of 1000).");
+                alert("Enter a valid amount between 1000 to 9000.");
                 return;
             }
 
             // Validate the days input
             if (isNaN(days)) {
-                alert("Please enter valid days.");
+                alert("Enter valid days.");
                 return;
             }
 
