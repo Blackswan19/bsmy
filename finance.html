@@ -6,15 +6,15 @@
     <title>Finance</title>
     <link rel="icon" type="image/x-icon" href="flogo.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
 * {
     font-family: "Red Hat Display", sans-serif;
     color: #e0e0e0;
 }
 
 body {
-    color: #f0f0f0;
-    background: linear-gradient(to bottom right, #1a1a1a, #333333);
+    color: #f5f5f5;
+    background: #1f1f1f; /* Dark Gray Gradient */
     padding: 6px;
     line-height: 1.6;
     display: none;
@@ -23,7 +23,7 @@ body {
 
 h1 {
     font-weight: 700;
-    color: #9e9e9e;
+    color: #213af3; /* Teal */
     text-align: center;
     margin: 54px 0;
     font-size: 2rem;
@@ -36,12 +36,11 @@ ul {
 }
 
 li {
-    background: #2c2c2c;
+    background: #282828; /* Muted Gray */
     border-radius: 12px;
     margin: 10px 0;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    font-size: 1rem;
+    border: solid 1px gray;
 }
 
 p {
@@ -49,30 +48,31 @@ p {
     padding: 0 15px;
     font-size: 1rem;
     text-align: center;
+    color: #213af3;
 }
 
 .graph {
     position: fixed;
     right: 20px;
     top: 20px;
-    background: #424242;
-    color: #e0e0e0;
+    background: #213af3; /* Darker Teal */
+    color: #f5f5f5;
     padding: 10px 20px;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     transition: background 0.3s ease;
 }
 
 .graph a {
-    color: #e0e0e0;
+    color: #f5f5f5;
     text-decoration: none;
 }
 
 .graph:hover {
-    background: #616161;
+    background: #213af3; /* Even Darker Teal */
 }
 
 img {
@@ -81,9 +81,10 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     z-index: 1000;
-    border: solid 1px #e0e0e0;
+    border: solid 2px #909090;
+    background-color: black;
 }
 
 @media screen and (max-width: 480px) {
@@ -124,10 +125,10 @@ img {
     button {
         position: relative;
         padding: 11px 20px;
-        background: #424242;
+        background: #213af3; /* Darker Teal */
         outline: none;
         border: none;
-        color: #e0e0e0;
+        color: #f5f5f5;
         border-radius: 8px;
         top: 4em;
     }
@@ -144,7 +145,7 @@ img {
         padding: 15px 20px;
         width: 89%;
         font-size: 13px;
-        background: #1a1a1a;
+        background: #2d2d2d; /* Dark Gray */
         left: 0;
         line-height: 24px;
         letter-spacing: 0.5px;
