@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFI</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/M1Vf3cH/BSLOGO.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
+        *{
+            color: rgba(255, 255, 255, 0.767);
+            font-family: "Red Hat Display", sans-serif;
+        }
+        body{
+            background-color: black;
+            position: fixed;
+            top: 28%;
+        }
+        input{
+            padding: 5px 24px;
+            background: #ffffff00;
+            border: solid 1px gray;
+        }
+        button{
+            background: gray;
+            color: white;
+            border: none;
+            padding: 9px 30px;
+        }
+    </style>
+    <script>
+        function calculate() {
+            // Get the input values
+            const amount = parseFloat(document.getElementById("amount").value);
+            const days = parseInt(document.getElementById("days").value);
+            let dailyInterest;
+
+            // Determine the daily interest based on the entered amount
+            if (amount === 1000) {
+                dailyInterest = 10;
+            } else if (amount === 2000) {
+                dailyInterest = 12;
+            } else if (amount === 3000) {
+                dailyInterest = 14;
+            } else if (amount === 4000) {
+                dailyInterest = 16;
+            } else if (amount === 5000) {
+                dailyInterest = 18;
+            } else if (amount === 6000) {
+                dailyInterest = 20;
+            } else if (amount === 7000) {
+                dailyInterest = 22;
+            } else if (amount === 8000) {
+                dailyInterest = 24;
+            } else if (amount === 9000) {
+                dailyInterest = 26;
+            } else {
+                alert("Please enter a valid amount (1000 to 9000 in increments of 1000).");
+                return;
+            }
+
+            // Validate the days input
+            if (isNaN(days)) {
+                alert("Please enter valid days.");
+                return;
+            }
+
+            // Perform the calculation
+            const totalInterest = dailyInterest * days;
+
+            // Display the result
+            document.getElementById("result").textContent = "The calculated interest is: ₹" + totalInterest.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Finance Calculator</h1>
+    
+    <label for="amount">Amount (1000 - 9000):</label>
+    <input type="number" id="amount" step="1000" min="1000" max="9000" required><br><br>
+
+    <label for="days">Days:</label>
+    <input type="number" id="days" required><br><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+</body>
+</html>
