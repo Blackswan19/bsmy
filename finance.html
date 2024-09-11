@@ -9,21 +9,19 @@
        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
 * {
     font-family: "Red Hat Display", sans-serif;
-    color: #e0e0e0;
+    color: #1f1f1f;
 }
 
 body {
-    color: #f5f5f5;
-    background: #1f1f1f; /* Dark Gray Gradient */
+    background: linear-gradient(to bottom, rgb(232, 232, 232), #014dff); /* Gradient from white to blue */
     padding: 6px;
     line-height: 1.6;
     display: none;
     text-align: center;
 }
-
 h1 {
     font-weight: 700;
-    color: #213af3; /* Teal */
+    color: #014dff; /* Dark Blue */
     text-align: center;
     margin: 54px 0;
     font-size: 2rem;
@@ -36,11 +34,11 @@ ul {
 }
 
 li {
-    background: #282828; /* Muted Gray */
+    background: #e0e0e0; /* Light Gray */
     border-radius: 12px;
     margin: 10px 0;
     padding: 15px;
-    border: solid 1px gray;
+    border: solid 1px #cccccc;
 }
 
 p {
@@ -48,31 +46,31 @@ p {
     padding: 0 15px;
     font-size: 1rem;
     text-align: center;
-    color: #213af3;
+    color: #ffffff;
 }
 
 .graph {
     position: fixed;
     right: 20px;
     top: 20px;
-    background: #213af3; /* Darker Teal */
-    color: #f5f5f5;
+    background: #004d99; /* Dark Blue */
+    color: #ffffff;
     padding: 10px 20px;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
 }
 
 .graph a {
-    color: #f5f5f5;
+    color: #ffffff;
     text-decoration: none;
 }
 
 .graph:hover {
-    background: #213af3; /* Even Darker Teal */
+    background: #003366; /* Darker Blue */
 }
 
 img {
@@ -81,10 +79,10 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    border: solid 1px #5d5d5d;
-    background-color: #141414;
+    border: solid 1px #cccccc;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 480px) {
@@ -125,10 +123,10 @@ img {
     button {
         position: relative;
         padding: 11px 20px;
-        background: black; /* Darker Teal */
+        background: #014dff; /* Dark Blue */
         outline: none;
         border: none;
-        color: #f5f5f5;
+        color: #ffffff;
         border-radius: 8px;
         top: 4em;
     }
@@ -145,10 +143,11 @@ img {
         padding: 15px 20px;
         width: 89%;
         font-size: 13px;
-        background: #1f1f1f; /* Dark Gray */
+        background: #f5f5f5; /* Light Background */
         left: 0;
         line-height: 24px;
         letter-spacing: 0.5px;
+        font-weight: 600;
     }
 
     video {
@@ -167,16 +166,13 @@ img {
 <body>
     <div class="alert">
         <a href="indigo.html" style="    position: fixed;
-        width: 15%;
+        width: 12%;
         left: 13px;
         top: 28px;
         z-index: 1;
     "><img src="https://i.ibb.co/TH2Tppk/p.png" alt=""></a>
     </div>
     <img src="flogo.png" alt="Logo">
-    <!-- <div class="extra">
-        <a href="https://forms.gle/pGexoy7dDDinSDsw7"><video autoplay loop muted src="financespecial.mp4"></video></a>
-    </div> -->
     <div class="account">
         <a href="" onclick="checkPassword()"><button>My Account</button></a>
     </div>
@@ -213,8 +209,8 @@ img {
     
     <script>
         const accounts = {
-        // "1789": { name: "Chinna", amount: 5000, takenDate: "29-08-2024", daysToAdd: 2, additionalInterest: 40 },
-    // Add more accounts with names and details as needed
+            // "1789": { name: "Chinna", amount: 5000, takenDate: "29-08-2024", daysToAdd: 2, additionalInterest: 40 },
+            // Add more accounts with names and details as needed
         };
 
         function addDaysToDate(date, days) {
@@ -251,7 +247,6 @@ img {
             // Update the days count in the HTML
             document.getElementById('days-count').innerText = `Days since amount was taken: ${daysSinceTaken}`;
         }
-
 
         function checkPassword() {
             const password = prompt("\nEnter your code");
