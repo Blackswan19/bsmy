@@ -77,8 +77,22 @@
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
         <li><a href="reminder.html"onclick="alert('Reminder..! Use me to remind all your important deadlines and events!')" >Reminder</a></li><br><br><br>
-       <a href="" onclick="alert('Under Maintenance')" style="font-size: 11px; text-align: center; background: #313131; border: solid 1px #313131;">Open MFI alert
-</a>
+        <a href="#" onclick="selectOption()" style="font-size: 11px; text-align: center; background: #313131; border: solid 1px #313131;">Calculators</a>
+
+        <script>
+        function selectOption() {
+            const userChoice = prompt("Which calculator you want:\n1. Finance\n2. MFI");
+        
+            if (userChoice === "1") {
+                window.location.href = "financal.html"; // Replace with the actual Finance page URL
+            } else if (userChoice === "2") {
+                window.location.href = "mfical.html"; // Replace with the actual MFI page URL
+            } else {
+                alert("Invalid choice. Please select either 1 for Finance or 2 for MFI.");
+            }
+        }
+        </script>
+        
     </ul>
 </body>
 </html>
