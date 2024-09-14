@@ -22,18 +22,20 @@
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #121212; /* Dark theme background */
-                color: #ffffff; /* Text color for dark mode */
+                
+            }
+            h2, h1, p {
+                color: #ffffff; /* Update the color for headings and text in light mode */
             }
         }
 
         @media (prefers-color-scheme: light) {
             body {
-                background-color: #ffffff; /* Light theme background */
-                color: #000000; /* Lighter font color for better readability in light mode */
+                background-color: #ffffff; 
             }
 
             h2, h1, p {
-                color: #2745ec; /* Update the color for headings and text in light mode */
+                color: #000000; /* Update the color for headings and text in light mode */
             }
 
             .intro {
@@ -86,13 +88,13 @@
                 left: 0;
                 font-weight: 500;
                 font-size: 50px;
-                color: #ddd;
+                /* color: #ddd; */
             }
 
             p {
                 font-size: 40px;
                 font-weight: 500;
-                color: #aaa;
+                /* color: #aaa; */
             }
 
             .extra {
