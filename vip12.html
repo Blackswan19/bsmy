@@ -9,28 +9,39 @@
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
 
         * {
-            color: #000000;
             font-family: "Red Hat Display", sans-serif;
             list-style: none;
         }
 
         body {
             background-color: #ffffff; /* Default light theme */
-            color: #000000;
+            color: #000000; /* Default text color for light mode */
             display: none;
         }
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #121212; /* Dark theme */
-                color: #ffffff;
+                background-color: #121212; /* Dark theme background */
+                color: #ffffff; /* Text color for dark mode */
             }
         }
 
         @media (prefers-color-scheme: light) {
             body {
-                background-color: #ffffff; /* Light theme */
-                color: #000000;
+                background-color: #ffffff; /* Light theme background */
+                color: #333333; /* Lighter font color for better readability in light mode */
+            }
+
+            h2, h1, p {
+                color: #1e90ff; /* Update the color for headings and text in light mode */
+            }
+
+            .intro {
+                color: #00008b; /* Change intro text to dark blue in light mode */
+            }
+
+            a {
+                color: #ff4500; /* Modify link color for light mode */
             }
         }
 
@@ -40,7 +51,6 @@
 
         a {
             text-decoration: none;
-            color: #1e90ff;
         }
 
         .intro {
