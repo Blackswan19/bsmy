@@ -15,29 +15,33 @@
 
         body {
             background-color: #ffffff; /* Default light theme */
-            color: #000000;
+            color: #000000; /* Default text color for light mode */
             display: none;
         }
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #121212; /* Dark theme */
-                color: #ffffff;
+                background-color: #121212; /* Dark theme background */
+                color: #ffffff; /* Text color for dark mode */
             }
         }
 
         @media (prefers-color-scheme: light) {
             body {
-                background-color: #ffffff; /* Light theme */
-                color: #000000; /* Dark text in light theme */
+                background-color: #ffffff; /* Light theme background */
+                color: #000000; /* Lighter font color for better readability in light mode */
             }
 
-            .intro, h1, h2, p, a {
-                color: #1e90ff; /* Adjust colors for light theme */
+            h2, h1, p {
+                color: #2745ec; /* Update the color for headings and text in light mode */
             }
 
-            .graph a {
-                color: #ffffff; /* Graph link adjustment for better visibility in light theme */
+            .intro {
+                color: #00008b; /* Change intro text to dark blue in light mode */
+            }
+
+            a {
+                color: #ff4500; /* Modify link color for light mode */
             }
         }
 
@@ -53,6 +57,7 @@
             font-weight: 800;
             font-size: 51px;
             position: relative;
+            color: #2745ec;
         }
 
         @media only screen and (max-device-width: 480px) {
@@ -103,7 +108,7 @@
                 text-align: center;
                 top: 51em;
                 height: 5em;
-                color: #1e90ff;
+                color: #2745ec;
                 font-weight: 600;
                 left: 35px;
             }
@@ -114,7 +119,7 @@
                 position: absolute;
                 right: -49px;
                 top: 20px;
-                background: #1e90ff;
+                background: #2745ec;
                 color: #121212;
                 padding: 10px 19px;
                 border-radius: 76px;
@@ -160,7 +165,7 @@
             <p>No</p>
         </div>
         <hr>
-        <h1 style="color: #1e90ff; padding: 60px; text-align: center;">Amount Details</h1>
+        <h1 style="color: #2745ec; padding: 60px; text-align: center;">Amount Details</h1>
         <hr>
         <div class="">
             <h2>Amount taken</h2>
@@ -183,7 +188,7 @@
         </div>
         <hr>
         <br><br><br>
-        <h1 style="color: #1e90ff; padding: 60px; text-align: center;">Interest Details</h1>
+        <h1 style="color: #2745ec; padding: 60px; text-align: center;">Interest Details</h1>
         <hr>
         <div class="">
             <h2>Remaining interest amount</h2>
