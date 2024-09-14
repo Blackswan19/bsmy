@@ -7,18 +7,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <style>
-        
         body {
             display: flex; 
             justify-content: center; 
             align-items: center; 
             height: 125vh; 
             margin: 0; 
-            background-color: #1f1f1f; 
-            color: #ffffff; 
             font-family: "Noto Sans", sans-serif;
             text-align: center;
         }
+        /* Light Theme */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f4f4f9; /* Light background */
+                color: #003366; /* Dark blue text */
+            }
+            ul a {
+                background-color: #004cff;
+                color: #ffffff;
+                border: solid 1px #004cff;
+            }
+            ul a:hover, ul a:active {
+                background-color: #003bbf;
+                color: #ffffff;
+            }
+            ul a:active {
+                color: #ffffff;
+            }
+        }
+        
+        /* Dark Theme */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1f1f1f; /* Dark background */
+                color: #ffffff; /* Light text */
+            }
+            ul a {
+                background-color: #004cff;
+                color: #ffffff;
+                border: solid 1px #004cff;
+            }
+            ul a:hover, ul a:active {
+                background-color: #003bbf;
+                color: #ffffff;
+            }
+            ul a:active {
+                color: #1f1f1f;
+            }
+        }
+        
         ul {
             list-style-type: none; 
             padding: 0; 
@@ -35,42 +72,28 @@
             font-size: 15px; 
             padding: 10px 30px; 
             border-radius: 12px; 
-            color: #ffffff; 
-            background: #004cff;
-            border: solid 1px #004cff;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease; 
         }
 
-        
         ul a:hover {
-            background-color: #004cff; 
-            color: #ffffff; 
             transform: scale(1.05); 
-            border-color: #004cff; 
         }
-
         
-        ul a:active {
-            background-color: #004cff;
-            color: #1f1f1f; 
-            border-color: #004cff;
-        }
-        .p img{
+        .p img {
             width: 12%;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    border: solid 2px gray;
-    border-radius: 8px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            border: solid 2px gray;
+            border-radius: 8px;
         }
-        
-        @media (max-width: 600px) {
-            img{
-                position: fixed;
-        width: 65%;
-        bottom: 66%;
-        z-index: -1;
 
+        @media (max-width: 600px) {
+            img {
+                position: fixed;
+                width: 65%;
+                bottom: 66%;
+                z-index: -1;
             }
             a {
                 font-size: 18px; 
@@ -85,10 +108,11 @@
         <p>Our services</p><br><br>
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
-        <li><a href="reminder.html"onclick="alert('Reminder..! Use me to remind all your important deadlines and events!')" >Reminder</a></li><br><br><br>
+        <li><a href="reminder.html" onclick="alert('Reminder..! Use me to remind all your important deadlines and events!')">Reminder</a></li><br><br><br>
         <a href="#" onclick="selectOption()" style="font-size: 11px; text-align: center; background: #282828; border: solid 1px #313131;">Open Calculators</a>
+    </ul>
 
-        <script>
+    <script>
         function selectOption() {
             const userChoice = prompt("Which one you like to visit:\n\n1.Finance\n2.MFI");
         
@@ -100,8 +124,6 @@
                 alert("Invalid choice. Select either\n\n 1.Finance \n 2.MFI.");
             }
         }
-        </script>
-        
-    </ul>
+    </script>
 </body>
 </html>
