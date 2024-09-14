@@ -15,33 +15,29 @@
 
         body {
             background-color: #ffffff; /* Default light theme */
-            color: #000000; /* Default text color for light mode */
+            color: #000000;
             display: none;
         }
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #121212; /* Dark theme background */
-                color: #ffffff; /* Text color for dark mode */
+                background-color: #121212; /* Dark theme */
+                color: #ffffff;
             }
         }
 
         @media (prefers-color-scheme: light) {
             body {
-                background-color: #ffffff; /* Light theme background */
-                color: #333333; /* Lighter font color for better readability in light mode */
+                background-color: #ffffff; /* Light theme */
+                color: #000000; /* Dark text in light theme */
             }
 
-            h2, h1, p {
-                color: #1e90ff; /* Update the color for headings and text in light mode */
+            .intro, h1, h2, p, a {
+                color: #1e90ff; /* Adjust colors for light theme */
             }
 
-            .intro {
-                color: #00008b; /* Change intro text to dark blue in light mode */
-            }
-
-            a {
-                color: #ff4500; /* Modify link color for light mode */
+            .graph a {
+                color: #ffffff; /* Graph link adjustment for better visibility in light theme */
             }
         }
 
@@ -57,7 +53,6 @@
             font-weight: 800;
             font-size: 51px;
             position: relative;
-            color: #1e90ff;
         }
 
         @media only screen and (max-device-width: 480px) {
