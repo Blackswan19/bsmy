@@ -1,101 +1,217 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Indigo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
-    <style>
-             @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+    <title>Pkchs</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/pbwXCGF/pkchs-logo.jpg">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Basic reset */
 * {
-    font-family: "Red Hat Display", sans-serif;
-    /* color: #1f1f1f; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ffffffcb; /* White text */
 }
-        body {
-            /* font-family: "Noto Sans", sans-serif; */
-            background-color: #000000;
-            letter-spacing: 0.5px;
-        }
-        .switch button{
-            padding: 11px 30px;
-            background: #3f39e8;
-            outline: none;
-            border: none;
-            border-radius: 9px;
-            font-size: 15px;
-            color: rgb(196, 196, 196);
-            font-weight: 500;
-            font-family: "Noto Sans", sans-serif;
-        }
-        .switch{
-            position: fixed;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #181818; /* Black background */
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+        .menubar {
+            background-color: black;
+            padding: 10px 0;
             text-align: center;
-            width: 94%;
-            bottom: 185px;
         }
-        .logo{
-            position: fixed;
+
+        .menubar a {
+            
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .menubar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h5 {
+            
             text-align: center;
-            width: 94%;
-            font-size: 32px;
-            font-weight: 800;
-            color: #3f39e8;
-            top: 25px;
+            font-weight: normal;
         }
-        .note{
-            position: fixed;
-    bottom: 9px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    width: 96%;
-    color: rgb(201, 199, 199);
-    border: solid 1px gray;
-    border-radius: 13px;
+        h5{
+            font-size: 25px;
+            font-weight: 600;
+            text-align: justify;
         }
-   </style>
+        p {
+            font-size: 16px;
+            
+        }
+
+        .section-title {
+            border-bottom: 2px solid black;
+            margin: 20px 0;
+        }
+
+        .notepad input {
+            width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid black;
+    background: #9f9f9f;
+    border-radius: 6px;
+        }
+
+        button {
+            background-color: rgb(0, 42, 255);
+            padding: 11px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 14px;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #3c3c3c;
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 4px solid #0e4bff;
+    color: #ffffff;
+}
+
+        ul li button.delete {
+            background-color: black;
+            color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 2px;
+    text-align: end;
+    background: #0e4bff;
+        }
+
+        .timedate {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        /* Table and schedule styling */
+        .timetable p, .mess-menu p {
+            margin: 10px 0;
+            padding: 5px;
+            color: #9e9e9e;
+        }
+
+        .timetable strong {
+            font-size: 16px;
+        }
+    </style>
+
+    </style>
 </head>
 <body>
+    <div class="safe">
+        <script>
+            document.getElementById("finance").addEventListener("click", function(event){
+                event.preventDefault();
+                var userInput = prompt("Enter the safe code");
+                if (userInput === "511389") {
+                    alert("Yes Sir..!")
+                    window.location.href = "safelock.html";
+                }
+                else{
+                    alert("You are not allowed to safe")
+                }
+            });
+        </script>
+    </div>
+    <div class="timedate">
+        <p id="datetime" style="background: black;
+        color: white;
+        position: fixed;
+        width: 100%;
+        left: 0px;
+        bottom: 0px;
+        padding: 20px;">Power by MFI</p>
+    </div>
+
     <div class="container">
-        <div class="logo">
-            Indigo
-        </div>
-        <div class="tree">
-            <img src="https://i.ibb.co/TH2Tppk/p.png" alt="" style="top: 100px;width: 100%;position: fixed;">
-        </div>
-        <div class="note">
-            <p><strong style="color: #3f39e8;font-weight: 800;">We offer 9000rs for monthly plans</strong><br>For 446rs - 4 times/month <br>For 129rs - 1 time/month<br><br><strong style="color: #3f39e8;font-weight: 800;">NOTE</strong>: If you bought the offer 4 times/month, but didn't use all 4 in one month, the unused ones will carry over to the next month.</p>
-        </div>
-        <div class="switch">
-            <button onclick="showAlerts()">Apply</button>
-
-            <script>
-                function delay(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-                    }
-
-                    async function showAlerts() {
-                        alert('Welcome to Indigo!');
-                        const password = prompt('Please enter your password:');
-                        if (password === '1789') {
-                            alert('Wait for few seconds....! We are verifying your account validity.');
-                            await delay(6000);
-                            alert('Verified account..! Welcome Chinna.');
-                            alert('We are redirecting you to the form.');
-                            window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
-                        }else if (password === '1389') {
-                            alert('Wait for few seconds....! We are verifying your account validity.');
-                            await delay(8000);
-                            alert('Verified account..! Welcome Phani.');
-                            alert('We are redirecting you to the form.');
-                            window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
-                        } else {
-                            alert('Incorrect password. Please try again.');
+        <g style="color: rgb(0 76 255);
+        font-weight: 600;
+        position: fixed;
+        top: 10px;
+        text-align: center;
+        width: 100%;
+        left: 0px;">#mfiplus</g>
+        <section id="notes" class="notepad">
+            <h1>Mterprice</h1><br>
+            <p>With plus+ plans get money for a very low interest. Plans range for ₹149. No extra costs.</p>
+            <div class="switch">
+                <button onclick="showAlerts()">Join now</button>
+                <script>
+                    function delay(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
                         }
-                    }
-            </script>
-        </div>
+    
+                        async function showAlerts() {
+                            alert('Welcome to MFI Plus+');
+                            const password = prompt('Please enter your password:');
+                            if (password === '1789') {
+                                alert('Wait for few seconds....! We are verifying your account validity.');
+                                await delay(6000);
+                                alert('Verified account..! Welcome Chinna.');
+                                alert('We are redirecting you to the form.');
+                                window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
+                            }else if (password === '1389') {
+                                alert('Wait for few seconds....! We are verifying your account validity.');
+                                await delay(8000);
+                                alert('Verified account..! Welcome Phani.');
+                                alert('We are redirecting you to the form.');
+                                window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
+                            } else {
+                                alert('Incorrect password. Please try again.');
+                            }
+                        }
+                </script>
+            </div>
+        </section>
+
+        <section id="about" class="timetable">
+            <br><br><h2>More reasons to get plus</h2>
+            <div class="section-title"></div>
+            <p><strong style="font-size: 23px;    color: #0e4bff;">With Plus+</strong><br><br>
+                <p><strong>Fixed interest </strong>- With plus+ you can get money for fixed interest for certain amount.<br>
+                    <p><strong>Delay issues</strong>- With plus+ you can delay for more 5 days with out any interest.<br>
+                    <p><strong>Festa free</strong>- With plus+ you can get free interest amount for 10 days.<br>
+                        <p><strong>Loyal reward</strong>- With plus+ the member who is taking regularly use our offer we are reducing their interest rate.<br>
+                            <p><strong>Early payers</strong>- With plus+ the member who always pays early in the next offer we are reducing their interest rate.
+            </p>
+        </section>
     </div>
 </body>
 </html>
