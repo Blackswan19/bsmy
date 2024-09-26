@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-* {
-    font-family: "Red Hat Display", sans-serif;
-    /* color: #1f1f1f; */
-}
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        
+        * {
+            font-family: "Red Hat Display", sans-serif;
+        }
+
         body {
             display: flex; 
             justify-content: center; 
@@ -21,6 +22,7 @@
             text-align: center;
             letter-spacing: 1px;
         }
+
         /* Light Theme */
         @media (prefers-color-scheme: light) {
             body {
@@ -40,7 +42,7 @@
                 color: #ffffff;
             }
         }
-        
+
         /* Dark Theme */
         @media (prefers-color-scheme: dark) {
             body {
@@ -60,17 +62,19 @@
                 color: #1f1f1f;
             }
         }
-        
+
         ul {
             list-style-type: none; 
             padding: 0; 
             margin: 0; 
             position: fixed;
         }
+        
         li {
             margin: 21px 0px;
             width: 248px;
         }
+
         ul a {
             display: block; 
             text-decoration: none; 
@@ -83,7 +87,7 @@
         ul a:hover {
             transform: scale(1.05); 
         }
-        
+
         .p img {
             width: 12%;
             position: fixed;
@@ -105,9 +109,78 @@
                 padding: 12px 24px; 
             }
         }
+
+        #passwordContainer {
+            display: none;
+    text-align: center;
+    margin-top: 50px;
+    z-index: 1;
+    background: black;
+    padding: 132px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+        }
+
+        #userPassword {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #userPassword:focus {
+            border-color: #007bff;
+        }
+
+        #submitBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Slack icon -->
+    <a href="#"><i class="fa-brands fa-slack" id="accountLink" style="position: fixed;
+		top: 10px;
+		left: 10px;
+		font-size: 20px;
+		color: white;
+		z-index: 10;"></i></a>
+
+    <!-- Input and button (hidden initially) -->
+    <div id="passwordContainer">
+        <input type="password" id="userPassword" placeholder="Enter password">
+        <br>
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <!-- Error message -->
+    <p id="error-message"></p>
+
+    <!-- Services List -->
     <img src="intoBS.png" alt="">
     <ul>
         <p>Our services</p><br><br>
@@ -118,6 +191,28 @@
     </ul>
 
     <script>
+        // Toggle input form visibility when Slack icon is clicked
+        document.getElementById("accountLink").onclick = function() {
+            var passwordContainer = document.getElementById("passwordContainer");
+            if (passwordContainer.style.display === "none" || passwordContainer.style.display === "") {
+                passwordContainer.style.display = "block";  // Show the input form
+            } else {
+                passwordContainer.style.display = "none";  // Hide the input form
+            }
+        }
+
+        // Submit button functionality
+        document.getElementById("submitBtn").onclick = function() {
+            var userInput = document.getElementById("userPassword").value;
+            var errorMessage = document.getElementById('error-message');
+            
+            if (userInput === "9919") {
+                window.location.href = "https://blackswan19.github.io/BS/personal.html";
+            } else {
+                errorMessage.textContent = "Incorrect password..!";
+            }
+        }
+
         function selectOption() {
             const userChoice = prompt("Which one you like to visit:\n\n1.Finance\n2.MFI");
         
@@ -130,5 +225,6 @@
             }
         }
     </script>
+
 </body>
 </html>
