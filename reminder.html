@@ -1,385 +1,192 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reminder</title>
-    <link rel="icon" type="image/com" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ou9K1ol_UUxN9M4SVaCnL4u2ho3eXgzmlw&s">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+       <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
         
         * {
             font-family: "Red Hat Display", sans-serif;
             list-style: none;
-        }
-
-        /* Base Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f1f6;
-            color: #004cff;
-        }
-
-        h2 {
-            color: #004cff;
-            margin-top: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        form {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #fafafa00;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-    margin-bottom: -2px;
-    font-size: 16px;
-    color: #004cff;
-    font-weight: 600;
-        }
-
-        input[type="text"], input[type="date"], button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
             box-sizing: border-box;
         }
-
-        button {
-            background-color: #004cff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        table {
+        body {
             width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
+            background-color: #181818;
+            padding: 10px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container{
+            position: relative;
+    left: 30%;
+    width: 40%;
+
+        }
+        .todo {
+            background-color: white;
+            width: 100%;
+            margin: 40px auto 20px;
+            padding: 20px;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgb(0 0 0 / 19%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .todo h1 {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            border: solid 1px #070707;
+            justify-content: center;
         }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        font-weight: 800;
-        font-size: 15px;
-        border: 1px solid #555;
-    color: #004cff;
-    text-align: center;
-        }
-
-        th {
-            background-color: #004cff;
-            color: #fff;
-        }
-
-        .radios {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .radios label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .delete-btn {
-            color: #dc3545;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        /* Dark Theme Styles */
-        body.dark-mode {
-            background-color: #000000;
-            color: #e0e0e0;
-        }
-
-        form.dark-mode {
-            background: #2c2c2c;
-        }
-
-        input[type="text"], input[type="date"], button {
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid #000000;
-        }
-
-        button {
-            background-color: #004cff;
-            color: white;
-        }
-
-        table.dark-mode {
-            background-color: #000000;
-        }
-
-        th, td {
-            border: 1px solid #000000;
-        }
-
-        th {
-            background-color: #333;
-        }
-
-        .radios label {
-            color: black;
-        }
-
-        .delete-btn {
-            color: #ff6f6f;
-            font-size: 20px;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            form {
-                padding: 15px;
-            }
-
-            label, input, button {
-                font-size: 14px;
-            }
-
-            table, th, td {
-                font-size: 14px;
-            }
-
-            th, td {
-                padding: 10px;
-            }
-
-            .radios label {
-                font-size: 12px;
-            }
-
-            .delete-btn {
-                font-size: 16px;
-            }
-        }
-
-        .date-display {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #004cff; /* or any color that fits your design */
-        }
-
-        /* Theme Toggle Switch */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            background: #004cff;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .theme-toggle span {
+        .todo h1 img {
+            width: 25px;
             margin-left: 10px;
-            font-size: 14px;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+        input {
+            border: none;
+            flex: 1;
+            outline: none;
+            background: rgba(255, 105, 180, 0);
+            padding: 12px;
+            font-size: 1rem;
+        }
+        button {
+            background: rgb(0 76 255);
+            border-radius: 31px;
+            border: none;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 10px 45px;
+        }
+        button:hover {
+            background-color: rgb(0, 132, 255);
+        }
+        ul#list-container {
+            margin-top: 10px;
+        }
+        ul li {
+            font-size: 16px;
+            padding: 9px 50px 14px 38px;
+            user-select: none; 
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+        ul li::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5iP9aTTmIkrw9KVS8bWzYCqgXK5XAImAgg_Z9FUdMTMxsRlkb85jIzB_PtV-6m9_CSCk&usqp=CAU");
+            background-size: cover;
+            background-position: center;
+            top: 12px;
+            left: 8px;
+        }
+        ul li.checked {
+            color: rgba(0, 0, 0, 0.4);
+            text-decoration: line-through;
+        }
+        ul li.checked::before {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToor318Vv50HIWt-UchwIecF0JGVznEE-KAgkBmXXWNoQ-_NOYPrcX8_7fyFqnXqK_ZjY&usqp=CAU");
+        }
+        ul li span {
+            position: absolute;
+    right: 10px;
+    top: 6px;
+    font-size: 29px;
+    color: #ff0000;
+    cursor: pointer;
+        }
+        @media screen and (max-width: 480px) {
+            .container{
+                left: 10px;
+        width: 95%;
+
+            }
+            button{
+                position: relative;
+        text-align: center;
+        right: 0px;
+        background: none;
+        color: rgb(255, 255, 255);
+        border: solid;
+        padding: 10px 20px;
+        background: rgb(0 76 255);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <i class="fa-regular fa-sun"></i>
-        <span>Light Mode</span>
-    </div>
-
     <div class="container">
-        <h2>Reminder</h2>
-
-        <!-- Form to add new tasks -->
-        <form id="taskForm">
-            <label for="task">Task: </label>
-            <input type="text" id="task" name="task" placeholder="enter the task here" required>
-            <label for="endDate">End Date: </label>
-            <input type="date" id="endDate" name="endDate" placeholder="select the end date here" required>
-            <button type="button" onclick="addTask()">Add Task</button>
-        </form>
-        <div id="currentDate" class="date-display"></div>
-
-        <!-- Table for work plan/tasks -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Your Task</th>
-                    <th>End Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="taskTableBody">
-                <!-- The initial rows will be dynamically populated from localStorage -->
-            </tbody>
-        </table>
+        <div class="todo">
+            <h1>Reminder</h1>
+            
+            <div class="search">
+                <input type="text" id="search-bar" placeholder="Enter the note here.....">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="list-container">
+        
+            </ul>
+        </div>
     </div>
-
     <script>
-        // Function to display the current date in DD-MM-YYYY format
-        function displayCurrentDate() {
-            const currentDateElement = document.getElementById('currentDate');
-            const today = new Date();
-            const day = today.getDate();
-            const month = today.getMonth() + 1;
-            const year = today.getFullYear();
-            const formattedDate = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
-            currentDateElement.textContent = formattedDate;
-        }
+        const searchBar = document.getElementById("search-bar");
+        const listcontainer = document.getElementById("list-container");
 
-        // Function to add a task to the table
-        function addTask() {
-            const taskInput = document.getElementById('task');
-            const endDateInput = document.getElementById('endDate');
-
-            if (taskInput.value && endDateInput.value) {
-                const task = taskInput.value;
-                const endDate = endDateInput.value;
-                addRowToTable(task, endDate);
-                taskInput.value = '';
-                endDateInput.value = '';
-                saveDataToLocalStorage();
+        function addTask(){
+            if(searchBar.value === ''){
+                alert("You didn't write any note");
             }
-        }
+            else{
+                let li = document.createElement("li");
+                li.innerHTML = searchBar.value;
+                listcontainer.appendChild(li);
 
-        // Function to add a row to the table with the date in DD-MM-YYYY format
-        function addRowToTable(task, endDate, completionTime = null) {
-            const tableBody = document.getElementById('taskTableBody');
-            const newRow = tableBody.insertRow();
-
-            const taskCell = newRow.insertCell(0);
-            const endDateCell = newRow.insertCell(1);
-            const actionCell = newRow.insertCell(2);
-
-            taskCell.textContent = task;
-            endDateCell.textContent = formatDate(endDate);
-
-            actionCell.innerHTML = `<button class="delete-btn" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>`;
-
-            if (completionTime) {
-                newRow.setAttribute('data-completion-time', completionTime);
+                let span = document.createElement("span");
+                span.innerHTML = "\u00d7";
+                li.appendChild(span);
             }
+            searchBar.value = "";
+            saveData();
         }
 
-        // Helper function to format a date string to DD-MM-YYYY
-        function formatDate(dateString) {
-            const dateParts = dateString.split('-');
-            if (dateParts.length === 3) {
-                return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+        listcontainer.addEventListener("click", function(e){
+            if(e.target.tagName === "LI"){
+                e.target.classList.toggle("checked");
+                saveData();
+            } else if(e.target.tagName === "SPAN"){
+                e.target.parentElement.remove();
+                saveData();
             }
-            return dateString;
+        });
+
+        function saveData(){
+            localStorage.setItem("data", listcontainer.innerHTML);
         }
 
-        // Function to load table data from localStorage with formatted dates
-        function loadDataFromLocalStorage() {
-            const storedData = localStorage.getItem('workPlanData');
-            if (storedData) {
-                const tableData = JSON.parse(storedData);
-                const currentTime = new Date().getTime();
-                tableData.forEach(data => {
-                    const formattedEndDate = formatDate(data.endDate);
-                    if (data.completionTime) {
-                        const timeElapsed = currentTime - data.completionTime;
-                        if (timeElapsed < 24 * 60 * 60 * 1000) {
-                            addRowToTable(data.task, formattedEndDate, data.completionTime);
-                        }
-                    } else {
-                        addRowToTable(data.task, formattedEndDate);
-                    }
-                });
-            }
+        function showTask(){
+            listcontainer.innerHTML = localStorage.getItem("data");
         }
 
-        // Function to save table data to localStorage with formatted dates
-        function saveDataToLocalStorage() {
-            const tableData = [];
-            const rows = document.querySelectorAll('#taskTableBody tr');
-            rows.forEach((row) => {
-                const cells = row.querySelectorAll('td');
-                const completionTime = row.getAttribute('data-completion-time') || null;
-                const taskData = {
-                    task: cells[0].textContent,
-                    endDate: formatDate(cells[1].textContent),
-                    completionTime: completionTime
-                };
-                tableData.push(taskData);
-            });
-            localStorage.setItem('workPlanData', JSON.stringify(tableData));
-        }
-
-        // Function to update progress and handle completed tasks
-        function updateProgress(radioButton) {
-            const progress = radioButton.parentElement.textContent.trim();
-            if (progress === "Completed") {
-                alert("This task will be automatically deleted after 24 hours.");
-                const row = radioButton.closest('tr');
-                const completionTime = new Date().getTime();
-                row.setAttribute('data-completion-time', completionTime);
-            } else {
-                const row = radioButton.closest('tr');
-                row.removeAttribute('data-completion-time');
-            }
-            saveDataToLocalStorage();
-        }
-
-        // Function to delete a row from the table
-        function deleteRow(button) {
-            button.closest('tr').remove();
-            saveDataToLocalStorage();
-        }
-
-        // Function to toggle theme between light and dark
-        function toggleTheme() {
-            const body = document.body;
-            const isDarkMode = body.classList.toggle('dark-mode');
-            document.querySelector('.theme-toggle span').textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        }
-
-        // Load data when the page loads
-        window.onload = () => {
-            loadDataFromLocalStorage();
-            displayCurrentDate(); // Display the current date
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.querySelector('.theme-toggle span').textContent = 'Dark Mode';
-            }
-        }
+        showTask();
     </script>
 </body>
 </html>
