@@ -7,105 +7,133 @@
     <link rel="stylesheet" href="Partners.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
+
+* {
+    font-family: "Red Hat Display", sans-serif;
+    list-style: none;
+}
+
+body {
+    background-color: #ffffff; /* Default light theme */
+    color: #000000; /* Default text color for light mode */
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212; /* Dark theme background */
         
-        * {
-            color: #000000;
-            font-family: "Red Hat Display", sans-serif;
-            list-style: none;
-        }
+    }
+    h2, h1, p {
+        color: #d1d1d1; /* Update the color for headings and text in light mode */
+    }
+}
 
-        body {
-            background-color: #121212;
-            display: none;
-        }
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff; 
+    }
 
-        img {
-            border-radius: 101px;
-        }
+    h2, h1, p {
+        color: #000000; /* Update the color for headings and text in light mode */
+    }
 
-        a {
-            text-decoration: none;
-            color: #1e90ff;
-        }
+    .intro {
+        color: #00008b; /* Change intro text to dark blue in light mode */
+    }
 
-        .intro {
-            font-weight: 800;
-            font-size: 51px;
-            position: relative;
-            color: #1e90ff;
-        }
+    a {
+        color: #ff4500; /* Modify link color for light mode */
+    }
+}
 
-        @media only screen and (max-device-width: 480px) {
-            body {
-                display: block;
-            }
+img {
+    border-radius: 101px;
+}
 
-            .container {
-                width: 105%;
-                font-size: 38px;
-                position: relative;
-                left: 0;
-                padding: 15px;
-                top: 2em;
-                height: 1686px;
-                border-radius: 20px;
-            }
+a {
+    text-decoration: none;
+}
 
-            hr {
-                background: #333;
-                height: 2px;
-            }
+.intro {
+    font-weight: 800;
+    font-size: 51px;
+    position: relative;
+    color: #2745ec;
+}
 
-            h2 {
-                position: relative;
-                left: 0;
-                font-weight: 500;
-                font-size: 50px;
-                color: #ddd;
-            }
+@media only screen and (max-device-width: 480px) {
+    body {
+        display: block;
+    }
 
-            p {
-                font-size: 40px;
-                font-weight: 500;
-                color: #aaa;
-            }
+    .container {
+        width: 105%;
+        font-size: 38px;
+        position: relative;
+        left: 0;
+        padding: 15px;
+        top: 2em;
+        height: 1686px;
+        border-radius: 20px;
+    }
 
-            .extra {
-                position: relative;
-                width: 76%;
-                left: 13%;
-                top: 10em;
-            }
+    hr {
+        background: #333;
+        height: 2px;
+    }
 
-            .social {
-                position: relative;
+    h2 {
+        position: relative;
+        left: 0;
+        font-weight: 500;
+        font-size: 50px;
+        /* color: #ddd; */
+    }
+
+    p {
+        font-size: 40px;
+        font-weight: 500;
+        /* color: #aaa; */
+    }
+
+    .extra {
+        position: relative;
+        width: 76%;
+        left: 13%;
+        top: 10em;
+    }
+
+    .social {
+        position: relative;
         font-size: 46px;
         text-align: center;
-        top: 12.5em;
+        top: 13em;
         height: 5em;
-        color: #1e90ff;
+        color: #2745ec;
         font-weight: 600;
         left: 35px;
-            }
+    }
 
-            .graph {
-                font-size: 36px;
-                font-weight: 600;
-                position: absolute;
-                right: -49px;
-                top: 20px;
-                background: #1e90ff;
-                color: #121212;
-                padding: 10px 19px;
-                border-radius: 76px;
-                z-index: 1;
-            }
-            .col-sm-4{
-                position: absolute;
-    top: -7px;
-    left: 265px;
-            }
-        }
+    .graph {
+        font-size: 36px;
+        font-weight: 600;
+        position: absolute;
+        right: -49px;
+        top: 20px;
+        background: #2745ec;
+        color: #121212;
+        padding: 10px 19px;
+        border-radius: 76px;
+        z-index: 1;
+    }
+
+    .col-sm-4 {
+        position: absolute;
+        top: -7px;
+        left: 265px;
+    }
+}
     </style>
 </head>
 <body>
