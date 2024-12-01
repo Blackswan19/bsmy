@@ -1,216 +1,275 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFI</title>
-    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/pbwXCGF/pkchs-logo.jpg">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    <title>Mterprice</title>
+    <link rel="icon" type="image/x-ico" href="https://s3.amazonaws.com/static.graphemica.com/glyphs/i500s/000/010/218/original/004D-500x500.png?1275328225">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
 
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #ffffffcb; /* White text */
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #181818; /* Black background */
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-        .menubar {
-            background-color: black;
-            padding: 10px 0;
-            text-align: center;
+        * {
+            font-family: "Red Hat Display", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .menubar a {
-            
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
 
-        .menubar a:hover {
+        a {
             text-decoration: underline;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 15px;
+            padding: 40px;
+            top: 49%;
+            left: -1em;
+            position: fixed;
         }
 
-        h1, h2, h5 {
-            
-            text-align: center;
-            font-weight: normal;
-        }
-        h5{
-            font-size: 25px;
-            font-weight: 600;
-            text-align: justify;
-        }
-        p {
-            font-size: 16px;
-            
-        }
-
-        .section-title {
-            border-bottom: 2px solid black;
-            margin: 20px 0;
-        }
-
-        .notepad input {
+        h1 {
+            font-size: 22px;
+            font-weight: 500;
+            position: fixed;
+            left: 0;
             width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid black;
-    background: #9f9f9f;
-    border-radius: 6px;
+            padding: 9px 35px;
         }
 
-        button {
-            background-color: rgb(0, 42, 255);
-            padding: 11px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 14px;
+        h2 {
+            font-size: 3em;
+            margin: -27px 0 32px 0;
+            line-height: 1.1em;
+            font-weight: 400;
         }
 
-        button:hover {
-            background-color: #333;
+        p {
+            font-size: 1em;
+            line-height: 0px;
+            margin: 36px 0px;
+            font-weight: 500;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            letter-spacing: 1.5px;
         }
 
-        ul li {
-            background-color: #3c3c3c;
-    margin: 20px 0;
-    padding: 10px;
-    border-left: 4px solid #0e4bff;
-    color: #ffffff;
-}
-
-        ul li button.delete {
-            background-color: black;
-            color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 2px;
-    text-align: end;
-    background: #0e4bff;
+        .link {
+            font-size: 0.9em;
+            position: fixed;
+            left: 52%;
+            text-decoration: none;
         }
 
-        .timedate {
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .container img {
+            width: 89%;
+    position: fixed;
+    top: 115px;
+    left: 20px;
+    border-radius: 15px;
+    border: solid 2px #272727;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            font-size: 18px;
-            margin: 20px 0;
         }
 
-        /* Table and schedule styling */
-        .timetable p, .mess-menu p {
-            margin: 10px 0;
-            padding: 5px;
-            color: #9e9e9e;
+        .modal-content {
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
         }
 
-        .timetable strong {
-            font-size: 16px;
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
-    </style>
 
+        .close:hover,
+        .close:focus {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal button {
+            margin-top: 0px;
+            padding: 10px 19px;
+            border: none;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        .finance {
+            position: fixed;
+            top: 13px;
+            right: 22px;
+        }
+
+        /* Dark and Light Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+
+            a {
+                color: #004cff;
+            }
+
+            h1 {
+                background: #004cff;
+                color: #ffffff;
+            }
+
+            .button {
+                background-color: #004cff;
+                color: #ffffff;
+            }
+
+            .modal-content {
+                background-color: #2b2b2b;
+                color: #ffffff;
+            }
+
+            .close {
+                color: #aaa;
+            }
+
+            .modal button {
+                background-color: #004cff;
+                color: #ffffff;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            a {
+                color: #004cff;
+            }
+
+            h1 {
+                background: #004cff;
+                color: #ffffff;
+            }
+
+            .button {
+                background-color: #004cff;
+                color: #ffffff;
+            }
+
+            .modal-content {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .close {
+                color: #000000;
+            }
+
+            .modal button {
+                background-color: #004cff;
+                color: #ffffff;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="safe">
-        <script>
-            document.getElementById("finance").addEventListener("click", function(event){
-                event.preventDefault();
-                var userInput = prompt("Enter the safe code");
-                if (userInput === "511389") {
-                    alert("Yes Sir..!")
-                    window.location.href = "safelock.html";
-                }
-                else{
-                    alert("You are not allowed to safe")
-                }
-            });
-        </script>
+    <div class="logo">
+        <h1>M<span style="color: #000000; position: fixed; left: 55px; font-weight: 500;">terprice</span></h1>
     </div>
-    <div class="timedate">
-        <p id="datetime" style="background: black;
-        color: white;
-        position: fixed;
-        width: 100%;
-        left: 0px;
-        bottom: 0px;
-        padding: 20px;">Power by MFI</p>
-    </div>
-
     <div class="container">
-        <g style="color: rgb(0 76 255);
-        font-weight: 600;
-        position: fixed;
-        top: 10px;
-        text-align: center;
-        width: 100%;
-        left: 0px;">#mfibusiness</g>
-        <section id="notes" class="notepad">
-            <h1>Mterprice</h1><br>
-            <p>With Mterprice get money for your business. With interest 2.6% per month. No extra costs.</p>
-            <div class="switch">
-                <button onclick="showAlerts()">Join now</button>
-                <script>
-                    function delay(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                        }
-    
-                        async function showAlerts() {
-                            alert('Welcome to Mterprice');
-                            const password = prompt('Please enter your password:');
-                            if (password === '1789') {
-                                alert('Wait for 5 seconds....! We are verifying your account validity.');
-                                await delay(2000);
-                                alert('Verified account..! Welcome Chinna.');
-                                alert('We are redirecting you to the form.');
-                                window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
-                            }else if (password === '1389') {
-                                alert('Wait for 5 seconds....! We are verifying your account validity.');
-                                await delay(3000);
-                                alert('Verified account..! Welcome Phani.');
-                                alert('We are redirecting you to the form.');
-                                window.location.href = 'https://forms.gle/Q6AG3MWipUpQhhNCA';
-                            } else {
-                                alert('Incorrect password. Please try again.');
-                            }
-                        }
-                </script>
-            </div>
-        </section>
+        <img src="https://images.unsplash.com/photo-1701690775017-c293a303bede?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <h2>Buy it<br>to make it<br> permanent.</h2>
+        <a href="https://forms.gle/sWLdKxv2Aa6cTtoaA" class="button">Apply now</a><br><br>
+        <a href="indigo.html" style="text-decoration: none;">Interest value?</a><br>
+        <!-- <p>Interest Helper? <a href="ih.html" style="color: #004cff;text-decoration: none;">Visit now</a>.</p><br><br> -->
+    </div>
 
-        <section id="about" class="timetable">
-            <br><br><h2>More reasons to get business</h2>
-            <div class="section-title"></div>
-            <p><strong style="font-size: 23px;    color: #0e4bff;">With business</strong><br><br>
-                <p><strong>Fixed interest </strong>- With business you can get money for fixed interest for the amount.<br>
-                <p><strong>Delay issues</strong>- With business you can delay for more 5 days with out any interest.<br>
-                <p><strong>Festa free</strong>- With business you can get free interest amount for 10 days.<br>
-                <p><strong>Loyal reward</strong>- With business the member who is taking regularly use our business, we are reducing their interest rate with addition of 10 days delay access.<br>
-                <p><strong>Early payers</strong>- With business the member who always pays early in the next offer we are reducing their interest rate.</p>
-        </section>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Enter your wallet pin:</p>
+            <input type="password" id="userInput" placeholder="Enter the pin" style="color: #000000;text-align: center;width: 100%; padding: 10px; margin-top: 10px; outline: none;">
+            <p id="modal-message" style="color: #ff0000;
+    margin-top: 22px;"></p>
+            <button onclick="checkPassword()">Open wallet</button>
+        </div>
+    </div>
+    <div class="finance">
+        <a href="javascript:void(0)" onclick="openModal()"><i class="fa-solid fa-user" style="color: white;"></i></a>
+    </div>
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Function to check the password
+        function checkPassword() {
+            var userInput = document.getElementById("userInput").value;
+            var message = document.getElementById("modal-message");
+
+            if (userInput === "9919") {
+                window.location.href = "acc1.html";
+            } else if (userInput === "") {
+                message.textContent = "Enter something.";
+            } else {
+                message.textContent = "Wrong code / Account not exists";
+            }
+        }
+    </script>
+    <div class="interest" style="    position: fixed;
+    bottom: -15px;
+    right: 13px;
+color: rgb(199, 199, 199);">
+        <p>Fixed interest(2.6%)</p>
     </div>
 </body>
+
 </html>
