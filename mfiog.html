@@ -8,6 +8,7 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+    
     * {
         font-family: "Red Hat Display", sans-serif;
         margin: 0;
@@ -18,24 +19,39 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
-        background-color: #1f1f1f;
+        background-color: var(--background-color);
         background-position: center;
+        color: var(--text-color);
+    }
+    :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+        --button-background: #9f876d;
+        --button-text-color: #000000;
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background-color: #1f1f1f;
+            --text-color: #ffffff;
+            --button-background: #9f876d;
+            --button-text-color: #000000;
+        }
     }
     .logo {
         font-size: 22px;
         font-weight: 900;
-        color: #9f876d;
+        color: var(--button-background);
         text-align: center;
         margin-top: 20px;
     }
     a {
         text-decoration: none;
-        color: #9f876d;
+        color: var(--button-background);
     }
     .options {
         background-color: rgb(60 60 60);
         padding: 20px;
-        color: black;
+        color: var(--text-color);
         width: 25%;
         max-width: 500px;
         margin: 55px auto 0;
@@ -46,11 +62,10 @@
         position: relative;
         top: 3em;
         font-weight: 500;
-        color: white;
     }
     button {
-        background: #9f876d;
-        color: rgb(0, 0, 0);
+        background: var(--button-background);
+        color: var(--button-text-color);
         width: 100%;
         outline: none;
         font-weight: 800;
@@ -60,21 +75,21 @@
         border-radius: 8px;
         font-size: 15px;
     }
-    button:hover{
-        background: #9f876d71;
+    button:hover {
+        background: var(--button-background-hover, #9f876d71);
     }
     .matter {
         text-align: center;
         margin-top: 130px;
         font-size: 14px;
         font-weight: 500;
-        color: #9f876d;
+        color: var(--button-background);
     }
     .logoimg img {
         width: 25%;
-    margin: 33px auto;
-    display: block;
-    border-radius: 82px;
+        margin: 33px auto;
+        display: block;
+        border-radius: 82px;
     }
     /* Modal Styles */
     .modal {
@@ -126,8 +141,8 @@
         text-align: center;
     }
     .modal-content button {
-        background: #9f876d;
-        color: rgb(0, 0, 0);
+        background: var(--button-background);
+        color: var(--button-text-color);
         padding: 10px;
         width: 100%;
         border: none;
@@ -144,7 +159,7 @@
         font-weight: 400;
         margin-top: 10px;
     }
-    @media(max-width:480px){
+@media(max-width:480px){
     body {
         background-repeat: no-repeat;
         background-size: cover;
