@@ -6,44 +6,95 @@
     <title>Interest Rules</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        * {
-            font-family: "Red Hat Display", sans-serif;
-            color: #ddd;
+        :root {
+            --background-dark: #121212;
+            --text-dark: #ddd;
+            --highlight-dark: #1e90ff;
+
+            --background-light: #ffffff;
+            --text-light: #333;
+            --highlight-light: #007bff;
         }
+
         body {
-            background-color: #121212;
-            color: #ddd;
-            font-family: Arial, sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            font-family: "Red Hat Display", sans-serif;
             line-height: 1.6;
             margin: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
-        h1 {
-            color: #ddd;
+
+        body.light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
         }
+
+        h1, .title {
+            color: var(--text-dark);
+        }
+
+        h1.light-mode, .title.light-mode {
+            color: var(--text-light);
+        }
+
         ul {
             list-style-type: disc;
             margin-left: 20px;
         }
+
         .social {
             text-align: center;
             font-size: 16px;
             position: relative;
             bottom: -3.5em;
-            color: #1e90ff;
             font-weight: 600;
             height: 7em;
+            color: var(--highlight-dark);
         }
+
+        .social.light-mode {
+            color: var(--highlight-light);
+        }
+
         p.title {
-            color: #1e90ff;
+            color: var(--highlight-dark);
             font-size: 26px;
             font-weight: 500;
         }
+
+        p.title.light-mode {
+            color: var(--highlight-light);
+        }
+
         hr {
-            border: 1px solid #333;
+            border: 1px solid var(--text-dark);
+        }
+
+        hr.light-mode {
+            border-color: var(--text-light);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--highlight-dark);
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .theme-toggle.light-mode {
+            background: var(--highlight-light);
+            color: var(--text-light);
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">Switch to Light Mode</button>
     <p class="title">MFI Rules</p>
     <hr>
     <h1>Interest Rules</h1>
@@ -65,5 +116,21 @@
     <div class="social">
         Take money from us for low interest
     </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                button.textContent = 'Switch to Dark Mode';
+                button.classList.add('light-mode');
+            } else {
+                button.textContent = 'Switch to Light Mode';
+                button.classList.remove('light-mode');
+            }
+        }
+    </script>
 </body>
 </html>
