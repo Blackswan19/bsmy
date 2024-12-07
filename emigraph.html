@@ -1,63 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFI Graph</title>
-    <style>
-         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        *{
-            font-family: "Red Hat Display", sans-serif;
-            color: black;
-        }
-        img{
-            width: 100%;
-        }
-        .graph-description {
-            font-family: Arial, sans-serif;
-            margin-top: 20px;
-        }
-        .highlight {
-            color: red;
-        }
-        .social{
-            position: relative;
-            font-size: 16px;
-            text-align: center;
-            top: 3em;
-            height: 5em;
-            color: green;
-            font-weight: 600;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MFI - Graph</title>
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
+
+* {
+    font-family: "Red Hat Display", sans-serif;
+    list-style: none;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    input {
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 10px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #4caf50;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #graph {
+      display: none;
+      position: relative;
+      top: 10em;
+    }
+
+    .bar-container {
+      width: 80%;
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .bar {
+      margin-left: 3px;
+      text-align: right;
+      color: white;
+      padding-right: 5px;
+      border-radius: 5px;
+    }
+
+    .bar-1789 {
+      background-color: #ff5722;
+      width: 40%;
+    }
+
+    .bar-1389 {
+      background-color: #3f51b5;
+      width: 79%;
+    }
+
+    /* Default Theme Styles */
+    body {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    input {
+      background-color: #f9f9f9;
+      color: #000000;
+      border: 1px solid #ccc;
+    }
+
+    /* Dark Mode Styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      input {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+        border: 1px solid #333;
+      }
+
+      button {
+        background-color: #4caf50;
+      }
+
+      .bar-container .bar {
+        color: #ffffff;
+      }
+    }
+  </style>
 </head>
 <body>
+  <h1>Enter Password to View Graph</h1>
+  <input type="password" id="password" placeholder="Enter password">
+  <button onclick="checkPassword()">Submit</button>
 
-    <div class="graph-container">
-        <img src="graph.png" alt="MFI Graph">
+  <div id="graph">
+    <h2>Graph Results</h2>
+    <div id="bar-1789" class="bar-container" style="display: none;">
+      <span>1789:</span>
+      <div class="bar bar-1789">40%</div>
     </div>
+    <div id="bar-1389" class="bar-container" style="display: none;">
+      <span>1389:</span>
+      <div class="bar bar-1389">79%</div>
+    </div>
+  </div>
 
-    <div class="graph-description">
-        <h2>MFI Graph</h2>
-        <p>The MFI graph represents index values at three different dates: March 16, May 16, and July 16. Each bar corresponds to the index value on that specific date. The values are plotted along the y-axis, with the index values increasing from the bottom to the top.</p>
-        <ul>
-            <li><strong>16 March:</strong> The index value was 7. This value is shown in a light blue bar.</li>
-            <li><strong>16 May:</strong> The index value increased significantly to 5, represented by a taller light blue bar.</li>
-            <li><strong>16 July:</strong> The index value remained stable at 4, represented by another light blue bar of the same height.</li>
-        </ul>
-        <p>A notable feature of this graph is the <span class="highlight">red-colored numeral 7</span> on the y-axis. This red color indicates that the index value of 7 in March was a significant low point. The index value increased in May and remained steady in July.</p>
-        <p>This graph helps you understand the trend in index values over these three months, showing a general increase from March to May, with stability in July. The significance of the red numeral emphasizes that the index value of 7 is a key point in the data set.</p>
-        <p><strong>How You Can Take Action:</strong></p>
-        <p>Based on the index values presented in the graph, you can decide when to take money for interest:</p>
-        <ul>
-            <li>In <strong>March</strong>, with an index value of 7, it may be a good time to consider taking money if the index is lower compared to previous months.</li>
-            <li>In <strong>May</strong>, the index value increases to 5, indicating an upward trend. You might decide to take advantage of this higher rate if you anticipate further increases.</li>
-            <li>In <strong>July</strong>, the index value remains at 5, suggesting stability. This could be a safe time to take money for interest without expecting sudden changes.</li>
-        </ul>
-        <p>By monitoring these index changes every two months, you can make informed decisions about when to take money based on the most favorable index rates depicted in the graph.</p>
-    </div>
-    <div class="social">
-        Take money from us for low interest
-    </div>
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const graph = document.getElementById('graph');
+      const bar1789 = document.getElementById('bar-1789');
+      const bar1389 = document.getElementById('bar-1389');
+
+      // Reset graph visibility
+      graph.style.display = 'none';
+      bar1789.style.display = 'none';
+      bar1389.style.display = 'none';
+
+      // Show specific graph based on the password
+      if (password === '1789') {
+        graph.style.display = 'block';
+        bar1789.style.display = 'flex';
+      } else if (password === '1389') {
+        graph.style.display = 'block';
+        bar1389.style.display = 'flex';
+      } else {
+        alert('Incorrect password! Try again.');
+      }
+    }
+  </script>
+
+  <div class="warning" style="position: fixed; bottom: 10px; font-size: 13px; text-align: center; left: 10px; width: 95%;">
+    <p>NOTE: Please maintain at least 60% to be eligible for financial support from us. If your performance drops below 40%, we may not allow you to access funds from our services.</p>
+  </div>
 </body>
 </html>
