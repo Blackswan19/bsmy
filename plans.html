@@ -172,29 +172,6 @@
  
   <script>
 
-  // Detect and set default theme based on user preference
-  function setThemeBasedOnSystemPreference() {
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    if (prefersLight) {
-      document.body.classList.add('light-mode');
-    } else {
-      document.body.classList.remove('light-mode');
-    }
-  }
-
-  // Listen for system theme changes and update theme dynamically
-  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-    if (e.matches) {
-      document.body.classList.add('light-mode');
-    } else {
-      document.body.classList.remove('light-mode');
-    }
-  });
-
-  // Set the initial theme
-  setThemeBasedOnSystemPreference();
-
-
     // Function to show plans based on selected language
     function showPlans() {
       const language = document.getElementById('language').value;
