@@ -164,14 +164,31 @@
     </div>
   </div>
 
-  <!-- Theme toggle button -->
-  <button class="toggle-button" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-
+ 
   <script>
-    // Toggle theme function
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
+
+  // Detect and set default theme based on user preference
+  function setThemeBasedOnSystemPreference() {
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (prefersLight) {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
     }
+  }
+
+  // Listen for system theme changes and update theme dynamically
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    if (e.matches) {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
+    }
+  });
+
+  // Set the initial theme
+  setThemeBasedOnSystemPreference();
+
 
     // Function to show plans based on selected language
     function showPlans() {
@@ -214,10 +231,7 @@
       plansContainer.style.display = 'block';
     }
 
-    // Detect and set default theme based on user preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      document.body.classList.add('light-mode');
-    }
+   
   </script>
 </body>
 </html>
