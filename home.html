@@ -24,34 +24,8 @@
         text-decoration: none;
         color: #004cff; /* Links in dark blue */
     }
-    
-    /* Light theme */
-    @media (prefers-color-scheme: light) {
-        body {
-            background-color: #f4f4f9; /* Light background */
-            color: #003366; /* Dark blue text */
-        }
-        .input, .options a, .grant, .modal-content {
-            background-color: #eaeaea; /* Light theme components */
-        }
-        a {
-            color: #004cff; /* Links dark blue for light theme */
-        }
-    }
 
-    /* Dark theme */
-    @media (prefers-color-scheme: dark) {
-        body {
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0; /* Light text */
-        }
-        .input, .options a, .grant, .modal-content {
-            background-color: #1e1e1e; /* Dark theme components */
-        }
-        a {
-            color: #004cff; /* Light blue for links in dark theme */
-        }
-    }
+    /* Dark theme *
 
     /* Mobile styles */
     @media (max-width: 480px) {
@@ -110,6 +84,8 @@
         left: 4%;
         position: absolute;
         background: rgb(60 60 60);
+        background: rgb(60 60 60);
+        color: white;
         }
         .mfilogo {
             position: absolute;
@@ -211,6 +187,39 @@
             color: #ffffff;
         }
     }
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        .input, .options a, .grant, .modal-content {
+            background-color: #1e1e1e; /* Dark theme components */
+        }
+        a {
+            color: #004cff; /* Light blue for links in dark theme */
+        }
+    }
+     /* Light theme */
+     @media (prefers-color-scheme: light) {
+        body {
+            background-color: #f4f4f9; /* Light background */
+            color: #003366; /* Dark blue text */
+        }
+        .input, .options a, .grant, .modal-content {
+            background-color: #dde3e9; /* Light theme components */
+        }
+        a {
+            color: #004cff; /* Links dark blue for light theme */
+        }
+        .option .fa-solid, .fas {
+            color: black;
+        }
+        p{
+            background: rgb(221 227 233);
+        color: #000000;
+        }
+    }
+
 </style>
 <body>
 
@@ -228,7 +237,7 @@
         이자에 대한 돈
     </div>
     <div class="matter">
-        <p style="color: white;"><i class="fa-solid fa-comments-dollar"></i> Take money from us for low interest</p>
+        <p><i class="fa-solid fa-comments-dollar"></i> Take money from us for low interest</p>
     </div>
     <div class="options">
         <a href="#" id="accountLink">My Account</a>
