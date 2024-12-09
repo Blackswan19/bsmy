@@ -66,7 +66,7 @@
 
     <script>
         const userData = {
-            "Phani": { password: "1389", fine: "20 rs" },
+            "Phani": { password: "1389", fine: "50 rs" },
             "Chinna": { password: "1789", fine: "20 rs" },
         };
 
@@ -80,7 +80,7 @@
 
             // Verify user credentials
             if (userData[username] && userData[username].password === password) {
-                fineInfo.textContent = `Your fine is: ${userData[username].fine}`;
+                fineInfo.textContent = `Fine is for payment delaying purpose: ${userData[username].fine}`;
                 fineInfo.style.color = 'green';
             } else {
                 fineInfo.textContent = 'Invalid username or password.';
