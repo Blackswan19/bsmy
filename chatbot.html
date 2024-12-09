@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot</title>
   <style>
-    body, html {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+* {
+    font-family: "Red Hat Display", sans-serif;
+    color: #00a6ff;
+}
+   body, html {
+
+      background-color: #282828;
       margin: 0;
       padding: 0;
       height: 100%;
@@ -19,7 +24,7 @@
       height: 100%;
       max-width: 100%;
       margin: 0 auto;
-      background: #fff;
+      background: #282828;
       border-radius: 0;
       box-shadow: none;
     }
@@ -37,35 +42,39 @@
       word-wrap: break-word;
     }
     .bot-message {
-      background-color: #f0f0f0;
-      text-align: left;
-      margin-left: 0;
+      background-color: #3c3c3c;
+    text-align: left;
+    margin-left: 0;
+    color: white;
     }
     .user-message {
       background-color: transparent;
-      color: #000000;
+      color: #ffffff;
       text-align: right;
       margin-left: auto;
     }
     .chatbot-input {
       display: flex;
       padding: 10px;
-      background-color: #f9f9f9;
-      border-top: 1px solid #ddd;
+      background-color: #282828;
+      border-top: 1px solid #474747;
       position: relative;
     }
     .chatbot-input input {
       flex: 1;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline: none;
+    background: #3c3c3c;
+    color: white;
     }
     .chatbot-input button {
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
-      background-color: #007BFF;
+      background-color: #005eff;
       color: #fff;
       cursor: pointer;
     }
