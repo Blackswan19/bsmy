@@ -4,7 +4,6 @@
     <title>MFI - Vip</title>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/nPT3wz1/mfilogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="Partners.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Strait&display=swap');
 
@@ -37,11 +36,6 @@
             h2, h1, p {
                 color: #000000; /* Update the color for headings and text in light mode */
             }
-
-            .intro {
-                color: #00008b; /* Change intro text to dark blue in light mode */
-            }
-
             a {
                 color: #ff4500; /* Modify link color for light mode */
             }
@@ -56,10 +50,16 @@
         }
 
         .intro {
-            font-weight: 800;
-            font-size: 51px;
-            position: relative;
-            color: #2745ec;
+            font-weight: 600;
+    font-size: 51px;
+    position: fixed;
+    color: #c4c4c4;
+    padding: 29px;
+    background: #121212;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
         }
 
         @media only screen and (max-device-width: 480px) {
@@ -73,14 +73,14 @@
                 position: relative;
                 left: 0;
                 padding: 15px;
-                top: 2em;
+                top: 4em;
                 height: 1686px;
                 border-radius: 20px;
             }
 
             hr {
-                background: #333;
-                height: 2px;
+                background: #000000;
+        height: 1px;
             }
 
             h2 {
@@ -110,22 +110,23 @@
                 text-align: center;
                 top: 51em;
                 height: 5em;
-                color: #2745ec;
+                color: #004cff;
                 font-weight: 600;
                 left: 35px;
             }
 
             .graph {
                 font-size: 36px;
-                font-weight: 600;
-                position: absolute;
-                right: -49px;
-                top: 20px;
-                background: #2745ec;
-                color: #121212;
-                padding: 10px 19px;
-                border-radius: 76px;
-                z-index: 1;
+        font-weight: 600;
+        position: fixed;
+        right: 25px;
+        top: 35px;
+        background: #004cff;
+        color: #121212;
+        padding: 10px 19px;
+        border-radius: 10px;
+        z-index: 1;
+        color: white;
             }
 
             .col-sm-4 {
@@ -139,17 +140,15 @@
 <body>
     <div class="intro">
         Vip Plus
-    </div>
-    <div class="graph">
-        <a style="color: #000000;" href="emigraph.html">Graph</a>
+        <div class="graph">
+            <a style="color: #ffffff;" href="emigraph.html">Graph</a>
+        </div>
     </div>
     <div class="container">
         <div class="name">
             <img src="https://i.pinimg.com/474x/6b/b6/1c/6bb61c9bf2398f4bc6c0b3155da7ca85.jpg" alt="" width="21%">
             <div class="col-sm-4">
-                <h2 onclick="alert('Contribution ratio: 68.5%');">Phani<span style="color: red;
-                    background: #000000;
-                    padding: 0px 10px;"> (Can't take amount)</span></h2>
+                <h2 onclick="alert('Contribution ratio: 88.5%');">Phani</h2>
                 <p>valid</p>
             </div>
             <hr>
@@ -169,7 +168,7 @@
             <p>No</p>
         </div>
         <hr>
-        <h1 style="color: #2745ec; padding: 60px; text-align: center;">Amount Details</h1>
+        <h1 style="color: #004cff; padding: 60px; text-align: center;">Amount details</h1>
         <hr>
         <div class="">
             <h2>Amount taken</h2>
@@ -177,9 +176,10 @@
         </div>
         <hr>
         <div class="">
-            <h2>Amount taken on <span> <a href="https://forms.gle/Qq7wMoJZmDJj8qZP8" style="color: red;
-                background: #000000;
-                padding: 0px 10px;">#postponed</a></span></h2>
+            <h2>Amount taken on <span> <a href="https://forms.gle/Qq7wMoJZmDJj8qZP8" style="color: #ff0000;
+                background: #ffffff12;
+                padding: 0px 34px;
+                border-radius: 60px;">#postponed</a></span></h2>
             <p>6th August 2024</p>
         </div>
         <hr>
@@ -194,7 +194,7 @@
         </div>
         <hr>
         <br><br><br>
-        <h1 style="color: #2745ec; padding: 60px; text-align: center;">Interest Details</h1>
+        <h1 style="color: #004cff; padding: 60px; text-align: center;">Interest details</h1>
         <hr>
         <div class="">
             <h2>Remaining interest amount</h2>
