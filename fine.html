@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Verification System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        
+        * {
+            font-family: "Red Hat Display", sans-serif;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"], button {
+            width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background-color: #3c3c3c;
+    color: rgb(222, 222, 222);
+        }
+        button {
+            background-color: #0044ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0044ffac;
+        }
+        .fine-info {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: rgb(151, 151, 151);">Verify your Penalty</h2>
+        <form id="fineForm">
+            <input type="text" id="username" placeholder="MFI account holder name" required>
+            <input type="password" id="password" placeholder="Password of the account" required>
+            <button type="submit">Check Now</button>
+        </form>
+        <div class="fine-info" id="fineInfo"></div>
+    </div>
+
+    <script>
+        const userData = {
+            "Phani": { password: "1389", fine: "0 rs" },
+            "Chinna": { password: "1789", fine: "0 rs" },
+        };
+
+        // Handle form submission
+        document.getElementById('fineForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const fineInfo = document.getElementById('fineInfo');
+
+            // Verify user credentials
+            if (userData[username] && userData[username].password === password) {
+                fineInfo.textContent = `Your fine is: ${userData[username].fine}`;
+                fineInfo.style.color = 'green';
+            } else {
+                fineInfo.textContent = 'Invalid username or password.';
+                fineInfo.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
