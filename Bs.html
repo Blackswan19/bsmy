@@ -108,6 +108,17 @@
                 font-size: 18px; 
                 padding: 12px 24px; 
             }
+            .menu{
+                display: flex
+;
+    position: fixed;
+    bottom: 10px;
+    gap: 115px;
+    font-size: 20px;
+    border: solid 1px rgb(84, 84, 84);
+    padding: 13px;
+    border-radius: 10px;
+            }
         }
 
         #passwordContainer {
@@ -161,15 +172,11 @@
     </style>
 </head>
 <body>
-
-    <!-- Slack icon -->
-    <a href="chatbot.html"><i class="fa-regular fa-comment" style="position: fixed;
-		bottom: 10px;
-		right: 10px;
-		font-size: 25px;
-		color: white;
-		z-index: 10;"></i></a>
-
+    <div class="menu">
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-newspaper"></i>
+        <i class="fa-solid fa-comment"></i>
+    </div>
     <!-- Input and button (hidden initially) -->
     <div id="passwordContainer">
         <input type="password" id="userPassword" placeholder="Enter password">
@@ -186,7 +193,7 @@
         <p>Our services</p><br><br>
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
-        <li><a href="reminder.html">Reminder</a></li><br><br><br>
+        <li><a href="reminder.html">Reminder</a></li><br><br>
         <a href="#" onclick="selectOption()" style="font-size: 11px; text-align: center; background: #282828; border: solid 1px #313131;">Open Calculators</a>
     </ul>
 
