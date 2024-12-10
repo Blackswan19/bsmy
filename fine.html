@@ -6,23 +6,27 @@
     <title>Fine Verification System</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-        
+
         * {
             font-family: "Red Hat Display", sans-serif;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
+
         .timer {
             width: 100%;
-            background-color: #252525;
-            color: #fff;
+            background-color: var(--timer-bg);
+            color: var(--timer-text);
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -31,36 +35,70 @@
             z-index: 1000;
             font-size: 16px;
         }
+
         .container {
-            margin-top: 50%;
-    padding: 20px;
-    text-align: center;
-        }
-        input[type="text"], input[type="password"], button {
+            margin-top: 65%;
+            padding: 20px;
+            text-align: center;
             width: 90%;
+            max-width: 400px;
+        }
+
+        input[type="text"], input[type="password"], button {
+            width: 100%;
             margin: 10px 0;
             padding: 10px;
-            font-size: 16px;
+    font-size: 15px;
+    text-align: center;
             border: none;
             border-radius: 4px;
             outline: none;
-            background-color: #3c3c3c;
-            color: rgb(222, 222, 222);
+            background-color: var(--input-bg);
+            color: var(--input-text);
         }
+
         button {
-            background-color: #0044ff;
-            color: white;
-            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-text);
             cursor: pointer;
         }
+
         button:hover {
-            background-color: #0044ffac;
+            background-color: var(--button-hover-bg);
         }
+
         .fine-info {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
-            color: #333;
+        }
+
+        /* Light theme (default) */
+        :root {
+            --background-color: #f9f9f9;
+            --text-color: #121212;
+            --timer-bg: #e4e4e4;
+            --timer-text: #121212;
+            --input-bg: #e4e4e4;
+            --input-text: #121212;
+            --button-bg: #0044ff;
+            --button-text: #ffffff;
+            --button-hover-bg: #0036cc;
+        }
+
+        /* Dark theme */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #dddddd;
+                --timer-bg: #252525;
+                --timer-text: #ffffff;
+                --input-bg: #3c3c3c;
+                --input-text: #dddddd;
+                --button-bg: #0044ff;
+                --button-text: #ffffff;
+                --button-hover-bg: #0044ffac;
+            }
         }
     </style>
 </head>
@@ -68,7 +106,7 @@
     <div class="timer" id="timer"></div>
 
     <div class="container">
-        <h2 style="color: rgb(151, 151, 151);">Verify your Penalty</h2>
+        <h2>Verify Your Penalty</h2>
         <form id="fineForm">
             <input type="text" id="username" placeholder="MFI account holder name" required>
             <input type="password" id="password" placeholder="Password of the account" required>
@@ -110,15 +148,13 @@
             setInterval(updateTimer, 1000);
         }
 
-        // Handle form submission
         document.getElementById('fineForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
             const fineInfo = document.getElementById('fineInfo');
 
-            // Verify user credentials
             if (userData[username] && userData[username].password === password) {
                 const fine = calculateFine(username);
                 fineInfo.textContent = `Delaying purpose fine: ₹${fine}`;
@@ -130,7 +166,6 @@
             }
         });
 
-        // Start timer immediately when the page loads
         startTimer();
     </script>
 </body>
