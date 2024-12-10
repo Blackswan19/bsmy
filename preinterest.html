@@ -57,7 +57,7 @@
     border: none;
     background: #393939;
     color: #d6d6d6;
-    border-radius: 5x;
+    border-radius: 5px;
     font-size: 15px;
     text-align: center;
         }
@@ -72,13 +72,15 @@
         <input type="number" id="principal" placeholder="Amount" />
         <input type="number" id="rate" placeholder="Interest rate" />
         <input type="number" id="time" placeholder="Months" />
-        <button onclick="calculateInterest()">Calculate</button>
+        <button onclick="calculateInterest()" style="background: #003dff;
+    border-radius: 29px;">Calculate</button>
         <div class="number-display" id="interestResult"></div>
     </div>
     <div class="container calculator">
         <h1>Calculator</h1>
-        <input type="text" id="calcInput" placeholder="1+1" />
-        <button onclick="calculate()">Calculate</button>
+        <input type="text" id="calcInput" placeholder="1*1" />
+        <button onclick="calculate()" style="background: #003dff;
+    border-radius: 29px;">Calculate</button>
         <div class="number-display" id="calcResult"></div>
     </div>
 
