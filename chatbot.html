@@ -5,35 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot</title>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
-* {
-    font-family: "Red Hat Display", sans-serif;
-    color: #00a6ff;
-}
-   body, html {
-
-      background-color: #121212;
+      @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap');
+    
+    /* Default theme for light mode */
+    * {
+      font-family: "Red Hat Display", sans-serif;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body, html {
       height: 100%;
       width: 100%;
     }
+
     .chatbot-container {
       display: flex;
       flex-direction: column;
       height: 100%;
       max-width: 100%;
       margin: 0 auto;
-      background: #121212;
-      border-radius: 0;
-      box-shadow: none;
     }
+
     .chatbot-messages {
       flex: 1;
       padding: 20px;
       overflow-y: auto;
       max-height: calc(100% - 100px);
     }
+
     .chatbot-message {
       margin: 10px 0;
       padding: 10px;
@@ -41,35 +42,47 @@
       max-width: 60%;
       word-wrap: break-word;
     }
-    .bot-message {
-      background-color: #1f1f1f;
-    text-align: left;
-    margin-left: 0;
-    color: #bdbdbd;
+
+    /* Light mode styles */
+    body {
+      background-color: #ffffff;
+      color: #000000;
     }
+
+    .bot-message {
+      background-color: #f0f0f0;
+      color: #333;
+      text-align: left;
+    }
+
     .user-message {
-      background-color: transparent;
-      color: #ffffff;
+      background-color: #e0e0e0;
+      color: #000;
       text-align: right;
       margin-left: auto;
     }
+
     .chatbot-input {
       display: flex;
       padding: 10px;
-      background-color: #121212;
-      border-top: 1px solid #474747;
+      background-color: #ffffff;
+      border-top: 1px solid #cccccc;
       position: relative;
+    bottom: -40px;
+
     }
+
     .chatbot-input input {
       flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    outline: none;
-    background: #202020;
-    color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      outline: none;
+      background: #f1f1f1;
+      color: black;
     }
+
     .chatbot-input button {
       padding: 10px 20px;
       border: none;
@@ -78,9 +91,39 @@
       color: #fff;
       cursor: pointer;
     }
+
     .chatbot-input button:disabled {
       background-color: #ccc;
     }
+
+    /* Dark mode styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #00a6ff;
+      }
+
+      .bot-message {
+        background-color: #1f1f1f;
+        color: #bdbdbd;
+      }
+
+      .user-message {
+        background-color: transparent;
+        color: #ffffff;
+      }
+
+      .chatbot-input {
+        background-color: #121212;
+        border-top: 1px solid #474747;
+      }
+
+      .chatbot-input input {
+        background: #202020;
+        color: white;
+      }
+    }
+
   </style>
 </head>
 <body>
