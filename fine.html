@@ -157,7 +157,7 @@
 
             if (userData[username] && userData[username].password === password) {
                 const fine = calculateFine(username);
-                fineInfo.textContent = `Delaying purpose fine: ₹${fine}`;
+                fineInfo.textContent = `You have ₹${fine} fine`;
                 fineInfo.style.color = 'green';
                 startTimer();
             } else {
