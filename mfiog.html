@@ -409,7 +409,9 @@
             var userInput = document.getElementById("userPassword").value;
             var errorMessage = document.getElementById('error-message');
             if (userInput === "9892") {
-                alert("\nACCOUNT DETAILS\n\n\nAccount Holder: Rama krishna yerra\n\nPhone number: 9346389892\n\nPassword: 9892\n\nAmount Taken: 18,000\n\nInterest: 3.3%\n\nInterest paying by PLUS: 120/month\n")
+                alert("\nACCOUNT DETAILS\n\n\nAccount Holder: Rama krishna yerra\n\nPhone number: +919346389892\n\nPassword: 9892\n\nPlan Taken: 1000\n\nInterest paying for PLUS: 120/month\n\nClearing amount in: 15 month\n")
+            }else if (userInput === "1789") {
+                alert("\nACCOUNT DETAILS\n\n\nAccount Holder: Chinna yerra\n\nPhone number: +918688211789\n\nPassword: 1789\n\nPlan taken: 1000\n\nInterest paying for PLUS: 120/month\n\nClearing amount in: 15 month\n")
             } else {
                 errorMessage.textContent = selectedLanguage === 'english' ? "Incorrect password!" : "తప్పు పాస్వర్డ్...!";
             }
