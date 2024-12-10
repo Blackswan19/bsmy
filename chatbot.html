@@ -205,7 +205,7 @@
                 addBotMessage(botResponse);
                 document.getElementById("chatbot-send").disabled = false;
                 step++;
-              }, 1500);
+              }, 2500);
               return;
             } else {
               botResponse = "Incorrect password. Please try again.";
@@ -218,7 +218,7 @@
                 botResponse = "You have not paid. Don't delay to pay your EMI or certain penalties will be added.";
                 addBotMessage(botResponse);
                 document.getElementById("chatbot-send").disabled = false;
-              }, 1000);
+              }, 2000);
               return;
             } else {
               botResponse = "Don't delay to pay your EMI or certain penalties will be added. Thank you for using MFI Plus.";
