@@ -3,142 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Money</title>
-    <link rel="icon" type="image/x-icon" href="https://timerovertreasures.com/cdn/shop/products/35952005_2048x.jpg?v=1580125299">
+    <title>Amount Returning Form</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Red+Hat+Display:ital,wght@0,300..900&family=Strait&display=swap');
+        
+        * {
+            font-family: "Red Hat Display", sans-serif;
+        }
         body {
-            font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff;
-            height: 100vh;
-        }
-
-        .container {
+            min-height: 100vh;
+            background-color: #121212;
+            color: #ffffff;
             text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 84.5%;
-            background-color: #ffffff;
-            position: fixed;
-            top: -45px;
         }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 5px;
-            letter-spacing: 0;
-            font-weight: normal;
+        .form-container {
+            border-radius: 8px;
+    max-width: 300px;
+    width: 100%;
         }
-
-        h1 span {
-            font-size: 50px;
-            font-weight: normal;
-        }
-
-        .underline {
-            width: 100%;
-            height: 1px;
-            background-color: #333;
-            margin: 14px auto;
-        }
-        img{
-            width: 88%;
-    margin-bottom: 14px;
-        }
-        a {
-            color: blue;
-            font-size: 14px;
-            text-decoration: none;
-            position: fixed;
-            left: 29px;
-        }
-
-        input[type="password"] {
-            display: block;
-            width: 95%;
-            padding: 8px;
-            margin-top: 10px;
-            font-size: 14px;
-            border: 1px solid #333;
-            font-family: 'Times New Roman', serif;
-        }
-
-        p {
-            margin-top: 10px;
-    font-size: 14px;
-    line-height: 28px;
-}
-
-        .calculation-box {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #0000ff;
-            font-size: 13px;
-            line-height: 20px;
-            color: blue;
-        }
-
-        .calculation-box span {
-            display: block;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        /* Add spacing between elements */
-        .gap {
+        .form-container h2 {
             margin-bottom: 20px;
+            color: #0058ff;
         }
-
-        /* Add more spacing for the final return text */
-        .final-return {
-            margin-top: 30px;
-            font-size: 14px;
+        .form-container label {
+            font-weight: 100;
+            margin-top: 10px;
+            display: block;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 85%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #303030;
+    border-radius: 4px;
+    background-color: #171717;
+    color: #ffffff;
+    text-align: center;
+    outline: none;
+        }
+        .form-container button {
+            background-color: #0058ff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .form-container button:hover {
+            background-color: #0059ff63;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.893);
+        }
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 80% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.5s ease-in-out;
+        }
+        .modal-content h3 {
+            color: #0058ff;
+            margin-bottom: 15px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover, .close:focus {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://i.ibb.co/QddZ0Dm/New-Project-4-FCBC961.png" alt="Take Money Logo" class="logo"><hr style="width: 100%;
-        position: fixed;
-        left: 0px;
-        top: 100px;">
-        <div class="gap">
-            <a href="#">Verify your amount details here</a>
-        </div>
-
-        <input type="password" id="password" placeholder="Enter the password here...">
-        <button onclick="verify()" style="padding: 5px 20px;margin: 14px;">Submit</button>
-        <script>
-            function verify() {
-                var password = document.getElementById("password").value;
-                if(password === "") {
-                    alert("Enter the password..!");
-                } else {
-                    alert("Account not found.");
-                }
-            }
-        </script>
-
-        <p>
-            We’ll charge you an extra 5 rs per day on top of the amount you borrow. This daily fee will apply from the day you take the money until you pay it back. Interest will only be based on this daily fee, not on the amount you borrowed. Make sure to repay on time to avoid extra charges..!
-         </p>
-
-        <div class="calculation-box">
-            Calculation: <br>
-            If you take 500 rs <br>
-            5 × 10 days = 50 rs<br><br>
-            You have to return 550 rs on the return date.
-        </div>
-
-        <p class="final-return">
-            <a target="_blank" href="https://forms.gle/6wCebbQaP4YjfKZU9"style="position: unset;
-    text-decoration: underline;font-size: 16px">Apply now</a>
-        </p>
+    <div class="form-container">
+        <h2>Amount returning form</h2>
+        <form id="amountForm">
+           <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            
+            <input type="text" id="transactionId" name="transactionId" placeholder="Enter your transaction ID" required>
+            
+            <label for="interest">Did you pay the interest?</label>
+            <select id="interest" name="interest" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <button type="button" onclick="openModal()">Submit</button>
+        </form>
     </div>
+
+    <!-- Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Thank You!</h3>
+            <p style="color: gray;">We will verify your transaction details. Thanks for using us.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('thankYouModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
