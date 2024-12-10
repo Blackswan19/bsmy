@@ -64,16 +64,16 @@
 
     <div class="container calculator">
         <h1>Calculator</h1>
-        <input type="text" id="calcInput" placeholder="Enter calculation" />
+        <input type="text" id="calcInput" placeholder="" />
         <button onclick="calculate()">=</button>
         <div class="number-display" id="calcResult">--</div>
     </div>
 
     <div class="container interest-calculator">
         <h1>Interest Calculator</h1>
-        <input type="number" id="principal" placeholder="Principal (P)" />
-        <input type="number" id="rate" placeholder="Rate (%) (R)" />
-        <input type="number" id="time" placeholder="Time (T) in years" />
+        <input type="number" id="principal" placeholder="Amount" />
+        <input type="number" id="rate" placeholder="Interest" />
+        <input type="number" id="time" placeholder="Months" />
         <button onclick="calculateInterest()">Calculate Interest</button>
         <div class="number-display" id="interestResult">--</div>
     </div>
