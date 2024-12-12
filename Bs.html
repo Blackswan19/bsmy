@@ -187,8 +187,10 @@
         <a href="news.html"><i class="fa-solid fa-newspaper"></i></a>
         <a href="chatbot.html"><i class="fa-solid fa-comment"></i></a>
     </div>
+    
     <!-- Input and button (hidden initially) -->
     <div id="passwordContainer">
+        <h1>Enter the pin</h1>
         <input type="password" id="userPassword" placeholder="Enter password">
         <br>
         <button id="submitBtn">Submit</button>
@@ -197,6 +199,18 @@
     <!-- Error message -->
     <p id="error-message"></p>
 
+    <!-- Logout button -->
+    <button id="logoutBtn" style="position: fixed;
+    top: 10px;
+    right: 10px;
+    display: block;
+    background: #3a3a3a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 9px;"><i class="fa-solid fa-right-from-bracket"></i></button>
+
     <!-- Services List -->
     <img src="intoBS.png" alt="">
     <ul>
@@ -204,56 +218,50 @@
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
         <li><a href="reminder.html">Reminder</a></li><br>
-        <div class="check" style="display: flex
-        ;
-            gap: 5px;
-            position: fixed;">
+        <div class="check" style="display: flex; gap: 5px; position: fixed;">
             <buton><a href="preinterest.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;">Calculator</a></buton>
             <buton><a href="emigraph.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;">My score</a></buton>
         </div>
-        <a href="takemoney.html" style="font-size: 11px;
-        text-align: center;
-        background: #28282853;
-        border: solid 1px #313131;
-        position: relative;
-        top: 42px;">Return money form</a>
+        <a href="takemoney.html" style="font-size: 11px; text-align: center; background: #28282853; border: solid 1px #313131; position: relative; top: 42px;">Return money form</a>
     </ul>
 
     <script>
-        // Toggle input form visibility when Slack icon is clicked
-        document.getElementById("accountLink").onclick = function() {
-            var passwordContainer = document.getElementById("passwordContainer");
-            if (passwordContainer.style.display === "none" || passwordContainer.style.display === "") {
-                passwordContainer.style.display = "block";  // Show the input form
+        // Check login status on page load
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem("isLoggedIn");
+            const passwordContainer = document.getElementById("passwordContainer");
+            const logoutBtn = document.getElementById("logoutBtn");
+
+            if (isLoggedIn === "true") {
+                passwordContainer.style.display = "none"; // Hide password input
+                logoutBtn.style.display = "block"; // Show logout button
             } else {
-                passwordContainer.style.display = "none";  // Hide the input form
+                passwordContainer.style.display = "block"; // Show password input
+                logoutBtn.style.display = "none"; // Hide logout button
             }
-        }
+        };
 
         // Submit button functionality
-        document.getElementById("submitBtn").onclick = function() {
-            var userInput = document.getElementById("userPassword").value;
-            var errorMessage = document.getElementById('error-message');
-            
+        document.getElementById("submitBtn").onclick = function () {
+            const userInput = document.getElementById("userPassword").value;
+            const errorMessage = document.getElementById("error-message");
+
             if (userInput === "9919") {
-                window.location.href = "https://blackswan19.github.io/BS/personal.html";
+                // Set login status in localStorage
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = "https://blackswan19.github.io/bsmy/Bs";
             } else {
                 errorMessage.textContent = "Incorrect password..!";
             }
-        }
+        };
 
-        function selectOption() {
-            const userChoice = prompt("Which one you like to visit:\n\n1.Finance\n2.MFI");
-        
-            if (userChoice === "1") {
-                window.location.href = "financal.html"; // Replace with the actual Finance page URL
-            } else if (userChoice === "2") {
-                window.location.href = "mfical.html"; // Replace with the actual MFI page URL
-            } else {
-                alert("Invalid choice. Select either\n\n 1.Finance \n 2.MFI.");
-            }
-        }
+        // Logout functionality
+        document.getElementById("logoutBtn").onclick = function () {
+            // Clear login status in localStorage
+            localStorage.removeItem("isLoggedIn");
+            alert("You have been logged out.");
+            window.location.reload(); // Reload the page to show the login screen
+        };
     </script>
-
 </body>
 </html>
