@@ -193,13 +193,33 @@
         <div style="position: relative; display: inline;">
             <input type="password" id="userPassword" placeholder="Enter password" style="background: #282828;
             border: none;
-            padding: 12px 18px;">
+            padding: 12px 18px;    color: white;
+            ">
             <button id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);color: #c0c0c0; background: none; border: none; cursor: pointer; font-size: 16px;">
                 <i id="toggleIcon" class="fa-solid fa-eye"></i>
             </button>
         </div style>
         <br>
         <button id="submitBtn" style="margin-top: 21px;background: #484747;">Submit</button>
+        <div class="plan" style="position: fixed;
+        bottom: 10px;
+        display: flex
+    ;
+        width: 100%;
+        gap: 110px;
+        align-items: center;
+        justify-content: center;">
+            <a href="plan.html"><i class="fa-brands fa-slack" style="padding: 6px;
+                background: #282828;
+                font-size: 16px;
+                border-radius: 100px;
+                border: solid 1px #5a5858;"></i> Upgrade plan</a>
+                <a href="news.html"><i class="fa-regular fa-newspaper"  style="padding: 6px;
+                    background: #282828;
+                    font-size: 16px;
+                    border-radius: 100px;
+                    border: solid 1px #5a5858;"></i> News</a>
+        </div>
     </div>
     
 
@@ -268,7 +288,7 @@ document.getElementById("togglePassword").onclick = function () {
             const userInput = document.getElementById("userPassword").value;
             const errorMessage = document.getElementById("error-message");
 
-            if (userInput === "sub/sil@1789/" || userInput === "sub/sil@1389/"){
+            if (userInput === "sub/sil@1789/" || userInput === "sub/sil@1389"){
                 // Set login status in localStorage
                 localStorage.setItem("isLoggedIn", "true");
                 window.location.href = "https://blackswan19.github.io/bsmy/Bs";
