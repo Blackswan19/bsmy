@@ -188,13 +188,20 @@
         <a href="chatbot.html"><i class="fa-solid fa-comment"></i></a>
     </div>
     
-    <!-- Input and button (hidden initially) -->
     <div id="passwordContainer">
-        <h1>Enter the pin</h1>
-        <input type="password" id="userPassword" placeholder="Enter password">
+        <h1>Enter the password</h1>
+        <div style="position: relative; display: inline;">
+            <input type="password" id="userPassword" placeholder="Enter password" style="background: #282828;
+            border: none;
+            padding: 12px 18px;">
+            <button id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);color: #c0c0c0; background: none; border: none; cursor: pointer; font-size: 16px;">
+                <i id="toggleIcon" class="fa-solid fa-eye"></i>
+            </button>
+        </div style>
         <br>
-        <button id="submitBtn">Submit</button>
+        <button id="submitBtn" style="margin-top: 21px;background: #484747;">Submit</button>
     </div>
+    
 
     <!-- Error message -->
     <p id="error-message"></p>
@@ -240,13 +247,28 @@
                 logoutBtn.style.display = "none"; // Hide logout button
             }
         };
+// Show/Hide Password Functionality
+document.getElementById("togglePassword").onclick = function () {
+    const passwordInput = document.getElementById("userPassword");
+    const toggleIcon = document.getElementById("toggleIcon");
+    
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"; // Show the password
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password"; // Hide the password
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+    }
+};
 
         // Submit button functionality
         document.getElementById("submitBtn").onclick = function () {
             const userInput = document.getElementById("userPassword").value;
             const errorMessage = document.getElementById("error-message");
 
-            if (userInput === "9919") {
+            if (userInput === "sub/sil@1789/" || userInput === "sub/sil@1389/"){
                 // Set login status in localStorage
                 localStorage.setItem("isLoggedIn", "true");
                 window.location.href = "https://blackswan19.github.io/bsmy/Bs";
