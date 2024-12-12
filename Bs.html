@@ -37,13 +37,14 @@
             .menu{
                 display: flex
 ;
-    position: fixed;
-    top: 650px;
-    gap: 65px;
-    font-size: 20px;
-    border: solid 1px rgb(84, 84, 84);
-    padding: 13px;
-    border-radius: 10px;
+        position: fixed;
+        top: 665px;
+        gap: 70px;
+        font-size: 20px;
+        border: solid 1px rgb(99 99 99);
+        padding: 10px;
+        border-radius: 10px;
+
             }
         }
         /* Light Theme */
@@ -103,7 +104,7 @@
         
         li {
             margin: 21px 0px;
-            width: 248px;
+            width: 290px;
         }
 
         ul a {
@@ -248,9 +249,9 @@
         <li><a href="home.html">MFI</a></li>
         <li><a href="mterprice.html">Mterprice</a></li>
         <li><a href="reminder.html">Reminder</a></li><br>
-        <div class="check" style="display: flex; gap: 5px; position: fixed;">
-            <buton><a href="preinterest.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;">Calculator</a></buton>
-            <buton><a href="emigraph.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;">My score</a></buton>
+        <div class="check" style="display: flex; gap: 32px; position: fixed;">
+            <buton><a href="preinterest.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;width: 63%;">Calculator</a></buton>
+            <buton><a href="emigraph.html" style="font-size: 12px; text-align: center; background: #282828; border: solid 1px #313131;width: 63%;">My score</a></buton>
         </div>
         <a href="takemoney.html" style="font-size: 11px; text-align: center; background: #28282853; border: solid 1px #313131; position: relative; top: 42px;">Return money form</a>
     </ul>
@@ -294,7 +295,7 @@ document.getElementById("togglePassword").onclick = function () {
             if (userInput === "sub/sil@1789/" || userInput === "sub/sil@1389"){
                 // Set login status in localStorage
                 localStorage.setItem("isLoggedIn", "true");
-                window.location.href = "https://blackswan19.github.io/bsmy/Bs";
+                window.location.href = "https://blackswan19.github.io/bsmy/B";
             } else {
                 errorMessage.textContent = "Incorrect password..!";
             }
